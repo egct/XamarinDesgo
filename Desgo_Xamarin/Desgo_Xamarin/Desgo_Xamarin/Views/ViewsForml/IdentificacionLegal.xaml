@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Desgo_Xamarin.Views.ViewsForml.IdentificacionLegal"
+             BackgroundColor="{StaticResource FormColor}" >
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5" Orientation="Vertical">
+                <StackLayout Padding="5" BackgroundColor="#245D6F">
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Source="ic_more_horiz" WidthRequest="15"/>
+                        <Image Grid.Row="0" Grid.Column="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Source="Identificacion_Legal" WidthRequest="25" />
+                        <Label Grid.Row="0" Grid.Column="2" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" TextColor="White" Text="Identificación Legal"></Label>
+                        <Image Grid.Row="0" Grid.Column="3" VerticalOptions="CenterAndExpand" HorizontalOptions="End" Source="ic_more_horiz" WidthRequest="15"/>
+                    </Grid>
+                </StackLayout>
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="5" Color="#245D6F"/>
+                <Label VerticalOptions="Center" Text="Propietario" Font="Bold" />
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Tipo de propietario:"/>
+                        <Switch Grid.Row="0" Grid.Column="1" IsToggled="false"/>
+                        <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Personeria juridica:"/>
+                        <Switch Grid.Row="1" Grid.Column="1" IsToggled="false"/>
+                    </Grid>
+                </Frame>
+                <Label VerticalOptions="Center" Text="Dirección" Font="Bold" />
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="País:"/>
+                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Ciudad:"/>
+                        <Entry Grid.Row="1" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Calle principal:"/>
+                        <Entry Grid.Row="2" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="No:"/>
+                        <Entry Grid.Row="3" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Text="Celular:"/>
+                        <Entry Grid.Row="4" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="5" Grid.Column="0" VerticalOptions="Center" Text="Convencional:"/>
+                        <Entry Grid.Row="5" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="6" Grid.Column="0" VerticalOptions="Center" Text="E-mail:"/>
+                        <Entry Grid.Row="6" Grid.Column="1" Placeholder=""/>
+
+                    </Grid>
+                </Frame>
+                <Label VerticalOptions="Center" Text="Persona natural" Font="Bold"/>
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Nombres y Apellidos:"/>
+                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="N° documento de identidad:"/>
+                        <Entry Grid.Row="1" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Teléfono:"/>
+                        <Entry Grid.Row="2" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="Correo Electrónico:"/>
+                        <Entry Grid.Row="3" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Text="Estado civil:"/>
+                        <Picker Grid.Row="4" Grid.Column="1" Title="--Select--"
+                            ItemsSource="{Binding CitiesList}"
+                            ItemDisplayBinding="{Binding Value}"
+                            SelectedItem="{Binding SelectedCity}"/>
+                        <Label Grid.Row="5" Grid.Column="1" Text="{Binding MyCity}"  TextColor="Teal"/>
+                        
+                        <Label Grid.Row="6" Grid.Column="0" VerticalOptions="Center" Text="Tipo de identificación:"/>
+                        <Entry Grid.Row="6" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="7" Grid.Column="0" VerticalOptions="Center" Text="Condición fisica:"/>
+                        <Entry Grid.Row="7" Grid.Column="1" Placeholder=""/>
+                    </Grid>
+                </Frame>
+                <Label VerticalOptions="Center" Text="Conyuge" Font="Bold"/>
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Nombres y Apellidos:"/>
+                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="N° documento de identidad:"/>
+                        <Entry Grid.Row="1" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Teléfono:"/>
+                        <Entry Grid.Row="2" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="Correo Electrónico:"/>
+                        <Entry Grid.Row="3" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Text="Tipo de identificación:"/>
+                        <Entry Grid.Row="4" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="5" Grid.Column="0" VerticalOptions="Center" Text="Condición fisica:"/>
+                        <Entry Grid.Row="5" Grid.Column="1" Placeholder=""/>
+                    </Grid>
+                </Frame>
+                <Label VerticalOptions="Center" Text="Persona Jurídica" Font="Bold"/>
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Razon social:"/>
+                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="RUC:"/>
+                        <Entry Grid.Row="1" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Lugar de inscripción:"/>
+                        <Entry Grid.Row="2" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="N° acuerdo o registro:"/>
+                        <Entry Grid.Row="3" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Text="Nombre del representante:"/>
+                        <Entry Grid.Row="4" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="5" Grid.Column="0" VerticalOptions="Center" Text="Inscrito en:"/>
+                        <Entry Grid.Row="5" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="6" Grid.Column="0" VerticalOptions="Center" Text="Tipo de identificación:"/>
+                        <Entry Grid.Row="6" Grid.Column="1" Placeholder=""/>
+                    </Grid>
+                </Frame>
+                <Label VerticalOptions="Center" Text="Coopropietarios en derechos y acciones" Font="Bold"/>
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Row="0" Grid.Column="0"
+                                VerticalOptions="StartAndExpand" 
+                                BackgroundColor="Navy" 
+                                BorderRadius="23" 
+                                HeightRequest="56" 
+                                Text="Agregar" 
+                                TextColor="White">
+                        </Button>
+                        <Button Grid.Row="0" Grid.Column="1"
+                                VerticalOptions="StartAndExpand" 
+                                BackgroundColor="Navy" 
+                                BorderRadius="23" 
+                                HeightRequest="56" 
+                                Text="Eliminar" 
+                                TextColor="White">
+                        </Button>
+                        <Button Grid.Row="0" Grid.Column="2"
+                                VerticalOptions="StartAndExpand" 
+                                BackgroundColor="Navy" 
+                                BorderRadius="23" 
+                                HeightRequest="56" 
+                                Text="Eliminar todo" 
+                                TextColor="White">
+                        </Button>
+                    </Grid>
+                </Frame>
+                <Label VerticalOptions="Center" Text="Documento titulo de propiedad" Font="Bold"/>
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="N° de notaria:"/>
+                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Cantón inscripción del título:"/>
+                        <Entry Grid.Row="1" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Fecha de inscripción:"/>
+                        <DatePicker
+                            Grid.Row="2" 
+                            Grid.Column="1"
+                            MinimumDate="3/12/1980"
+                            MaximumDate="10/12/2019"/>
+                        <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="Fecha de protocolización:"/>
+                        <DatePicker
+                            Grid.Row="3" 
+                            Grid.Column="1"
+                            MinimumDate="3/12/1980"
+                            MaximumDate="10/12/2019"/>
+                        <Label Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Text="Inscripción del título:"/>
+                        <Entry Grid.Row="4" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="5" Grid.Column="0" VerticalOptions="Center" Text="Area:"/>
+                        <Entry Grid.Row="5" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="6" Grid.Column="0" VerticalOptions="Center" Text="Unidades:"/>
+                        <Entry Grid.Row="6" Grid.Column="1" Placeholder=""/>
+                    </Grid>
+                </Frame>
+                <Label VerticalOptions="Center" Text="Predio sin titulo" Font="Bold"/>
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Requiere perfeccionamiento:"/>
+                        <Switch Grid.Row="0" Grid.Column="1" HorizontalOptions="End"></Switch>
+                        <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Años sin perfeccionamiento:"/>
+                        <Entry Grid.Row="1" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Años que esta en posesion:"/>
+                        <Entry Grid.Row="2" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Nombre del pueblo/etnia:"/>
+                        <Entry Grid.Row="2" Grid.Column="1" Placeholder=""/>
+
+                    </Grid>
+                </Frame>
+                <Label VerticalOptions="Center" Text="Forma de adquisicion" Font="Bold"/>
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Forma de adquisición"/>
+                        <Picker Grid.Row="0" Grid.Column="1" Title="--Select--"
+                                />
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

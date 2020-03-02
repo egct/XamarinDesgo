@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:Desgo_Xamarin.Infrastructure"
+             x:Class="Desgo_Xamarin.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <infra:InstanceLocator x:Key="Locator"/>
+            <!-- Parameters -->
+            <x:String x:Key="URLAPI">http://apiexchangerates.azurewebsites.net</x:String>
+            
+            <Color x:Key="MainColor">#1CA5B8</Color>
+            <Color x:Key="FontColor">#266F79</Color>
+            <Color x:Key="AccentColor1">#FF5521</Color>
+            <Color x:Key="AccentColor2">#4DB84B</Color>
+            <Color x:Key="BackgroundColor">#DAEBF2</Color>
+            <Color x:Key="FormColor">#C6C6C6</Color>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

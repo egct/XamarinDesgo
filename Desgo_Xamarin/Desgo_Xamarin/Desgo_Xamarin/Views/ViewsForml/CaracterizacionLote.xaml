@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             x:Class="Desgo_Xamarin.Views.ViewsForml.CaracterizacionLote"
+             BackgroundColor="{StaticResource FormColor}" >
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5" Orientation="Vertical">
+                <StackLayout Padding="5" BackgroundColor="#245D6F">
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Source="ic_more_horiz" WidthRequest="15"/>
+                        <Image Grid.Row="0" Grid.Column="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Source="Caracterizacion_del_lote" WidthRequest="25" />
+                        <Label Grid.Row="0" Grid.Column="2" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" TextColor="White" Text="Caracterización del Lote"></Label>
+                        <Image Grid.Row="0" Grid.Column="3" VerticalOptions="CenterAndExpand" HorizontalOptions="End" Source="ic_more_horiz" WidthRequest="15"/>
+                    </Grid>
+                </StackLayout>
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="5" Color="#245D6F"/>
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Área grafica del lote:"/>
+                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Dimensión del frente:"/>
+                        <Entry Grid.Row="1" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Localización del predio en la manzana:"/>
+                        <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="Dimensión del frente:"/>
+                        <Entry Grid.Row="3" Grid.Column="1" Placeholder="" />
+                    </Grid>
+                </Frame>
+                <Label VerticalOptions="Center" Text="Infraestructura e instalaciones" Font="Bold" />
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Agua:"/>
+                        <Picker Grid.Row="0" Grid.Column="1" Title="--Select--"/>
+                        <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Alcantarillado:"/>
+                        <Picker Grid.Row="1" Grid.Column="1" Title="--Select--"/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Energia Eléctrica:"/>
+                        <Picker Grid.Row="2" Grid.Column="1" Title="--Select--"/>
+                        <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="Via urbana:"/>
+                        <Picker Grid.Row="3" Grid.Column="1" Title="--Select--"/>
+                        <Label Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Text="Tipo de via de acceso:"/>
+                        <Picker Grid.Row="4" Grid.Column="1" Title="--Select--"/>
+                        <Label Grid.Row="5" Grid.Column="0" VerticalOptions="Center" Text="Infraestructura vial:"/>
+                        <Picker Grid.Row="5" Grid.Column="1" Title="--Select--"/>
+                    </Grid>
+                </Frame>
+                <Label VerticalOptions="Center" Text="Otros servicios" Font="Bold"/>
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Alumbrado público:" />
+                        <controls:CheckBox Grid.Row="0" Grid.Column="1"  VerticalOptions="Center"/>
+                        <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Recolección basura:"/>
+                        <controls:CheckBox Grid.Row="1" Grid.Column="1"  VerticalOptions="Center"/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Transporte público:"/>
+                        <controls:CheckBox Grid.Row="2" Grid.Column="1"  VerticalOptions="Center"/>
+                        <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="Aseo de calles:"/>
+                        <controls:CheckBox Grid.Row="3" Grid.Column="1"  VerticalOptions="Center"/>
+                        <Label Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Text="No tiene:"/>
+                        <controls:CheckBox Grid.Row="4" Grid.Column="1"  VerticalOptions="Center"/>
+
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

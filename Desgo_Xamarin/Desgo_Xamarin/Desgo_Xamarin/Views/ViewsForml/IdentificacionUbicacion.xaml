@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Desgo_Xamarin.Views.ViewsForml.IdentificacionUbicacion"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             BackgroundColor="{StaticResource FormColor}" >
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5" Orientation="Vertical">
+                <StackLayout Padding="5" BackgroundColor="#245D6F">
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Source="Identificacion_Ubicacion" WidthRequest="25" />
+                        <Label Grid.Row="0" Grid.Column="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" TextColor="White" Text="Identificación Ubicación"></Label>
+                        <Image Grid.Row="0" Grid.Column="2" VerticalOptions="CenterAndExpand" HorizontalOptions="End" Source="ic_more_horiz" WidthRequest="15"/>
+                    </Grid>
+                </StackLayout>
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="5" Color="#245D6F"/>
+                <Grid VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Clave catastral anterior:"/>
+                    <Entry Grid.Row="0" Grid.Column="1" Placeholder="" Keyboard="Numeric"/>
+                    <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Clave catastral Urbana Actual:"/>
+                    <Entry Grid.Row="1" Grid.Column="1" Placeholder="" Keyboard="Numeric"/>
+                    <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Número del predio:"/>
+                    <Entry Grid.Row="2" Grid.Column="1" Placeholder="" Keyboard="Numeric"/>
+                </Grid>
+                <Label VerticalOptions="Center" Text="Datos descriptivos del predio" Font="Bold" />
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Nombre del sector:"/>
+                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Nombre del edificio:"/>
+                        <Entry Grid.Row="1" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Uso del predio:"/>
+                        <Entry Grid.Row="2" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="Tipo de predio:"/>
+                        <Picker Grid.Row="3" Grid.Column="1" Title="--Select--"
+                            ItemsSource="{Binding TipoPredioList}"
+                            ItemDisplayBinding="{Binding Value}"
+                            SelectedItem="{Binding SelectedTipoPredio}"/>
+                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding MyTipoPredio}"  TextColor="Teal"/>
+                        <Label Grid.Row="5" Grid.Column="0" VerticalOptions="Center" Text="Regimen de tenencia:"/>
+                        <Picker Grid.Row="5" Grid.Column="1" Title="--Select--"
+                            ItemsSource="{Binding RegimenTenenciaList}"
+                            ItemDisplayBinding="{Binding Value}"
+                            SelectedItem="{Binding SelectedRegimenTenencia}"/>
+                        <Label Grid.Row="6" Grid.Column="1" Text="{Binding MyRegimenTenencia}"  TextColor="Teal"/>
+                    </Grid>
+                </Frame>
+                <Label VerticalOptions="Center" Text="Dirección" Font="Bold"/>
+                <Frame>
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Calle principal:"/>
+                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="No:"/>
+                        <Entry Grid.Row="1" Grid.Column="1" Placeholder=""/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Intersección:"/>
+                        <Entry Grid.Row="2" Grid.Column="1" Placeholder=""/>
+                    </Grid>
+                </Frame>
+                <Entry x:Name="txtnombre"
+                           Placeholder="Nombre Persona">
+                </Entry>
+                <Button x:Name="agregarButton"
+              Text="Products"
+              BackgroundColor="Yellow"
+              TextColor="Black"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="Center"
+                        Clicked="AgregarButton_Clicked">
+                </Button>
+                <Entry x:Name="txtusuario"
+                           Placeholder="usuario persona">
+                </Entry>
+                <Button x:Name="agregarUsuarioButton"
+              Text="Products"
+              BackgroundColor="Aqua"
+              TextColor="Black"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="Center"
+                       Clicked="AgregarUsuarioButton_Clicked">
+                </Button>
+
+                <Entry x:Name="txtformulario"
+                           Placeholder="codigo formulario">
+                </Entry>
+                <Button x:Name="agregarFormularioButton"
+              Text="Products"
+              BackgroundColor="Black"
+              TextColor="Black"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="Center"
+                        Clicked="AgregarFormularioButton_Clicked">
+                </Button>
+
+                <Entry x:Name="txtid"
+                           Placeholder="id">
+                </Entry>
+                <Label x:Name="lblmensaje"
+                       FontSize="Medium"></Label>
+                <Button x:Name="listaButton"
+              Text="Products"
+              BackgroundColor="Green"
+              TextColor="Black"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="Center"
+                        Clicked="ListaButton_Clicked">
+                </Button>
+                <Entry x:Name="txtidUsuario"
+                           Placeholder="idusuario">
+                </Entry>
+                <Button x:Name="listaUsuariosButton"
+              Text="Products"
+              BackgroundColor="Green"
+              TextColor="Black"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="Center"
+                        Clicked="ListaUsuariosButton_Clicked">
+                </Button>
+                <Entry x:Name="txtidformulario"
+                           Placeholder="idformulario">
+                </Entry>
+                <Button x:Name="listaFormularioButton"
+              Text="Products"
+              BackgroundColor="Green"
+              TextColor="Black"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="Center"
+                    Clicked="ListaFormularioButton_Clicked">
+                </Button>
+                <ListView x:Name="listapersonas" VerticalOptions="Center" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="{Binding ID_PERSONA}"></Label>
+                                    <Label Text="{Binding PNOMBRE_PERSONA}"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

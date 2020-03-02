@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Desgo_Xamarin.Views.ViewsUserLoggedin.MyFormsPageLoggedin"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Mis Formularios">
+    <ContentPage.Content>
+        <StackLayout  BindingContext="{Binding MyFormsPage}">
+            <SearchBar
+                Placeholder="Search..."
+                Text="{Binding Filter, Mode=TwoWay}"
+                SearchCommand="{Binding SearchCommand}">
+            </SearchBar>
+            <StackLayout Padding="5">
+                <Grid VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" Text="#"></Label>
+                    <Label Grid.Row="0" Grid.Column="1" VerticalOptions="CenterAndExpand" Text="Código Formulario"></Label>
+                    <Label Grid.Row="0" Grid.Column="2" VerticalOptions="CenterAndExpand" Text="Estado"></Label>
+                    <Label Grid.Row="0" Grid.Column="3" VerticalOptions="CenterAndExpand" Text="Detalle"></Label>
+                </Grid>
+            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="5" Color="#1690F4"/>
+            <ListView ItemsSource="{Binding Formularios}"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid VerticalOptions="CenterAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="{Binding ID_FORMULARIO}"></Label>
+                                <Label Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Text="{Binding CODIGO_FORMULARIO}"></Label>
+                                <Label Grid.Row="0" Grid.Column="2" VerticalOptions="Center" Text="{Binding ESTADO_FORMULARIO}"></Label>
+                                <Image Grid.Row="0" Grid.Column="3"
+                                    HorizontalOptions="End" 
+                                    Source="ic_chevron_right">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectFormCommand}"></TapGestureRecognizer>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

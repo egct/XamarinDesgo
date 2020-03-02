@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Desgo_Xamarin.Views.ViewsForml.Mejoras"
+             BackgroundColor="{StaticResource FormColor}" >
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5" Orientation="Vertical">
+                <StackLayout Padding="5" BackgroundColor="#245D6F">
+                    <Grid VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" Source="ic_more_horiz" WidthRequest="15"/>
+                        <Image Grid.Row="0" Grid.Column="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Source="Mejoras" WidthRequest="25" />
+                        <Label Grid.Row="0" Grid.Column="2" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" TextColor="White" Text="Mejoras "></Label>
+                        <Image Grid.Row="0" Grid.Column="3" VerticalOptions="CenterAndExpand" HorizontalOptions="End" Source="ic_more_horiz" WidthRequest="15"/>
+                    </Grid>
+                </StackLayout>
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="5" Color="#245D6F"/>
+                <Label VerticalOptions="Start" Text="Obras complementarias o mejoras" Font="Bold" />
+                <Frame>
+                    <Grid VerticalOptions="Start">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Tipo de obra:"/>
+                        <Picker Grid.Row="0" Grid.Column="1" Title="--Select--" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Materiales:"/>
+                        <Picker Grid.Row="1" Grid.Column="1" Title="--Select--"/>
+                        <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Estado:"/>
+                        <Picker Grid.Row="2" Grid.Column="1" Title="--Select--"/>
+                        <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="Área:"/>
+                        <Entry Grid.Row="3" Grid.Column="1" Placeholder=""/>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

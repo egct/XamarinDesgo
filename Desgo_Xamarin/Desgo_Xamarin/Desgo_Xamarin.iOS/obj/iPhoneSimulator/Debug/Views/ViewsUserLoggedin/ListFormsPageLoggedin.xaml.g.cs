@@ -13,8 +13,8 @@
 namespace Desgo_Xamarin.Views.ViewsUserLoggedin {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Pasantias\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xamarin\\Views\\ViewsUserLoggedin\\Li" +
-        "stFormsPageLoggedin.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\egct\\Documents\\GitHub\\XamarinDesgo\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xam" +
+        "arin\\Views\\ViewsUserLoggedin\\ListFormsPageLoggedin.xaml")]
     public partial class ListFormsPageLoggedin : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

@@ -39,8 +39,8 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
         
         /// <remarks/>
         public WSGestionFormulario() {
-            this.Url = "http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com:80/WSGestionFor" +
-                "mulario";
+            this.Url = "http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com:80/WSGestionFormu" +
+                "lario";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;

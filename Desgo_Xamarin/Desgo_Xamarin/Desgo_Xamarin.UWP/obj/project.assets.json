@@ -10621,11 +10621,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Pasantias\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xamarin.UWP\\Desgo_Xamarin.UWP.csproj",
+      "projectUniqueName": "C:\\Users\\egct\\Documents\\GitHub\\XamarinDesgo\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xamarin.UWP\\Desgo_Xamarin.UWP.csproj",
       "projectName": "Desgo_Xamarin.UWP",
-      "projectPath": "C:\\Pasantias\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xamarin.UWP\\Desgo_Xamarin.UWP.csproj",
+      "projectPath": "C:\\Users\\egct\\Documents\\GitHub\\XamarinDesgo\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xamarin.UWP\\Desgo_Xamarin.UWP.csproj",
       "packagesPath": "C:\\Users\\egct\\.nuget\\packages\\",
-      "outputPath": "C:\\Pasantias\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xamarin.UWP\\obj\\",
+      "outputPath": "C:\\Users\\egct\\Documents\\GitHub\\XamarinDesgo\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xamarin.UWP\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

@@ -99,7 +99,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SplashActivity.cs" />
-    <Compile Include="Web References\AmazonDesgoWebServiceForm\Reference.cs">
+    <Compile Include="Web References\AmazonDesgoWebServiceForm1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -116,15 +116,15 @@
     <None Include="Properties\AndroidManifest.xml">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Web References\AmazonDesgoWebServiceForm\acabadosEC.datasource">
+    <None Include="Web References\AmazonDesgoWebServiceForm1\acabadosEC.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\AmazonDesgoWebServiceForm\Reference.map">
+    <None Include="Web References\AmazonDesgoWebServiceForm1\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\AmazonDesgoWebServiceForm\WSGestionFormulario.wsdl" />
-    <None Include="Web References\AmazonDesgoWebServiceForm\WSGestionFormulario.xsd">
+    <None Include="Web References\AmazonDesgoWebServiceForm1\WSGestionFormulario.wsdl" />
+    <None Include="Web References\AmazonDesgoWebServiceForm1\WSGestionFormulario.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Web References\AmazonDesgoWebService\empleado.datasource">
@@ -245,10 +245,10 @@
     <AndroidResource Include="Resources\drawable\ic_saveForm.png" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com/WSGestionFormulario%3fwsdl">
+    <WebReferenceUrl Include="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionFormulario%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\AmazonDesgoWebServiceForm\</RelPath>
-      <UpdateFromURL>http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com/WSGestionFormulario%3fwsdl</UpdateFromURL>
+      <RelPath>Web References\AmazonDesgoWebServiceForm1\</RelPath>
+      <UpdateFromURL>http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionFormulario%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -258,10 +258,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com/WSGestionUsuario%3fwsdl">
+    <WebReferenceUrl Include="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionUsuario%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\AmazonDesgoWebService\</RelPath>
-      <UpdateFromURL>http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com/WSGestionUsuario%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionUsuario%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

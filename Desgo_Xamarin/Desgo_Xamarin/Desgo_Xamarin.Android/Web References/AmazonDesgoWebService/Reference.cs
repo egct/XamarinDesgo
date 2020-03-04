@@ -31,6 +31,8 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
         
         private System.Threading.SendOrPostCallback loginOperationCompleted;
         
+        private System.Threading.SendOrPostCallback buscarPersonaOperationCompleted;
+        
         private System.Threading.SendOrPostCallback listarRolesOperationCompleted;
         
         private System.Threading.SendOrPostCallback listarUsuariosOperationCompleted;
@@ -55,14 +57,12 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
         
         private System.Threading.SendOrPostCallback registrarUserOperationCompleted;
         
-        private System.Threading.SendOrPostCallback buscarPersonaOperationCompleted;
-        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
         public WSGestionUsuario() {
-            this.Url = "http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com:80/WSGestionUsu" +
-                "ario";
+            this.Url = "http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com:80/WSGestionUsuar" +
+                "io";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -98,6 +98,9 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
         
         /// <remarks/>
         public event loginCompletedEventHandler loginCompleted;
+        
+        /// <remarks/>
+        public event buscarPersonaCompletedEventHandler buscarPersonaCompleted;
         
         /// <remarks/>
         public event listarRolesCompletedEventHandler listarRolesCompleted;
@@ -136,9 +139,6 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
         public event registrarUserCompletedEventHandler registrarUserCompleted;
         
         /// <remarks/>
-        public event buscarPersonaCompletedEventHandler buscarPersonaCompleted;
-        
-        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public user login([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string user, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string pass) {
@@ -167,6 +167,36 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
             if ((this.loginCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.loginCompleted(this, new loginCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public user buscarPersona([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int iduser) {
+            object[] results = this.Invoke("buscarPersona", new object[] {
+                        iduser});
+            return ((user)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void buscarPersonaAsync(int iduser) {
+            this.buscarPersonaAsync(iduser, null);
+        }
+        
+        /// <remarks/>
+        public void buscarPersonaAsync(int iduser, object userState) {
+            if ((this.buscarPersonaOperationCompleted == null)) {
+                this.buscarPersonaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnbuscarPersonaOperationCompleted);
+            }
+            this.InvokeAsync("buscarPersona", new object[] {
+                        iduser}, this.buscarPersonaOperationCompleted, userState);
+        }
+        
+        private void OnbuscarPersonaOperationCompleted(object arg) {
+            if ((this.buscarPersonaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.buscarPersonaCompleted(this, new buscarPersonaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -539,36 +569,6 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
             if ((this.registrarUserCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.registrarUserCompleted(this, new registrarUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public user buscarPersona([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int iduser) {
-            object[] results = this.Invoke("buscarPersona", new object[] {
-                        iduser});
-            return ((user)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void buscarPersonaAsync(int iduser) {
-            this.buscarPersonaAsync(iduser, null);
-        }
-        
-        /// <remarks/>
-        public void buscarPersonaAsync(int iduser, object userState) {
-            if ((this.buscarPersonaOperationCompleted == null)) {
-                this.buscarPersonaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnbuscarPersonaOperationCompleted);
-            }
-            this.InvokeAsync("buscarPersona", new object[] {
-                        iduser}, this.buscarPersonaOperationCompleted, userState);
-        }
-        
-        private void OnbuscarPersonaOperationCompleted(object arg) {
-            if ((this.buscarPersonaCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.buscarPersonaCompleted(this, new buscarPersonaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1630,6 +1630,32 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void buscarPersonaCompletedEventHandler(object sender, buscarPersonaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class buscarPersonaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal buscarPersonaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public user Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((user)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void listarRolesCompletedEventHandler(object sender, listarRolesCompletedEventArgs e);
     
     /// <remarks/>
@@ -1952,32 +1978,6 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[1]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    public delegate void buscarPersonaCompletedEventHandler(object sender, buscarPersonaCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class buscarPersonaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal buscarPersonaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public user Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((user)(this.results[0]));
             }
         }
     }

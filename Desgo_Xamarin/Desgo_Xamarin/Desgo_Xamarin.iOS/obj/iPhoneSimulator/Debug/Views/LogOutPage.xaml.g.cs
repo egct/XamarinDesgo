@@ -13,7 +13,8 @@
 namespace Desgo_Xamarin.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Pasantias\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xamarin\\Views\\LogOutPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\egct\\Documents\\GitHub\\XamarinDesgo\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xam" +
+        "arin\\Views\\LogOutPage.xaml")]
     public partial class LogOutPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

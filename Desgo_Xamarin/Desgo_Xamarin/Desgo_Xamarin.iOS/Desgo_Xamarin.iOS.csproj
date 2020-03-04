@@ -292,10 +292,10 @@
     <BundleResource Include="Resources\ic_saveForm.png" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com/WSGestionFormulario%3fwsdl">
+    <WebReferenceUrl Include="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionFormulario%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\AmazonDesgoWebServiceForm\</RelPath>
-      <UpdateFromURL>http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com/WSGestionFormulario%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionFormulario%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -305,10 +305,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com/WSGestionUsuario%3fwsdl">
+    <WebReferenceUrl Include="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionUsuario%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\AmazonDesgoWebService\</RelPath>
-      <UpdateFromURL>http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com/WSGestionUsuario%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionUsuario%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

@@ -13,8 +13,8 @@
 namespace Desgo_Xamarin.Views.ViewsForml {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Pasantias\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xamarin\\Views\\ViewsForml\\Elementos" +
-        "Constructivos.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\egct\\Documents\\GitHub\\XamarinDesgo\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xam" +
+        "arin\\Views\\ViewsForml\\ElementosConstructivos.xaml")]
     public partial class ElementosConstructivos : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]

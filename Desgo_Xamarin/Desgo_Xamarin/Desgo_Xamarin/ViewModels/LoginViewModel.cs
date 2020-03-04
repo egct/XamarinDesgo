@@ -163,8 +163,8 @@ namespace Desgo_Xamarin.ViewModels
                 //await Application.Current.MainPage.DisplayAlert("Error",
                 //    "0",
                 //    "Accept");
-                //await LoadLoginAPI();
-                await LoadLoginLocal();
+                await LoadLoginAPI();
+                //await LoadLoginLocal();
 
             }
             this.isRunning = false;
@@ -246,6 +246,8 @@ namespace Desgo_Xamarin.ViewModels
                     MainViewModel.GetInstance().HomePageLoggedin = new HomePageModelLoggedin();
                     navigationService.SetMainPage("MasterPage1Loggedin");
                     */
+                    usuar = new usuario();
+                    usuar.USUARIO_USUARIO = resultado;
                     MainViewModel.GetInstance().HomePageLoggedin = new HomePageModelLoggedin();
                     MainViewModel.GetInstance().User = usuar;
                     navigationService.SetMainPage("MasterPage1Loggedin");

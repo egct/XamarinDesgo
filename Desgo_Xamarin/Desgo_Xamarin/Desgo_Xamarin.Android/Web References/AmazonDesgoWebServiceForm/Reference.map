@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Results>
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com/WSGestionFormulario?wsdl" filename="WSGestionFormulario.wsdl" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com/WSGestionFormulario?xsd=1" filename="WSGestionFormulario.xsd" />
-  </Results>
-</DiscoveryClientResultsFile>

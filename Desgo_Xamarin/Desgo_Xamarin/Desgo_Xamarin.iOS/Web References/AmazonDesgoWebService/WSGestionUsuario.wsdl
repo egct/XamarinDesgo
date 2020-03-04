@@ -2,7 +2,7 @@
 <definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://servicios.desgo.com.ec/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="WSGestionUsuario" targetNamespace="http://servicios.desgo.com.ec/" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema>
-      <xsd:import schemaLocation="http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com:80/WSGestionUsuario?xsd=1" namespace="http://servicios.desgo.com.ec/" />
+      <xsd:import schemaLocation="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com:80/WSGestionUsuario?xsd=1" namespace="http://servicios.desgo.com.ec/" />
     </xsd:schema>
   </types>
   <message name="login">
@@ -10,6 +10,12 @@
   </message>
   <message name="loginResponse">
     <part name="parameters" element="tns:loginResponse" />
+  </message>
+  <message name="buscarPersona">
+    <part name="parameters" element="tns:buscarPersona" />
+  </message>
+  <message name="buscarPersonaResponse">
+    <part name="parameters" element="tns:buscarPersonaResponse" />
   </message>
   <message name="listarRoles">
     <part name="parameters" element="tns:listarRoles" />
@@ -83,16 +89,14 @@
   <message name="registrarUserResponse">
     <part name="parameters" element="tns:registrarUserResponse" />
   </message>
-  <message name="buscarPersona">
-    <part name="parameters" element="tns:buscarPersona" />
-  </message>
-  <message name="buscarPersonaResponse">
-    <part name="parameters" element="tns:buscarPersonaResponse" />
-  </message>
   <portType name="WSGestionUsuario">
     <operation name="login">
       <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/loginRequest" message="tns:login" />
       <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/loginResponse" message="tns:loginResponse" />
+    </operation>
+    <operation name="buscarPersona">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/buscarPersonaRequest" message="tns:buscarPersona" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/buscarPersonaResponse" message="tns:buscarPersonaResponse" />
     </operation>
     <operation name="listarRoles">
       <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/listarRolesRequest" message="tns:listarRoles" />
@@ -142,14 +146,19 @@
       <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/registrarUserRequest" message="tns:registrarUser" />
       <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/registrarUserResponse" message="tns:registrarUserResponse" />
     </operation>
-    <operation name="buscarPersona">
-      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/buscarPersonaRequest" message="tns:buscarPersona" />
-      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/buscarPersonaResponse" message="tns:buscarPersonaResponse" />
-    </operation>
   </portType>
   <binding name="WSGestionUsuarioPortBinding" type="tns:WSGestionUsuario">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <operation name="login">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarPersona">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -266,19 +275,10 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="buscarPersona">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
   </binding>
   <service name="WSGestionUsuario">
     <port name="WSGestionUsuarioPort" binding="tns:WSGestionUsuarioPortBinding">
-      <soap:address location="http://amazondesgowebservice-env-2.us-east-1.elasticbeanstalk.com:80/WSGestionUsuario" />
+      <soap:address location="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com:80/WSGestionUsuario" />
     </port>
   </service>
 </definitions>

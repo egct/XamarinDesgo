@@ -2,10 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Desgo_Xamarin.Views.ViewsForml.GraficosPredio"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
              BackgroundColor="{StaticResource FormColor}" >
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="5" Orientation="Vertical">
+        <ScrollView BindingContext="{Binding GraficosPredio}">
+            <StackLayout Padding="5" Orientation="Vertical" >
                 <StackLayout Padding="5" BackgroundColor="#245D6F">
                     <Grid VerticalOptions="CenterAndExpand">
                         <Grid.ColumnDefinitions>
@@ -26,22 +27,26 @@
                 <BoxView HorizontalOptions="FillAndExpand" HeightRequest="5" Color="#245D6F"/>
                 <Label VerticalOptions="Start" Text="Plano del predio y construcciones" Font="Bold" />
                 <Frame>
-                    <Grid VerticalOptions="Start">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
+                    <Image Source="{Binding ImageSourcePlano}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChangeImagePlanoCommand}"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
                 </Frame>
+                <Label FontSize="Small"
+                           HorizontalOptions="Center"
+                           Text="Toque la imagen para cambiarla"></Label>
                 <Label VerticalOptions="Start" Text="Fotografia de la fachada" Font="Bold" />
                 <Frame>
-                    <Grid VerticalOptions="Start">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="2*"/>
-                        </Grid.ColumnDefinitions>
-                    </Grid>
+                    <Image Source="{Binding ImageSourceFachada}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChangeImageFachadaCommand}"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
                 </Frame>
+                <Label FontSize="Small"
+                           HorizontalOptions="Center"
+                           Text="Toque la imagen para cambiarla"></Label>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

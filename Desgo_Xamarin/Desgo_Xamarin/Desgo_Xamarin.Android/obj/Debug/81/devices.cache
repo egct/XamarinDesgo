@@ -8,4 +8,8 @@
     <ResultingAbi>x86</ResultingAbi>
     <SdkVersion>28</SdkVersion>
   </Device>
+  <Device id="RQ30061PMD">
+    <ResultingAbi></ResultingAbi>
+    <SdkVersion>26</SdkVersion>
+  </Device>
 </Devices>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://servicios.desgo.com.ec/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="WSGestionUsuario" targetNamespace="http://servicios.desgo.com.ec/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com:80/WSGestionUsuario?xsd=1" namespace="http://servicios.desgo.com.ec/" />
+    </xsd:schema>
+  </types>
+  <message name="login">
+    <part name="parameters" element="tns:login" />
+  </message>
+  <message name="loginResponse">
+    <part name="parameters" element="tns:loginResponse" />
+  </message>
+  <message name="registrarFormulario">
+    <part name="parameters" element="tns:registrarFormulario" />
+  </message>
+  <message name="registrarFormularioResponse">
+    <part name="parameters" element="tns:registrarFormularioResponse" />
+  </message>
+  <message name="Validar">
+    <part name="parameters" element="tns:Validar" />
+  </message>
+  <message name="ValidarResponse">
+    <part name="parameters" element="tns:ValidarResponse" />
+  </message>
+  <message name="Registrar">
+    <part name="parameters" element="tns:Registrar" />
+  </message>
+  <message name="RegistrarResponse">
+    <part name="parameters" element="tns:RegistrarResponse" />
+  </message>
+  <message name="registrarUser">
+    <part name="parameters" element="tns:registrarUser" />
+  </message>
+  <message name="registrarUserResponse">
+    <part name="parameters" element="tns:registrarUserResponse" />
+  </message>
+  <message name="buscarPersona">
+    <part name="parameters" element="tns:buscarPersona" />
+  </message>
+  <message name="buscarPersonaResponse">
+    <part name="parameters" element="tns:buscarPersonaResponse" />
+  </message>
+  <message name="listarRoles">
+    <part name="parameters" element="tns:listarRoles" />
+  </message>
+  <message name="listarRolesResponse">
+    <part name="parameters" element="tns:listarRolesResponse" />
+  </message>
+  <message name="listarUsuarios">
+    <part name="parameters" element="tns:listarUsuarios" />
+  </message>
+  <message name="listarUsuariosResponse">
+    <part name="parameters" element="tns:listarUsuariosResponse" />
+  </message>
+  <message name="listarPersonas">
+    <part name="parameters" element="tns:listarPersonas" />
+  </message>
+  <message name="listarPersonasResponse">
+    <part name="parameters" element="tns:listarPersonasResponse" />
+  </message>
+  <message name="eliminarPersona">
+    <part name="parameters" element="tns:eliminarPersona" />
+  </message>
+  <message name="eliminarPersonaResponse">
+    <part name="parameters" element="tns:eliminarPersonaResponse" />
+  </message>
+  <message name="eliminarUsuario">
+    <part name="parameters" element="tns:eliminarUsuario" />
+  </message>
+  <message name="eliminarUsuarioResponse">
+    <part name="parameters" element="tns:eliminarUsuarioResponse" />
+  </message>
+  <message name="editarPersona">
+    <part name="parameters" element="tns:editarPersona" />
+  </message>
+  <message name="editarPersonaResponse">
+    <part name="parameters" element="tns:editarPersonaResponse" />
+  </message>
+  <message name="registrarUsuario">
+    <part name="parameters" element="tns:registrarUsuario" />
+  </message>
+  <message name="registrarUsuarioResponse">
+    <part name="parameters" element="tns:registrarUsuarioResponse" />
+  </message>
+  <message name="editarUsuario">
+    <part name="parameters" element="tns:editarUsuario" />
+  </message>
+  <message name="editarUsuarioResponse">
+    <part name="parameters" element="tns:editarUsuarioResponse" />
+  </message>
+  <portType name="WSGestionUsuario">
+    <operation name="login">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/loginRequest" message="tns:login" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/loginResponse" message="tns:loginResponse" />
+    </operation>
+    <operation name="registrarFormulario">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/registrarFormularioRequest" message="tns:registrarFormulario" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/registrarFormularioResponse" message="tns:registrarFormularioResponse" />
+    </operation>
+    <operation name="Validar">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/ValidarRequest" message="tns:Validar" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/ValidarResponse" message="tns:ValidarResponse" />
+    </operation>
+    <operation name="Registrar">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/RegistrarRequest" message="tns:Registrar" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/RegistrarResponse" message="tns:RegistrarResponse" />
+    </operation>
+    <operation name="registrarUser">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/registrarUserRequest" message="tns:registrarUser" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/registrarUserResponse" message="tns:registrarUserResponse" />
+    </operation>
+    <operation name="buscarPersona">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/buscarPersonaRequest" message="tns:buscarPersona" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/buscarPersonaResponse" message="tns:buscarPersonaResponse" />
+    </operation>
+    <operation name="listarRoles">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/listarRolesRequest" message="tns:listarRoles" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/listarRolesResponse" message="tns:listarRolesResponse" />
+    </operation>
+    <operation name="listarUsuarios">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/listarUsuariosRequest" message="tns:listarUsuarios" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/listarUsuariosResponse" message="tns:listarUsuariosResponse" />
+    </operation>
+    <operation name="listarPersonas">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/listarPersonasRequest" message="tns:listarPersonas" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/listarPersonasResponse" message="tns:listarPersonasResponse" />
+    </operation>
+    <operation name="eliminarPersona">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/eliminarPersonaRequest" message="tns:eliminarPersona" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/eliminarPersonaResponse" message="tns:eliminarPersonaResponse" />
+    </operation>
+    <operation name="eliminarUsuario">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
+    </operation>
+    <operation name="editarPersona">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/editarPersonaRequest" message="tns:editarPersona" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/editarPersonaResponse" message="tns:editarPersonaResponse" />
+    </operation>
+    <operation name="registrarUsuario">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/registrarUsuarioRequest" message="tns:registrarUsuario" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/registrarUsuarioResponse" message="tns:registrarUsuarioResponse" />
+    </operation>
+    <operation name="editarUsuario">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/editarUsuarioRequest" message="tns:editarUsuario" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionUsuario/editarUsuarioResponse" message="tns:editarUsuarioResponse" />
+    </operation>
+  </portType>
+  <binding name="WSGestionUsuarioPortBinding" type="tns:WSGestionUsuario">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="login">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="registrarFormulario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Validar">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Registrar">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="registrarUser">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarPersona">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarRoles">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarUsuarios">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarPersonas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarPersona">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="editarPersona">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="registrarUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="editarUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WSGestionUsuario">
+    <port name="WSGestionUsuarioPort" binding="tns:WSGestionUsuarioPortBinding">
+      <soap:address location="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com:80/WSGestionUsuario" />
+    </port>
+  </service>
+</definitions>

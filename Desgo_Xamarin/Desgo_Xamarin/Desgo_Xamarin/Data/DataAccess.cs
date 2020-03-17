@@ -16,16 +16,27 @@ namespace Desgo_Xamarin.Data
         
         public DataAccess()
         {
+            try
+            {
                 var config = DependencyService.Get<IConfig>();
-                connection = new SQLiteConnection(System.IO.Path.Combine(config.DirectoryDB, "DesgoXamarin.db3"),false);
+                connection = new SQLiteConnection(System.IO.Path.Combine(config.DirectoryDB, "DesgoXamarin.db3"), false);
+                //deleteTable();
                 connection.CreateTable<tipousuario>();
                 connection.CreateTable<persona>();
                 connection.CreateTable<usuario>();
-//                connection.CreateTable<tipousuario>();
                 connection.CreateTable<formulario>();
-
-            //connection.Query<persona>("");
-
+                connection.CreateTable<estadoSqlite>();
+                connection.CreateTable<Direccion_DDPLote>();
+                connection.CreateTable<DDescriptivosPredio_IULote>();
+                connection.CreateTable<identificacionubicacionlote>();
+                connection.CreateTable<formularioAll>();
+            }
+            catch (Exception e)
+            {
+                Application.Current.MainPage.DisplayAlert("Error create sqlite",
+                      ">>" + e,
+                      "Accept");
+            }
         }
 
         public SQLiteConnection SQLiteConnection()
@@ -35,7 +46,14 @@ namespace Desgo_Xamarin.Data
 
         public void Insert(persona model)
         {
-            connection.Insert(model);
+            try
+            {
+                connection.Insert(model);
+            }
+            catch (Exception e)
+            {
+
+            }
         }
         public void Insertusuario(usuario model)
         {
@@ -45,8 +63,32 @@ namespace Desgo_Xamarin.Data
         {
             connection.Insert(model);
         }
+        public void InsertipoUser(tipousuario model)
+        {
+            connection.Insert(model);
+        }
+        public void Insertformularioall(formularioAll model)
+        {
+            connection.Insert(model);
+            /****Identificacion Ubicacion****/
+            Insertidentificacionubicacionlote(model.identificacionubicacionlote);
+            InsertDDescriptivosPredio_IULote(model.identificacionubicacionlote.dDescriptivosPredio_IULote);
+            InsertDireccion_DDPLote(model.identificacionubicacionlote.dDescriptivosPredio_IULote.dDPLote);
 
-
+            /********/
+        }
+        public void Insertidentificacionubicacionlote(identificacionubicacionlote model)
+        {
+            connection.Insert(model);
+        }
+        public void InsertDireccion_DDPLote(Direccion_DDPLote model)
+        {
+            connection.Insert(model);
+        }
+        public void InsertDDescriptivosPredio_IULote(DDescriptivosPredio_IULote model)
+        {
+            connection.Insert(model);
+        }
         public persona getPersona(int idpersona)
         {
             return connection.Table<persona>().FirstOrDefault(c => c.ID_PERSONA == idpersona);
@@ -84,7 +126,61 @@ namespace Desgo_Xamarin.Data
         {
             return connection.Table<formulario>().OrderBy(c => c.ID_FORMULARIO).ToList();
         }
+        /***********/
+        public estadoSqlite getEstadoSqlite()
+        {
+            try
+            {
+                return connection.Table<estadoSqlite>().FirstOrDefault(c => c.ID_ESTADOSQLITE == 1);
+            }
+            catch (Exception e)
+            {
 
+            }
+            return null;
+        }
+        public void setEstadoSqlite(estadoSqlite model)
+        {
+            connection.Insert(model);
+        }
+        public void updateCambiosEstadoSqlite(bool cambio)
+        {
+            connection.Query<estadoSqlite>("UPDATE estadoSqlite SET  CAMBIOS_ESTADOSQLITE=? WHERE ID_ESTADOSQLITE=?", cambio,1);
+        }
+        /***********/
+        public formularioAll getFormularioAllCodigo(int codigo)
+        {
+            formularioAll fall = new formularioAll();
+            formulario f = new formulario();
+            /*Identifucacion Ubicacion*/
+            Direccion_DDPLote direccion_DDPLote = new Direccion_DDPLote();
+            DDescriptivosPredio_IULote dDescriptivosPredio_IULote = new DDescriptivosPredio_IULote();
+            identificacionubicacionlote identificacionubicacionlote = new identificacionubicacionlote();
+            /***/
+            
+            f = getFormularioCodigo(codigo);
+            //fall = connection.Table<formularioAll>().FirstOrDefault(c => c.CODIGO_FORMULARIO == codigo);
+            fall = connection.Query<formularioAll>("SELECT * FROM formularioAll WHERE  CODIGO_FORMULARIO=?", codigo).FirstOrDefault();
+            fall.identificacionubicacionlote = getidentificacionubicacionlote(f.ID_IULOTE);
+            fall.identificacionubicacionlote.dDescriptivosPredio_IULote = getDDescriptivosPredio_IULote(fall.identificacionubicacionlote.ID_DDPLOTE);
+            fall.identificacionubicacionlote.dDescriptivosPredio_IULote.dDPLote = getDireccion_DDPLote(fall.identificacionubicacionlote.dDescriptivosPredio_IULote.ID_DLOTE);
+
+            return fall;
+        }
+        /**identificacion ubicacion get*/
+        public identificacionubicacionlote getidentificacionubicacionlote(int identificacionU_F)
+        {
+            return connection.Table<identificacionubicacionlote>().FirstOrDefault(c => c.ID_IULOTE == identificacionU_F);
+        }
+        public DDescriptivosPredio_IULote getDDescriptivosPredio_IULote(int ID_DDPLOTE)
+        {
+            return connection.Table<DDescriptivosPredio_IULote>().FirstOrDefault(c => c.ID_DDPLOTE == ID_DDPLOTE);
+        }
+        public Direccion_DDPLote getDireccion_DDPLote(int ID_DLOTE)
+        {
+            return connection.Table<Direccion_DDPLote>().FirstOrDefault(c => c.ID_DLOTE == ID_DLOTE);
+        }
+        /***********/
         //public void Insert<T>(T model)
         //{
         //    connection.Insert(model);
@@ -147,6 +243,30 @@ namespace Desgo_Xamarin.Data
         {
             String[] values = { pass, us };
             return connection.Query<usuario>("SELECT * FROM usuario WHERE  CONTRASENIA_USUARIO=? AND USUARIO_USUARIO=?",values).FirstOrDefault();
+        }
+        public int getUsuarioSalt(string us)
+        {
+            String[] values = { us };
+            return connection.Query<int>("SELECT SALT_USUARIO FROM usuario WHERE  USUARIO_USUARIO=?", values).FirstOrDefault();
+        }
+        public int getEstadoSQLITESalt(string us)
+        {
+            String[] values = { us };
+            return connection.Query<int>("SELECT SALT_USUARIO FROM estadoSqlite WHERE  USUARIO_USUARIO=?", values).FirstOrDefault();
+        }
+        /******Eliminar Tablas*******/
+        public void deleteTable()
+        {
+            connection.DropTable<estadoSqlite>();
+            connection.DropTable<tipousuario>();
+            connection.DropTable<persona>();
+            connection.DropTable<usuario>();
+            connection.DropTable<formulario>();
+            connection.DropTable<Direccion_DDPLote>();
+            connection.DropTable<DDescriptivosPredio_IULote>();
+            connection.DropTable<identificacionubicacionlote>();
+            connection.DropTable<formularioAll>();
+
         }
     }
 

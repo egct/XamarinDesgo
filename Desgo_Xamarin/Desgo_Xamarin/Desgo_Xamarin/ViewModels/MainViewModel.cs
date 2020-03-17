@@ -13,12 +13,38 @@ namespace Desgo_Xamarin.ViewModels
     {
         #region variables
         public usuario user;
+        public formularioAll formularioall;
+        public formulario formulario;
+        public Boolean estadoConnection;
+        public String messageConnection;
+
         #endregion 
         #region ViewModels
         public usuario User
         {
             get { return this.user; }
             set { SetValue(ref this.user, value); }
+        }
+        public formularioAll Formularioall
+        {
+            get { return this.formularioall; }
+            set { SetValue(ref this.formularioall, value); }
+        }
+        public formulario Formulario
+        {
+            get { return this.formulario; }
+            set { SetValue(ref this.formulario, value); }
+        }
+
+        public Boolean EstadoConnection
+        {
+            get { return this.estadoConnection; }
+            set { SetValue(ref this.estadoConnection, value); }
+        }
+        public String MessageTypeConnection
+        {
+            get { return this.messageConnection; }
+            set { SetValue(ref this.messageConnection, value); }
         }
         public LoginViewModel Login
         {
@@ -66,6 +92,17 @@ namespace Desgo_Xamarin.ViewModels
             set;
         }
 
+        public GraficosPredioModel GraficosPredio
+        {
+            get;
+            set;
+        }
+        public ElementosConstructivosModel ElementosConstructivos
+        {
+            get;
+            set;
+        }
+
         public MyFormsPageLoggedinModel MyFormsPage
         {
             get;
@@ -84,8 +121,8 @@ namespace Desgo_Xamarin.ViewModels
             instance = this;
            this.Login = new LoginViewModel();
            LoadMenu();
-           LoadMenuLoggedin();
-            LoadMap();
+           //LoadMenuLoggedin();
+           // LoadMap();
         }
 
 
@@ -131,7 +168,7 @@ namespace Desgo_Xamarin.ViewModels
             });
 
         }
-        private void LoadMenuLoggedin()
+        public void LoadMenuLoggedin()
         {
             MyMenuLoggedin = new ObservableCollection<MenuLoggedin>();
 
@@ -164,7 +201,7 @@ namespace Desgo_Xamarin.ViewModels
             });
 
         }
-        private void LoadMap()
+        public void LoadMap()
         {
             Ubications = new MapasModel();
         }

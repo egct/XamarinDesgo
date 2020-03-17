@@ -91,6 +91,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Implementations\Config.cs" />
+    <Compile Include="Implementations\ServiceForm.cs" />
+    <Compile Include="Implementations\ServiceUser.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Web References\AmazonDesgoWebServiceForm\Reference.cs">
@@ -107,6 +109,12 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Web References\AmazonDesgoWebServiceForm\acabadosEC.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonDesgoWebServiceForm\formulario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonDesgoWebServiceForm\formularioIds.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonDesgoWebServiceForm\Reference.map">
@@ -213,6 +221,9 @@
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Geolocator">
       <Version>4.5.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>4.0.1.5</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
     <PackageReference Include="Xamarin.Forms.Maps">

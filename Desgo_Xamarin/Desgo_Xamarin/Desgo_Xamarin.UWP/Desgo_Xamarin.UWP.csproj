@@ -92,12 +92,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceDesgo\Reference.cs">
+    <Compile Include="Connected Services\AmazonDesgoWebServiceForm\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\AmazonDesgoWebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Implementations\Config.cs" />
+    <Compile Include="Implementations\ServiceUser.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -156,9 +162,23 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
-    <None Include="Connected Services\ServiceDesgo\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceDesgo\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceDesgo\Reference.svcmap">
+    <None Include="Connected Services\AmazonDesgoWebServiceForm\WSGestionFormulario.wsdl" />
+    <None Include="Connected Services\AmazonDesgoWebServiceForm\WSGestionFormulario.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AmazonDesgoWebService\WSGestionUsuario.wsdl" />
+    <None Include="Connected Services\AmazonDesgoWebService\WSGestionUsuario.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AmazonDesgoWebService\configuration91.svcinfo" />
+    <None Include="Connected Services\AmazonDesgoWebService\configuration.svcinfo" />
+    <None Include="Connected Services\AmazonDesgoWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\AmazonDesgoWebServiceForm\configuration91.svcinfo" />
+    <None Include="Connected Services\AmazonDesgoWebServiceForm\configuration.svcinfo" />
+    <None Include="Connected Services\AmazonDesgoWebServiceForm\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -196,6 +216,9 @@
     <PackageReference Include="Xam.Plugin.Geolocator">
       <Version>4.5.0.6</Version>
     </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>4.0.1.5</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.5" />
     <PackageReference Include="Xamarin.Forms.Maps">
@@ -215,14 +238,11 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceDesgo\WSGestionUsuario.wsdl" />
-    <None Include="Connected Services\ServiceDesgo\WSGestionUsuario.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiceDesgo\" />
+    <WCFMetadataStorage Include="Connected Services\AmazonDesgoWebServiceForm\" />
+    <WCFMetadataStorage Include="Connected Services\AmazonDesgoWebService\" />
   </ItemGroup>
   <Import Project="..\Desgo_Xamarin\Desgo_Xamarin.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

@@ -1072,6 +1072,219 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class direccionDDPLote {
+        
+        private string cALLEP_DLOTEField;
+        
+        private int iD_DLOTEField;
+        
+        private bool iD_DLOTEFieldSpecified;
+        
+        private string iNTERSECCION_DLOTEField;
+        
+        private string nO_DLOTEField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string CALLEP_DLOTE {
+            get {
+                return this.cALLEP_DLOTEField;
+            }
+            set {
+                this.cALLEP_DLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_DLOTE {
+            get {
+                return this.iD_DLOTEField;
+            }
+            set {
+                this.iD_DLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_DLOTESpecified {
+            get {
+                return this.iD_DLOTEFieldSpecified;
+            }
+            set {
+                this.iD_DLOTEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string INTERSECCION_DLOTE {
+            get {
+                return this.iNTERSECCION_DLOTEField;
+            }
+            set {
+                this.iNTERSECCION_DLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string NO_DLOTE {
+            get {
+                return this.nO_DLOTEField;
+            }
+            set {
+                this.nO_DLOTEField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class dDescriptivosPredioIULote {
+        
+        private int iD_DDPLOTEField;
+        
+        private bool iD_DDPLOTEFieldSpecified;
+        
+        private int iD_DLOTEField;
+        
+        private bool iD_DLOTEFieldSpecified;
+        
+        private string nOMBREEDIFICIO_DDPLOTEField;
+        
+        private string nOMBRESECTOR_DDPLOTEField;
+        
+        private string rEGIMENTENECIA_DDPLOTEField;
+        
+        private string tIPOPREDIO_DDPLOTEField;
+        
+        private string uSOPREDIO_DDPLOTEField;
+        
+        private direccionDDPLote dDPLoteField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_DDPLOTE {
+            get {
+                return this.iD_DDPLOTEField;
+            }
+            set {
+                this.iD_DDPLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_DDPLOTESpecified {
+            get {
+                return this.iD_DDPLOTEFieldSpecified;
+            }
+            set {
+                this.iD_DDPLOTEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_DLOTE {
+            get {
+                return this.iD_DLOTEField;
+            }
+            set {
+                this.iD_DLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_DLOTESpecified {
+            get {
+                return this.iD_DLOTEFieldSpecified;
+            }
+            set {
+                this.iD_DLOTEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string NOMBREEDIFICIO_DDPLOTE {
+            get {
+                return this.nOMBREEDIFICIO_DDPLOTEField;
+            }
+            set {
+                this.nOMBREEDIFICIO_DDPLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string NOMBRESECTOR_DDPLOTE {
+            get {
+                return this.nOMBRESECTOR_DDPLOTEField;
+            }
+            set {
+                this.nOMBRESECTOR_DDPLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string REGIMENTENECIA_DDPLOTE {
+            get {
+                return this.rEGIMENTENECIA_DDPLOTEField;
+            }
+            set {
+                this.rEGIMENTENECIA_DDPLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string TIPOPREDIO_DDPLOTE {
+            get {
+                return this.tIPOPREDIO_DDPLOTEField;
+            }
+            set {
+                this.tIPOPREDIO_DDPLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string USOPREDIO_DDPLOTE {
+            get {
+                return this.uSOPREDIO_DDPLOTEField;
+            }
+            set {
+                this.uSOPREDIO_DDPLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public direccionDDPLote dDPLote {
+            get {
+                return this.dDPLoteField;
+            }
+            set {
+                this.dDPLoteField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
     public partial class identificacionUF {
         
         private string cLAVECATASTRALANTIGUO_IULOTEField;
@@ -1087,6 +1300,8 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
         private bool iD_IULOTEFieldSpecified;
         
         private string nUMEROPREDIO_IULOTEField;
+        
+        private dDescriptivosPredioIULote dDescriptivosPredio_IULoteField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -1162,6 +1377,17 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
             }
             set {
                 this.nUMEROPREDIO_IULOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public dDescriptivosPredioIULote dDescriptivosPredio_IULote {
+            get {
+                return this.dDescriptivosPredio_IULoteField;
+            }
+            set {
+                this.dDescriptivosPredio_IULoteField = value;
             }
         }
     }
@@ -1401,11 +1627,27 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
         
         private caracterizacionLF caracterizacionL_FField;
         
+        private int codigo_FField;
+        
+        private bool codigo_FFieldSpecified;
+        
         private economicaF economica_FField;
         
         private elementosCF elementosC_FField;
         
+        private int estado_FField;
+        
+        private bool estado_FFieldSpecified;
+        
         private graficosPF graficosP_FField;
+        
+        private int idFormularioField;
+        
+        private bool idFormularioFieldSpecified;
+        
+        private int idUsuario_FField;
+        
+        private bool idUsuario_FFieldSpecified;
         
         private identificacionLF identificacionL_FField;
         
@@ -1445,6 +1687,28 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int codigo_F {
+            get {
+                return this.codigo_FField;
+            }
+            set {
+                this.codigo_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool codigo_FSpecified {
+            get {
+                return this.codigo_FFieldSpecified;
+            }
+            set {
+                this.codigo_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public economicaF economica_F {
             get {
                 return this.economica_FField;
@@ -1467,12 +1731,78 @@ namespace Desgo_Xamarin.Droid.AmazonDesgoWebService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int estado_F {
+            get {
+                return this.estado_FField;
+            }
+            set {
+                this.estado_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool estado_FSpecified {
+            get {
+                return this.estado_FFieldSpecified;
+            }
+            set {
+                this.estado_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public graficosPF graficosP_F {
             get {
                 return this.graficosP_FField;
             }
             set {
                 this.graficosP_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idFormulario {
+            get {
+                return this.idFormularioField;
+            }
+            set {
+                this.idFormularioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idFormularioSpecified {
+            get {
+                return this.idFormularioFieldSpecified;
+            }
+            set {
+                this.idFormularioFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idUsuario_F {
+            get {
+                return this.idUsuario_FField;
+            }
+            set {
+                this.idUsuario_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idUsuario_FSpecified {
+            get {
+                return this.idUsuario_FFieldSpecified;
+            }
+            set {
+                this.idUsuario_FFieldSpecified = value;
             }
         }
         

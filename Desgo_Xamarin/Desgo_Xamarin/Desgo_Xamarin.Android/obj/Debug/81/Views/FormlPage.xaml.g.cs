@@ -13,8 +13,12 @@
 namespace Desgo_Xamarin.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Pasantias\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xamarin\\Views\\FormlPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\egct\\Documents\\GitHub\\XamarinDesgo\\Desgo_Xamarin\\Desgo_Xamarin\\Desgo_Xam" +
+        "arin\\Views\\FormlPage.xaml")]
     public partial class FormlPage : global::Xamarin.Forms.CarouselPage {
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.ToolbarItem cargar;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.ToolbarItem btnRegistrar;
@@ -22,6 +26,7 @@ namespace Desgo_Xamarin.Views {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(FormlPage));
+            cargar = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ToolbarItem>(this, "cargar");
             btnRegistrar = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ToolbarItem>(this, "btnRegistrar");
         }
     }

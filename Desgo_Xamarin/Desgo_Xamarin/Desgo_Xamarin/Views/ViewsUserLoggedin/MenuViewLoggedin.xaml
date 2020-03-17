@@ -24,13 +24,19 @@
             />
             <Label
                 FontSize="Large"
-                Text="Bienvenido ..."
+                Text="Bienvenido:"
                 TextColor="{StaticResource BackgroundColor}">
             </Label>
                 <Label
-                FontSize="Large"
-                Text="{Binding User.USUARIO_USUARIO}"
-                TextColor="{StaticResource BackgroundColor}">
+                    FontSize="Large"
+                    BackgroundColor = "LightGray"
+                    TextColor="Black"
+                    Text="{Binding User.USUARIO_USUARIO}">
+                </Label>
+                <Label
+                    FontSize="Large"
+                    BackgroundColor = "Gray"
+                    Text="{Binding MessageTypeConnection}">
                 </Label>
                 <ListView 
                 BackgroundColor="{StaticResource FontColor}" 

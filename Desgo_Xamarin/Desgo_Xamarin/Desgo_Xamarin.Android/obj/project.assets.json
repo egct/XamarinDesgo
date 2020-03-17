@@ -204,6 +204,22 @@
           "lib/monoandroid71/Plugin.Geolocator.dll": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12",
+          "Xamarin.Android.Support.Core.Utils": "25.4.0.2"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid71/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid71/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Android.Arch.Core.Common/1.0.0.1": {
         "type": "package",
         "dependencies": {
@@ -1335,6 +1351,31 @@
         "xam.plugin.geolocator.nuspec"
       ]
     },
+    "Xam.Plugin.Media/4.0.1.5": {
+      "sha512": "a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
+      "type": "package",
+      "path": "xam.plugin.media/4.0.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/Plugin.Media.dll",
+        "lib/monoandroid71/Plugin.Media.xml",
+        "lib/netstandard1.0/Plugin.Media.dll",
+        "lib/netstandard1.0/Plugin.Media.xml",
+        "lib/netstandard2.0/Plugin.Media.dll",
+        "lib/netstandard2.0/Plugin.Media.xml",
+        "lib/tizen40/Plugin.Media.dll",
+        "lib/tizen40/Plugin.Media.xml",
+        "lib/uap10.0.10240/Plugin.Media.dll",
+        "lib/uap10.0.10240/Plugin.Media.pri",
+        "lib/uap10.0.10240/Plugin.Media.xml",
+        "lib/xamarinios10/Plugin.Media.dll",
+        "lib/xamarinios10/Plugin.Media.xml",
+        "readme.txt",
+        "xam.plugin.media.4.0.1.5.nupkg.sha512",
+        "xam.plugin.media.nuspec"
+      ]
+    },
     "Xamarin.Android.Arch.Core.Common/1.0.0.1": {
       "sha512": "UiWrWginObSSfmhKMTnRthhAWuH9yPhqP5ZCCCI9tTWl+XS/+sqcDjd84vP+dr1ve2h/AVZo9NgCbE1Xgktw2g==",
       "type": "package",
@@ -1988,6 +2029,7 @@
       "XLabs.Platform >= 2.0.5782",
       "Xam.Plugin.Connectivity >= 3.2.0",
       "Xam.Plugin.Geolocator >= 4.5.0.6",
+      "Xam.Plugin.Media >= 4.0.1.5",
       "Xamarin.Android.Support.Design >= 27.0.2.1",
       "Xamarin.Android.Support.v4 >= 27.0.2.1",
       "Xamarin.Android.Support.v7.AppCompat >= 27.0.2.1",
@@ -2066,6 +2108,10 @@
           "Xam.Plugin.Geolocator": {
             "target": "Package",
             "version": "[4.5.0.6, )"
+          },
+          "Xam.Plugin.Media": {
+            "target": "Package",
+            "version": "[4.0.1.5, )"
           },
           "Xamarin.Android.Support.Design": {
             "target": "Package",

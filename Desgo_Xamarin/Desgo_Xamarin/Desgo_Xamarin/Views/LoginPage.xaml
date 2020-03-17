@@ -32,10 +32,18 @@
                     </Grid>
                 </Grid>
                 <ActivityIndicator VerticalOptions="CenterAndExpand" IsRunning="{Binding IsRunning, Mode=TwoWay}"></ActivityIndicator>
-                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                    <Label Text="Recordar en este dispositivo" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
-                    <Switch HorizontalOptions="End" IsToggled="{Binding IsRemembered, Mode=TwoWay}"></Switch>
-                </StackLayout>
+                <Grid VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Text="Modo: " VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="Offline" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+                    <Switch Grid.Row="0" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" IsToggled="{Binding IsRemembered, Mode=TwoWay}"></Switch>
+                    <Label Grid.Row="0" Grid.Column="3" Text="Online" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+                </Grid>
                 <Button VerticalOptions="StartAndExpand" BackgroundColor="Navy" BorderRadius="23" HeightRequest="46" IsEnabled="{Binding IsEnabled,Mode=TwoWay}" Text="Login" TextColor="White" Command="{Binding LoginCommand}"></Button>
                 <Label
                     HorizontalOptions="Center"

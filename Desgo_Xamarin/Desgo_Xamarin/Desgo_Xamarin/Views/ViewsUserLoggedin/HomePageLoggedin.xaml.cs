@@ -17,7 +17,7 @@ namespace Desgo_Xamarin.Views.ViewsUserLoggedin
 		public HomePageLoggedin ()
 		{
 			InitializeComponent ();
-            try
+            /*try
             {
                 persona per = new persona()
                 {
@@ -92,7 +92,7 @@ namespace Desgo_Xamarin.Views.ViewsUserLoggedin
             catch (Exception e)
             {
                 lblmensaje.Text = "error: "+e;
-            }
+            }*/
         }
 	}
 }

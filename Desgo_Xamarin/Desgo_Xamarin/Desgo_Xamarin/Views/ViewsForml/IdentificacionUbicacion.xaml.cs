@@ -24,7 +24,7 @@ namespace Desgo_Xamarin.Views.ViewsForml
         public IdentificacionUbicacion ()
 		{
 			InitializeComponent ();
-            BindingContext = new IdentificacionUbicacionlModel();
+            //BindingContext = new IdentificacionUbicacionlModel();
                 var config = DependencyService.Get<IConfig>();
                 string aux = System.IO.Path.Combine(config.DirectoryDB, "DesgoXamarin.db3");
                 lblmensaje.Text = aux;
@@ -144,7 +144,8 @@ namespace Desgo_Xamarin.Views.ViewsForml
                 uservista = datos.getUsuario(aux);
                 try
                 {
-                    lblmensaje.Text = uservista.USUARIO_USUARIO.ToString();
+                    lblmensaje.Text = uservista.USUARIO_USUARIO.ToString()+uservista.SALT_USUARIO.ToString();
+                    datos.updateCambiosEstadoSqlite(false);
 
                 }
                 catch (Exception ee)
@@ -152,7 +153,6 @@ namespace Desgo_Xamarin.Views.ViewsForml
                     lblmensaje.Text = ee.Message;
 
                 }
-
 
             }
         }
@@ -161,7 +161,6 @@ namespace Desgo_Xamarin.Views.ViewsForml
         {
             using (DataAccess datos = new DataAccess())
             {
-
                 lblmensaje.Text = datos.GetListFormulario().ToString();
                 listapersonas.ItemsSource = datos.GetListFormulario();
                 int aux = Int32.Parse(txtidformulario.Text);
@@ -169,6 +168,7 @@ namespace Desgo_Xamarin.Views.ViewsForml
                 try
                 {
                     lblmensaje.Text = formvista.CODIGO_FORMULARIO.ToString();
+                    datos.updateCambiosEstadoSqlite(true);
 
                 }
                 catch (Exception ee)
@@ -176,9 +176,9 @@ namespace Desgo_Xamarin.Views.ViewsForml
                     lblmensaje.Text = ee.Message;
 
                 }
-
-
+                datos.deleteTable();
             }
+
         }
     }
 }

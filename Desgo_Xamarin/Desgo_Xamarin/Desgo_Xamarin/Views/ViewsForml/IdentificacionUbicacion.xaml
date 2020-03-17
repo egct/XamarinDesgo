@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Desgo_Xamarin.Views.ViewsForml.IdentificacionUbicacion"
              xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
              BackgroundColor="{StaticResource FormColor}" >
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView BindingContext="{Binding IdentificacionUbicacionPart}">
             <StackLayout Padding="5" Orientation="Vertical">
                 <StackLayout Padding="5" BackgroundColor="#245D6F">
                     <Grid VerticalOptions="CenterAndExpand">
@@ -29,11 +30,11 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Clave catastral anterior:"/>
-                    <Entry Grid.Row="0" Grid.Column="1" Placeholder="" Keyboard="Numeric"/>
+                    <Entry Grid.Row="0" Grid.Column="1" Placeholder="" Keyboard="Numeric" Text="{Binding CLAVECATASTRALANTIGUO_IULOTE}"/>
                     <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Clave catastral Urbana Actual:"/>
-                    <Entry Grid.Row="1" Grid.Column="1" Placeholder="" Keyboard="Numeric"/>
+                    <Entry Grid.Row="1" Grid.Column="1" Placeholder="" Keyboard="Numeric" Text="{Binding CLAVECATASTRALNUEVO_IULOTE}"/>
                     <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Número del predio:"/>
-                    <Entry Grid.Row="2" Grid.Column="1" Placeholder="" Keyboard="Numeric"/>
+                    <Entry Grid.Row="2" Grid.Column="1" Placeholder="" Keyboard="Numeric" Text="{Binding NUMEROPREDIO_IULOTE}"/>
                 </Grid>
                 <Label VerticalOptions="Center" Text="Datos descriptivos del predio" Font="Bold" />
                 <Frame>
@@ -43,23 +44,25 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Nombre del sector:"/>
-                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="" />
+                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="" Text="{Binding NOMBRESECTOR_DDPLOTE}"/>
                         <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Nombre del edificio:"/>
-                        <Entry Grid.Row="1" Grid.Column="1" Placeholder=""/>
+                        <Entry Grid.Row="1" Grid.Column="1" Placeholder="" Text="{Binding NOMBREEDIFICIO_DDPLOTE}"/>
                         <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Uso del predio:"/>
-                        <Entry Grid.Row="2" Grid.Column="1" Placeholder=""/>
+                        <Entry Grid.Row="2" Grid.Column="1" Placeholder="" Text="{Binding USOPREDIO_DDPLOTE}"/>
                         <Label Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Text="Tipo de predio:"/>
                         <Picker Grid.Row="3" Grid.Column="1" Title="--Select--"
                             ItemsSource="{Binding TipoPredioList}"
                             ItemDisplayBinding="{Binding Value}"
                             SelectedItem="{Binding SelectedTipoPredio}"/>
                         <Label Grid.Row="4" Grid.Column="1" Text="{Binding MyTipoPredio}"  TextColor="Teal"/>
-                        <Label Grid.Row="5" Grid.Column="0" VerticalOptions="Center" Text="Regimen de tenencia:"/>
-                        <Picker Grid.Row="5" Grid.Column="1" Title="--Select--"
+                        <Label Grid.Row="5" Grid.Column="1" Text="{Binding MyTipoPredioForm}"  TextColor="Gray"/>
+                        <Label Grid.Row="6" Grid.Column="0" VerticalOptions="Center" Text="Regimen de tenencia:"/>
+                        <Picker Grid.Row="6" Grid.Column="1" Title="--Select--"
                             ItemsSource="{Binding RegimenTenenciaList}"
                             ItemDisplayBinding="{Binding Value}"
                             SelectedItem="{Binding SelectedRegimenTenencia}"/>
-                        <Label Grid.Row="6" Grid.Column="1" Text="{Binding MyRegimenTenencia}"  TextColor="Teal"/>
+                        <Label Grid.Row="7" Grid.Column="1" Text="{Binding MyRegimenTenencia}"  TextColor="Teal"/>
+                        <Label Grid.Row="8" Grid.Column="1" Text="{Binding MyRegimenTenenciaForm}"  TextColor="Gray"/>
                     </Grid>
                 </Frame>
                 <Label VerticalOptions="Center" Text="Dirección" Font="Bold"/>
@@ -70,11 +73,11 @@
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Calle principal:"/>
-                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="" />
+                        <Entry Grid.Row="0" Grid.Column="1" Placeholder="" Text="{Binding CALLEP_DLOTE}"/>
                         <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="No:"/>
-                        <Entry Grid.Row="1" Grid.Column="1" Placeholder=""/>
+                        <Entry Grid.Row="1" Grid.Column="1" Placeholder="" Text="{Binding NO_DLOTE}"/>
                         <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Intersección:"/>
-                        <Entry Grid.Row="2" Grid.Column="1" Placeholder=""/>
+                        <Entry Grid.Row="2" Grid.Column="1" Placeholder="" Text="{Binding INTERSECCION_DLOTE}"/>
                     </Grid>
                 </Frame>
                 <Entry x:Name="txtnombre"

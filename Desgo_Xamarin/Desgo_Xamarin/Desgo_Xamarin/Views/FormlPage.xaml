@@ -6,25 +6,24 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Formulario"
             >
+        <CarouselPage.Children>
+            <local:IdentificacionUbicacion/>
+            <local:IdentificacionLegal/>
+            <local:CaracterizacionLote/>
+            <local:LimitesLote/>
+            <local:GraficosPredio/>
+            <local:Economica/>
+            <local:Responsables/>
+            <local:CaracteristicasConstruccion/>
+            <local:ElementosConstructivos/>
+            <local:Mejoras/>
+            <local:ViviendaCensal/>
+            <local:Mapa/>
+        </CarouselPage.Children>
 
-    <CarouselPage.Children>
-        <local:IdentificacionUbicacion/>
-        <local:IdentificacionLegal/>
-        <local:CaracterizacionLote/>
-        <local:LimitesLote/>
-        <local:GraficosPredio/>
-        <local:Economica/>
-        <local:Responsables/>
-        <local:CaracteristicasConstruccion/>
-        <local:ElementosConstructivos/>
-        <local:Mejoras/>
-        <local:ViviendaCensal/>
-        <local:Mapa/>
-    </CarouselPage.Children>
+        <CarouselPage.ToolbarItems>
+        <ToolbarItem x:Name="cargar" Text="{Binding Formularioall.CODIGO_FORMULARIO}" Order="Primary" Priority="0" />
+        <ToolbarItem x:Name="btnRegistrar" Icon="ic_saveForm" Order="Primary" Priority="1" Clicked="BtnRegistrar_Clicked"/>
 
-    <CarouselPage.ToolbarItems>
-        <ToolbarItem x:Name="btnRegistrar" Icon="ic_saveForm" Order="Primary" Priority="0" Clicked="BtnRegistrar_Clicked"/>
-        
     </CarouselPage.ToolbarItems>
-
 </CarouselPage>

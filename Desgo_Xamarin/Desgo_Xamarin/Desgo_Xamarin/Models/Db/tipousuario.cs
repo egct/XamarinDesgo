@@ -6,9 +6,10 @@ using SQLiteNetExtensions.Attributes;
 
 namespace Desgo_Xamarin.Models.Db
 {
+    [Table("tipousuario")]
     public class tipousuario
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey]
         public int ID_TIPOUSUARIO { get; set; }
 
         [MaxLength(50)]

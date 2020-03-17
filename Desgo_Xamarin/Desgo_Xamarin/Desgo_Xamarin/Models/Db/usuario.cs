@@ -9,7 +9,7 @@ namespace Desgo_Xamarin.Models.Db
     [Table("usuario")]
     public class usuario
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey]
         public int ID_USUARIO { get; set; }
 
         [ForeignKey(typeof(tipousuario))]

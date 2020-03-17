@@ -40,13 +40,7 @@
         public App()
         {
             InitializeComponent();
-
-            //            this.MainPage = new NavigationPage (new LoginPage());
-            this.MainPage =new MasterPage1();
-
-            //           this.MainPage = new NavigationPage(new MenuView());
-
-            //this.MainPage = new MenuView();
+            this.MainPage =new MasterPage1();            
         }
         #endregion 
 

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using Desgo_Xamarin.Data;
 using Desgo_Xamarin.Services;
 using Desgo_Xamarin.ViewModels;
 using GalaSoft.MvvmLight.Command;
 using SQLite;
 using SQLiteNetExtensions.Attributes;
+using Xamarin.Forms;
 
 namespace Desgo_Xamarin.Models.Db
 {
@@ -14,7 +16,7 @@ namespace Desgo_Xamarin.Models.Db
     [Table("formulario")]
     public class formulario
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey]
         public int ID_FORMULARIO { get; set; }
         public int ID_ELOTE { get; set; }
         public int ID_RLOTE { get; set; }
@@ -59,9 +61,27 @@ namespace Desgo_Xamarin.Models.Db
 
         async void SelectFormulario()
         {
-            MainViewModel.GetInstance().FormPage = new FormPageModel();
-            await navigationService.NavigateOnMasterLoggedin("FormlPage");
-        } 
+            try
+            {
+                MainViewModel.GetInstance().FormPage = new FormPageModel();
+                MainViewModel.GetInstance().Formulario = this;
+                using (DataAccess datos = new DataAccess())
+                {
+
+                    formularioAll fall = new formularioAll();
+                    fall= datos.getFormularioAllCodigo(CODIGO_FORMULARIO);
+                    MainViewModel.GetInstance().Formularioall = fall;
+//                    MainViewModel.GetInstance().Formularioall.identificacionubicacionlote = new identificacionubicacionlote();
+                }
+                await navigationService.NavigateOnMasterLoggedin("FormlPage");
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error",
+                "No se cargo el formulario All: " + ex,
+                "Accept");
+            }
+        }
         #endregion
     }
 }

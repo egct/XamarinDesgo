@@ -6,5 +6,6 @@ namespace Desgo_Xamarin.ViewModels
 {
     class FormPageModel
     {
+       
     }
 }

@@ -9,7 +9,7 @@ namespace Desgo_Xamarin.Models.Db
     [Table("persona")]
     public class persona
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey]
         public int ID_PERSONA { get; set; }
 
         [MaxLength(50)]

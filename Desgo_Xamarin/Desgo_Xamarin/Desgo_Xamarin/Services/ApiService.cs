@@ -20,65 +20,43 @@ namespace Desgo_Xamarin.Services
     {
         public async Task<Response> CheckConnection()
         {
-            if (!CrossConnectivity.Current.IsConnected)
-            {
-                return new Response
-                {
-                    IsSuccess = false,
-                    Message = "Offline, sin conexión a internet",
-                };
-            }
-
-            //var isReachable = await CrossConnectivity.Current.IsRemoteReachable(
-            //    "google.com");
-            //if (!isReachable)
-            //{
-            //    return new Response
-            //    {
-            //        IsSuccess = false,
-            //        Message = "Verifique su conexión",
-            //    };
-            //}
-
-            return new Response
-            {
-                IsSuccess = true,
-                Message = "Online, conexión a internet",
-            };
-        }
-    /*    public async Task<Response> GetList<T>(string urlBase, string controller)
-        {
             try
             {
-                var client = new HttpClient();
-                client.BaseAddress = new Uri(urlBase);
-                var response = await client.GetAsync(controller);
-                var result = await response.Content.ReadAsStringAsync();
-                if (!response.IsSuccessStatusCode)
+                if (!CrossConnectivity.Current.IsConnected)
                 {
                     return new Response
                     {
                         IsSuccess = false,
-                        Message = result,
+                        Message = "Offline, sin conexión a internet",
                     };
                 }
 
-                var list = JsonConvert.DeserializeObject<List<T>>(result);
+                var isReachable = await CrossConnectivity.Current.IsReachable("google.com");
+                if (!isReachable)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = "Verifique su conexión",
+                    };
+                }
+
                 return new Response
                 {
                     IsSuccess = true,
-                    Result = list,
+                    Message = "Online, conexión a internet",
                 };
             }
-            catch (Exception ex)
+            catch
             {
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = ex.Message,
+                    Message = "Verifique su conexión TryCatch",
                 };
+
             }
-        }*/
+        }
     }
 
 

@@ -9,6 +9,7 @@ Plugin.Connectivity.Abstractions
 Plugin.Connectivity
 Plugin.CurrentActivity
 Plugin.Geolocator
+Plugin.Media
 Plugin.Permissions
 SQLite-net
 SQLiteNetExtensions

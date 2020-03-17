@@ -27,7 +27,7 @@ namespace Desgo_Xamarin.Views.ViewsUserLoggedin
             //}
             //catch (Exception e)
             //{
-            //   // lblmensaje.Text = e.Message + ">";
+            //    // lblmensaje.Text = e.Message + ">";
             //}
         }
 

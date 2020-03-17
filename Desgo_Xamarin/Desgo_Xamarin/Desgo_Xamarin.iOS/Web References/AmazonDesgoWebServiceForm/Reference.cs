@@ -29,11 +29,33 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
     [System.Web.Services.WebServiceBindingAttribute(Name="WSGestionFormularioPortBinding", Namespace="http://servicios.desgo.com.ec/")]
     public partial class WSGestionFormulario : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback helloOperationCompleted;
-        
         private System.Threading.SendOrPostCallback testerAcabadosOperationCompleted;
         
         private System.Threading.SendOrPostCallback addEconomiaOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback listarFormulariosOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback registarFormularioOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback helloOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback listarFormulariosIdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback listarFormularioOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback listarFormularioIntOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback editarformularioOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback buscarCodigoFormularioOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback eliminarFormularioOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback insertarDireccion_DDPLoteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback insertarDDescriptivosPredio_IULoteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback insertarIdentificacionU_FOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -75,43 +97,46 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
         }
         
         /// <remarks/>
-        public event helloCompletedEventHandler helloCompleted;
-        
-        /// <remarks/>
         public event testerAcabadosCompletedEventHandler testerAcabadosCompleted;
         
         /// <remarks/>
         public event addEconomiaCompletedEventHandler addEconomiaCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string hello([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string name) {
-            object[] results = this.Invoke("hello", new object[] {
-                        name});
-            return ((string)(results[0]));
-        }
+        public event listarFormulariosCompletedEventHandler listarFormulariosCompleted;
         
         /// <remarks/>
-        public void helloAsync(string name) {
-            this.helloAsync(name, null);
-        }
+        public event registarFormularioCompletedEventHandler registarFormularioCompleted;
         
         /// <remarks/>
-        public void helloAsync(string name, object userState) {
-            if ((this.helloOperationCompleted == null)) {
-                this.helloOperationCompleted = new System.Threading.SendOrPostCallback(this.OnhelloOperationCompleted);
-            }
-            this.InvokeAsync("hello", new object[] {
-                        name}, this.helloOperationCompleted, userState);
-        }
+        public event helloCompletedEventHandler helloCompleted;
         
-        private void OnhelloOperationCompleted(object arg) {
-            if ((this.helloCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.helloCompleted(this, new helloCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
+        /// <remarks/>
+        public event listarFormulariosIdCompletedEventHandler listarFormulariosIdCompleted;
+        
+        /// <remarks/>
+        public event listarFormularioCompletedEventHandler listarFormularioCompleted;
+        
+        /// <remarks/>
+        public event listarFormularioIntCompletedEventHandler listarFormularioIntCompleted;
+        
+        /// <remarks/>
+        public event editarformularioCompletedEventHandler editarformularioCompleted;
+        
+        /// <remarks/>
+        public event buscarCodigoFormularioCompletedEventHandler buscarCodigoFormularioCompleted;
+        
+        /// <remarks/>
+        public event eliminarFormularioCompletedEventHandler eliminarFormularioCompleted;
+        
+        /// <remarks/>
+        public event insertarDireccion_DDPLoteCompletedEventHandler insertarDireccion_DDPLoteCompleted;
+        
+        /// <remarks/>
+        public event insertarDDescriptivosPredio_IULoteCompletedEventHandler insertarDDescriptivosPredio_IULoteCompleted;
+        
+        /// <remarks/>
+        public event insertarIdentificacionU_FCompletedEventHandler insertarIdentificacionU_FCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -170,6 +195,376 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
             if ((this.addEconomiaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.addEconomiaCompleted(this, new addEconomiaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public formularioIds[] listarFormularios([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] user user) {
+            object[] results = this.Invoke("listarFormularios", new object[] {
+                        user});
+            return ((formularioIds[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void listarFormulariosAsync(user user) {
+            this.listarFormulariosAsync(user, null);
+        }
+        
+        /// <remarks/>
+        public void listarFormulariosAsync(user user, object userState) {
+            if ((this.listarFormulariosOperationCompleted == null)) {
+                this.listarFormulariosOperationCompleted = new System.Threading.SendOrPostCallback(this.OnlistarFormulariosOperationCompleted);
+            }
+            this.InvokeAsync("listarFormularios", new object[] {
+                        user}, this.listarFormulariosOperationCompleted, userState);
+        }
+        
+        private void OnlistarFormulariosOperationCompleted(object arg) {
+            if ((this.listarFormulariosCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.listarFormulariosCompleted(this, new listarFormulariosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void registarFormulario([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] user us, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] formularioIds form, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] out bool @return, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] [System.Xml.Serialization.XmlIgnoreAttribute()] out bool returnSpecified) {
+            object[] results = this.Invoke("registarFormulario", new object[] {
+                        us,
+                        form});
+            @return = ((bool)(results[0]));
+            returnSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void registarFormularioAsync(user us, formularioIds form) {
+            this.registarFormularioAsync(us, form, null);
+        }
+        
+        /// <remarks/>
+        public void registarFormularioAsync(user us, formularioIds form, object userState) {
+            if ((this.registarFormularioOperationCompleted == null)) {
+                this.registarFormularioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregistarFormularioOperationCompleted);
+            }
+            this.InvokeAsync("registarFormulario", new object[] {
+                        us,
+                        form}, this.registarFormularioOperationCompleted, userState);
+        }
+        
+        private void OnregistarFormularioOperationCompleted(object arg) {
+            if ((this.registarFormularioCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.registarFormularioCompleted(this, new registarFormularioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string hello([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string name) {
+            object[] results = this.Invoke("hello", new object[] {
+                        name});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void helloAsync(string name) {
+            this.helloAsync(name, null);
+        }
+        
+        /// <remarks/>
+        public void helloAsync(string name, object userState) {
+            if ((this.helloOperationCompleted == null)) {
+                this.helloOperationCompleted = new System.Threading.SendOrPostCallback(this.OnhelloOperationCompleted);
+            }
+            this.InvokeAsync("hello", new object[] {
+                        name}, this.helloOperationCompleted, userState);
+        }
+        
+        private void OnhelloOperationCompleted(object arg) {
+            if ((this.helloCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.helloCompleted(this, new helloCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public formularioIds[] listarFormulariosId([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int user) {
+            object[] results = this.Invoke("listarFormulariosId", new object[] {
+                        user});
+            return ((formularioIds[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void listarFormulariosIdAsync(int user) {
+            this.listarFormulariosIdAsync(user, null);
+        }
+        
+        /// <remarks/>
+        public void listarFormulariosIdAsync(int user, object userState) {
+            if ((this.listarFormulariosIdOperationCompleted == null)) {
+                this.listarFormulariosIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnlistarFormulariosIdOperationCompleted);
+            }
+            this.InvokeAsync("listarFormulariosId", new object[] {
+                        user}, this.listarFormulariosIdOperationCompleted, userState);
+        }
+        
+        private void OnlistarFormulariosIdOperationCompleted(object arg) {
+            if ((this.listarFormulariosIdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.listarFormulariosIdCompleted(this, new listarFormulariosIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public formulario listarFormulario([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] user user, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] formularioIds formularioIds) {
+            object[] results = this.Invoke("listarFormulario", new object[] {
+                        user,
+                        formularioIds});
+            return ((formulario)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void listarFormularioAsync(user user, formularioIds formularioIds) {
+            this.listarFormularioAsync(user, formularioIds, null);
+        }
+        
+        /// <remarks/>
+        public void listarFormularioAsync(user user, formularioIds formularioIds, object userState) {
+            if ((this.listarFormularioOperationCompleted == null)) {
+                this.listarFormularioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnlistarFormularioOperationCompleted);
+            }
+            this.InvokeAsync("listarFormulario", new object[] {
+                        user,
+                        formularioIds}, this.listarFormularioOperationCompleted, userState);
+        }
+        
+        private void OnlistarFormularioOperationCompleted(object arg) {
+            if ((this.listarFormularioCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.listarFormularioCompleted(this, new listarFormularioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public formulario listarFormularioInt([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int formularioIds, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] int iulote) {
+            object[] results = this.Invoke("listarFormularioInt", new object[] {
+                        formularioIds,
+                        iulote});
+            return ((formulario)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void listarFormularioIntAsync(int formularioIds, int iulote) {
+            this.listarFormularioIntAsync(formularioIds, iulote, null);
+        }
+        
+        /// <remarks/>
+        public void listarFormularioIntAsync(int formularioIds, int iulote, object userState) {
+            if ((this.listarFormularioIntOperationCompleted == null)) {
+                this.listarFormularioIntOperationCompleted = new System.Threading.SendOrPostCallback(this.OnlistarFormularioIntOperationCompleted);
+            }
+            this.InvokeAsync("listarFormularioInt", new object[] {
+                        formularioIds,
+                        iulote}, this.listarFormularioIntOperationCompleted, userState);
+        }
+        
+        private void OnlistarFormularioIntOperationCompleted(object arg) {
+            if ((this.listarFormularioIntCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.listarFormularioIntCompleted(this, new listarFormularioIntCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool editarformulario([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] formulario formulario) {
+            object[] results = this.Invoke("editarformulario", new object[] {
+                        formulario});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void editarformularioAsync(formulario formulario) {
+            this.editarformularioAsync(formulario, null);
+        }
+        
+        /// <remarks/>
+        public void editarformularioAsync(formulario formulario, object userState) {
+            if ((this.editarformularioOperationCompleted == null)) {
+                this.editarformularioOperationCompleted = new System.Threading.SendOrPostCallback(this.OneditarformularioOperationCompleted);
+            }
+            this.InvokeAsync("editarformulario", new object[] {
+                        formulario}, this.editarformularioOperationCompleted, userState);
+        }
+        
+        private void OneditarformularioOperationCompleted(object arg) {
+            if ((this.editarformularioCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.editarformularioCompleted(this, new editarformularioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public formularioIds buscarCodigoFormulario([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string codigo, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] user user) {
+            object[] results = this.Invoke("buscarCodigoFormulario", new object[] {
+                        codigo,
+                        user});
+            return ((formularioIds)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void buscarCodigoFormularioAsync(string codigo, user user) {
+            this.buscarCodigoFormularioAsync(codigo, user, null);
+        }
+        
+        /// <remarks/>
+        public void buscarCodigoFormularioAsync(string codigo, user user, object userState) {
+            if ((this.buscarCodigoFormularioOperationCompleted == null)) {
+                this.buscarCodigoFormularioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnbuscarCodigoFormularioOperationCompleted);
+            }
+            this.InvokeAsync("buscarCodigoFormulario", new object[] {
+                        codigo,
+                        user}, this.buscarCodigoFormularioOperationCompleted, userState);
+        }
+        
+        private void OnbuscarCodigoFormularioOperationCompleted(object arg) {
+            if ((this.buscarCodigoFormularioCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.buscarCodigoFormularioCompleted(this, new buscarCodigoFormularioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool eliminarFormulario([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string codigo, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] user user) {
+            object[] results = this.Invoke("eliminarFormulario", new object[] {
+                        codigo,
+                        user});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void eliminarFormularioAsync(string codigo, user user) {
+            this.eliminarFormularioAsync(codigo, user, null);
+        }
+        
+        /// <remarks/>
+        public void eliminarFormularioAsync(string codigo, user user, object userState) {
+            if ((this.eliminarFormularioOperationCompleted == null)) {
+                this.eliminarFormularioOperationCompleted = new System.Threading.SendOrPostCallback(this.OneliminarFormularioOperationCompleted);
+            }
+            this.InvokeAsync("eliminarFormulario", new object[] {
+                        codigo,
+                        user}, this.eliminarFormularioOperationCompleted, userState);
+        }
+        
+        private void OneliminarFormularioOperationCompleted(object arg) {
+            if ((this.eliminarFormularioCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.eliminarFormularioCompleted(this, new eliminarFormularioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public long insertarDireccion_DDPLote([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] direccionDDPLote direccion_DDPLote) {
+            object[] results = this.Invoke("insertarDireccion_DDPLote", new object[] {
+                        direccion_DDPLote});
+            return ((long)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void insertarDireccion_DDPLoteAsync(direccionDDPLote direccion_DDPLote) {
+            this.insertarDireccion_DDPLoteAsync(direccion_DDPLote, null);
+        }
+        
+        /// <remarks/>
+        public void insertarDireccion_DDPLoteAsync(direccionDDPLote direccion_DDPLote, object userState) {
+            if ((this.insertarDireccion_DDPLoteOperationCompleted == null)) {
+                this.insertarDireccion_DDPLoteOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertarDireccion_DDPLoteOperationCompleted);
+            }
+            this.InvokeAsync("insertarDireccion_DDPLote", new object[] {
+                        direccion_DDPLote}, this.insertarDireccion_DDPLoteOperationCompleted, userState);
+        }
+        
+        private void OninsertarDireccion_DDPLoteOperationCompleted(object arg) {
+            if ((this.insertarDireccion_DDPLoteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.insertarDireccion_DDPLoteCompleted(this, new insertarDireccion_DDPLoteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public long insertarDDescriptivosPredio_IULote([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] dDescriptivosPredioIULote dDescriptivosPredio_IULote) {
+            object[] results = this.Invoke("insertarDDescriptivosPredio_IULote", new object[] {
+                        dDescriptivosPredio_IULote});
+            return ((long)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void insertarDDescriptivosPredio_IULoteAsync(dDescriptivosPredioIULote dDescriptivosPredio_IULote) {
+            this.insertarDDescriptivosPredio_IULoteAsync(dDescriptivosPredio_IULote, null);
+        }
+        
+        /// <remarks/>
+        public void insertarDDescriptivosPredio_IULoteAsync(dDescriptivosPredioIULote dDescriptivosPredio_IULote, object userState) {
+            if ((this.insertarDDescriptivosPredio_IULoteOperationCompleted == null)) {
+                this.insertarDDescriptivosPredio_IULoteOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertarDDescriptivosPredio_IULoteOperationCompleted);
+            }
+            this.InvokeAsync("insertarDDescriptivosPredio_IULote", new object[] {
+                        dDescriptivosPredio_IULote}, this.insertarDDescriptivosPredio_IULoteOperationCompleted, userState);
+        }
+        
+        private void OninsertarDDescriptivosPredio_IULoteOperationCompleted(object arg) {
+            if ((this.insertarDDescriptivosPredio_IULoteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.insertarDDescriptivosPredio_IULoteCompleted(this, new insertarDDescriptivosPredio_IULoteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public long insertarIdentificacionU_F([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] identificacionUF identificacionU_F) {
+            object[] results = this.Invoke("insertarIdentificacionU_F", new object[] {
+                        identificacionU_F});
+            return ((long)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void insertarIdentificacionU_FAsync(identificacionUF identificacionU_F) {
+            this.insertarIdentificacionU_FAsync(identificacionU_F, null);
+        }
+        
+        /// <remarks/>
+        public void insertarIdentificacionU_FAsync(identificacionUF identificacionU_F, object userState) {
+            if ((this.insertarIdentificacionU_FOperationCompleted == null)) {
+                this.insertarIdentificacionU_FOperationCompleted = new System.Threading.SendOrPostCallback(this.OninsertarIdentificacionU_FOperationCompleted);
+            }
+            this.InvokeAsync("insertarIdentificacionU_F", new object[] {
+                        identificacionU_F}, this.insertarIdentificacionU_FOperationCompleted, userState);
+        }
+        
+        private void OninsertarIdentificacionU_FOperationCompleted(object arg) {
+            if ((this.insertarIdentificacionU_FCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.insertarIdentificacionU_FCompleted(this, new insertarIdentificacionU_FCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -350,6 +745,1698 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class viviendaF {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class responsablesF {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class mejoraF {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class mapaF {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class limitesF {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class direccionDDPLote {
+        
+        private string cALLEP_DLOTEField;
+        
+        private int iD_DLOTEField;
+        
+        private bool iD_DLOTEFieldSpecified;
+        
+        private string iNTERSECCION_DLOTEField;
+        
+        private string nO_DLOTEField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string CALLEP_DLOTE {
+            get {
+                return this.cALLEP_DLOTEField;
+            }
+            set {
+                this.cALLEP_DLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_DLOTE {
+            get {
+                return this.iD_DLOTEField;
+            }
+            set {
+                this.iD_DLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_DLOTESpecified {
+            get {
+                return this.iD_DLOTEFieldSpecified;
+            }
+            set {
+                this.iD_DLOTEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string INTERSECCION_DLOTE {
+            get {
+                return this.iNTERSECCION_DLOTEField;
+            }
+            set {
+                this.iNTERSECCION_DLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string NO_DLOTE {
+            get {
+                return this.nO_DLOTEField;
+            }
+            set {
+                this.nO_DLOTEField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class dDescriptivosPredioIULote {
+        
+        private int iD_DDPLOTEField;
+        
+        private bool iD_DDPLOTEFieldSpecified;
+        
+        private int iD_DLOTEField;
+        
+        private bool iD_DLOTEFieldSpecified;
+        
+        private string nOMBREEDIFICIO_DDPLOTEField;
+        
+        private string nOMBRESECTOR_DDPLOTEField;
+        
+        private string rEGIMENTENECIA_DDPLOTEField;
+        
+        private string tIPOPREDIO_DDPLOTEField;
+        
+        private string uSOPREDIO_DDPLOTEField;
+        
+        private direccionDDPLote dDPLoteField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_DDPLOTE {
+            get {
+                return this.iD_DDPLOTEField;
+            }
+            set {
+                this.iD_DDPLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_DDPLOTESpecified {
+            get {
+                return this.iD_DDPLOTEFieldSpecified;
+            }
+            set {
+                this.iD_DDPLOTEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_DLOTE {
+            get {
+                return this.iD_DLOTEField;
+            }
+            set {
+                this.iD_DLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_DLOTESpecified {
+            get {
+                return this.iD_DLOTEFieldSpecified;
+            }
+            set {
+                this.iD_DLOTEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string NOMBREEDIFICIO_DDPLOTE {
+            get {
+                return this.nOMBREEDIFICIO_DDPLOTEField;
+            }
+            set {
+                this.nOMBREEDIFICIO_DDPLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string NOMBRESECTOR_DDPLOTE {
+            get {
+                return this.nOMBRESECTOR_DDPLOTEField;
+            }
+            set {
+                this.nOMBRESECTOR_DDPLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string REGIMENTENECIA_DDPLOTE {
+            get {
+                return this.rEGIMENTENECIA_DDPLOTEField;
+            }
+            set {
+                this.rEGIMENTENECIA_DDPLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string TIPOPREDIO_DDPLOTE {
+            get {
+                return this.tIPOPREDIO_DDPLOTEField;
+            }
+            set {
+                this.tIPOPREDIO_DDPLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string USOPREDIO_DDPLOTE {
+            get {
+                return this.uSOPREDIO_DDPLOTEField;
+            }
+            set {
+                this.uSOPREDIO_DDPLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public direccionDDPLote dDPLote {
+            get {
+                return this.dDPLoteField;
+            }
+            set {
+                this.dDPLoteField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class identificacionUF {
+        
+        private string cLAVECATASTRALANTIGUO_IULOTEField;
+        
+        private string cLAVECATASTRALNUEVO_IULOTEField;
+        
+        private int iD_DDPLOTEField;
+        
+        private bool iD_DDPLOTEFieldSpecified;
+        
+        private int iD_IULOTEField;
+        
+        private bool iD_IULOTEFieldSpecified;
+        
+        private string nUMEROPREDIO_IULOTEField;
+        
+        private dDescriptivosPredioIULote dDescriptivosPredio_IULoteField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string CLAVECATASTRALANTIGUO_IULOTE {
+            get {
+                return this.cLAVECATASTRALANTIGUO_IULOTEField;
+            }
+            set {
+                this.cLAVECATASTRALANTIGUO_IULOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string CLAVECATASTRALNUEVO_IULOTE {
+            get {
+                return this.cLAVECATASTRALNUEVO_IULOTEField;
+            }
+            set {
+                this.cLAVECATASTRALNUEVO_IULOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_DDPLOTE {
+            get {
+                return this.iD_DDPLOTEField;
+            }
+            set {
+                this.iD_DDPLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_DDPLOTESpecified {
+            get {
+                return this.iD_DDPLOTEFieldSpecified;
+            }
+            set {
+                this.iD_DDPLOTEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_IULOTE {
+            get {
+                return this.iD_IULOTEField;
+            }
+            set {
+                this.iD_IULOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_IULOTESpecified {
+            get {
+                return this.iD_IULOTEFieldSpecified;
+            }
+            set {
+                this.iD_IULOTEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string NUMEROPREDIO_IULOTE {
+            get {
+                return this.nUMEROPREDIO_IULOTEField;
+            }
+            set {
+                this.nUMEROPREDIO_IULOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public dDescriptivosPredioIULote dDescriptivosPredio_IULote {
+            get {
+                return this.dDescriptivosPredio_IULoteField;
+            }
+            set {
+                this.dDescriptivosPredio_IULoteField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class identificacionLF {
+        
+        private string fORMAADQUISICIONField;
+        
+        private int iD_COP_ILLOTEField;
+        
+        private bool iD_COP_ILLOTEFieldSpecified;
+        
+        private int iD_DIR_ILLOTEField;
+        
+        private bool iD_DIR_ILLOTEFieldSpecified;
+        
+        private int iD_DOC_ILLOTEField;
+        
+        private bool iD_DOC_ILLOTEFieldSpecified;
+        
+        private int iD_ILLOTEField;
+        
+        private bool iD_ILLOTEFieldSpecified;
+        
+        private int iD_PRE_ILLOTEField;
+        
+        private bool iD_PRE_ILLOTEFieldSpecified;
+        
+        private int iD_PROField;
+        
+        private bool iD_PROFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string FORMAADQUISICION {
+            get {
+                return this.fORMAADQUISICIONField;
+            }
+            set {
+                this.fORMAADQUISICIONField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_COP_ILLOTE {
+            get {
+                return this.iD_COP_ILLOTEField;
+            }
+            set {
+                this.iD_COP_ILLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_COP_ILLOTESpecified {
+            get {
+                return this.iD_COP_ILLOTEFieldSpecified;
+            }
+            set {
+                this.iD_COP_ILLOTEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_DIR_ILLOTE {
+            get {
+                return this.iD_DIR_ILLOTEField;
+            }
+            set {
+                this.iD_DIR_ILLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_DIR_ILLOTESpecified {
+            get {
+                return this.iD_DIR_ILLOTEFieldSpecified;
+            }
+            set {
+                this.iD_DIR_ILLOTEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_DOC_ILLOTE {
+            get {
+                return this.iD_DOC_ILLOTEField;
+            }
+            set {
+                this.iD_DOC_ILLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_DOC_ILLOTESpecified {
+            get {
+                return this.iD_DOC_ILLOTEFieldSpecified;
+            }
+            set {
+                this.iD_DOC_ILLOTEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_ILLOTE {
+            get {
+                return this.iD_ILLOTEField;
+            }
+            set {
+                this.iD_ILLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_ILLOTESpecified {
+            get {
+                return this.iD_ILLOTEFieldSpecified;
+            }
+            set {
+                this.iD_ILLOTEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_PRE_ILLOTE {
+            get {
+                return this.iD_PRE_ILLOTEField;
+            }
+            set {
+                this.iD_PRE_ILLOTEField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_PRE_ILLOTESpecified {
+            get {
+                return this.iD_PRE_ILLOTEFieldSpecified;
+            }
+            set {
+                this.iD_PRE_ILLOTEFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_PRO {
+            get {
+                return this.iD_PROField;
+            }
+            set {
+                this.iD_PROField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_PROSpecified {
+            get {
+                return this.iD_PROFieldSpecified;
+            }
+            set {
+                this.iD_PROFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class graficosPF {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class elementosCF {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class economicaF {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class caracterizacionLF {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class caracterizacionCF {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class formulario {
+        
+        private caracterizacionCF caracterizacionC_FField;
+        
+        private caracterizacionLF caracterizacionL_FField;
+        
+        private int codigo_FField;
+        
+        private bool codigo_FFieldSpecified;
+        
+        private economicaF economica_FField;
+        
+        private elementosCF elementosC_FField;
+        
+        private int estado_FField;
+        
+        private bool estado_FFieldSpecified;
+        
+        private graficosPF graficosP_FField;
+        
+        private int idFormularioField;
+        
+        private bool idFormularioFieldSpecified;
+        
+        private int idUsuario_FField;
+        
+        private bool idUsuario_FFieldSpecified;
+        
+        private identificacionLF identificacionL_FField;
+        
+        private identificacionUF identificacionU_FField;
+        
+        private limitesF limites_FField;
+        
+        private mapaF mapa_FField;
+        
+        private mejoraF mejora_FField;
+        
+        private responsablesF responsables_FField;
+        
+        private viviendaF vivienda_FField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public caracterizacionCF caracterizacionC_F {
+            get {
+                return this.caracterizacionC_FField;
+            }
+            set {
+                this.caracterizacionC_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public caracterizacionLF caracterizacionL_F {
+            get {
+                return this.caracterizacionL_FField;
+            }
+            set {
+                this.caracterizacionL_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int codigo_F {
+            get {
+                return this.codigo_FField;
+            }
+            set {
+                this.codigo_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool codigo_FSpecified {
+            get {
+                return this.codigo_FFieldSpecified;
+            }
+            set {
+                this.codigo_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public economicaF economica_F {
+            get {
+                return this.economica_FField;
+            }
+            set {
+                this.economica_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public elementosCF elementosC_F {
+            get {
+                return this.elementosC_FField;
+            }
+            set {
+                this.elementosC_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int estado_F {
+            get {
+                return this.estado_FField;
+            }
+            set {
+                this.estado_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool estado_FSpecified {
+            get {
+                return this.estado_FFieldSpecified;
+            }
+            set {
+                this.estado_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public graficosPF graficosP_F {
+            get {
+                return this.graficosP_FField;
+            }
+            set {
+                this.graficosP_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idFormulario {
+            get {
+                return this.idFormularioField;
+            }
+            set {
+                this.idFormularioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idFormularioSpecified {
+            get {
+                return this.idFormularioFieldSpecified;
+            }
+            set {
+                this.idFormularioFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idUsuario_F {
+            get {
+                return this.idUsuario_FField;
+            }
+            set {
+                this.idUsuario_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idUsuario_FSpecified {
+            get {
+                return this.idUsuario_FFieldSpecified;
+            }
+            set {
+                this.idUsuario_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public identificacionLF identificacionL_F {
+            get {
+                return this.identificacionL_FField;
+            }
+            set {
+                this.identificacionL_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public identificacionUF identificacionU_F {
+            get {
+                return this.identificacionU_FField;
+            }
+            set {
+                this.identificacionU_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public limitesF limites_F {
+            get {
+                return this.limites_FField;
+            }
+            set {
+                this.limites_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public mapaF mapa_F {
+            get {
+                return this.mapa_FField;
+            }
+            set {
+                this.mapa_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public mejoraF mejora_F {
+            get {
+                return this.mejora_FField;
+            }
+            set {
+                this.mejora_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public responsablesF responsables_F {
+            get {
+                return this.responsables_FField;
+            }
+            set {
+                this.responsables_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public viviendaF vivienda_F {
+            get {
+                return this.vivienda_FField;
+            }
+            set {
+                this.vivienda_FField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class formularioIds {
+        
+        private int caracterizacionC_FField;
+        
+        private bool caracterizacionC_FFieldSpecified;
+        
+        private int caracterizacionL_FField;
+        
+        private bool caracterizacionL_FFieldSpecified;
+        
+        private int codigo_FField;
+        
+        private bool codigo_FFieldSpecified;
+        
+        private int economica_FField;
+        
+        private bool economica_FFieldSpecified;
+        
+        private int elementosC_FField;
+        
+        private bool elementosC_FFieldSpecified;
+        
+        private int estado_FField;
+        
+        private bool estado_FFieldSpecified;
+        
+        private int graficosP_FField;
+        
+        private bool graficosP_FFieldSpecified;
+        
+        private int idFormularioField;
+        
+        private bool idFormularioFieldSpecified;
+        
+        private int idUsuario_FField;
+        
+        private bool idUsuario_FFieldSpecified;
+        
+        private int identificacionL_FField;
+        
+        private bool identificacionL_FFieldSpecified;
+        
+        private int identificacionU_FField;
+        
+        private bool identificacionU_FFieldSpecified;
+        
+        private int limites_FField;
+        
+        private bool limites_FFieldSpecified;
+        
+        private int mapa_FField;
+        
+        private bool mapa_FFieldSpecified;
+        
+        private int mejora_FField;
+        
+        private bool mejora_FFieldSpecified;
+        
+        private int responsables_FField;
+        
+        private bool responsables_FFieldSpecified;
+        
+        private int vivienda_FField;
+        
+        private bool vivienda_FFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int caracterizacionC_F {
+            get {
+                return this.caracterizacionC_FField;
+            }
+            set {
+                this.caracterizacionC_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool caracterizacionC_FSpecified {
+            get {
+                return this.caracterizacionC_FFieldSpecified;
+            }
+            set {
+                this.caracterizacionC_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int caracterizacionL_F {
+            get {
+                return this.caracterizacionL_FField;
+            }
+            set {
+                this.caracterizacionL_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool caracterizacionL_FSpecified {
+            get {
+                return this.caracterizacionL_FFieldSpecified;
+            }
+            set {
+                this.caracterizacionL_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int codigo_F {
+            get {
+                return this.codigo_FField;
+            }
+            set {
+                this.codigo_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool codigo_FSpecified {
+            get {
+                return this.codigo_FFieldSpecified;
+            }
+            set {
+                this.codigo_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int economica_F {
+            get {
+                return this.economica_FField;
+            }
+            set {
+                this.economica_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool economica_FSpecified {
+            get {
+                return this.economica_FFieldSpecified;
+            }
+            set {
+                this.economica_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int elementosC_F {
+            get {
+                return this.elementosC_FField;
+            }
+            set {
+                this.elementosC_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool elementosC_FSpecified {
+            get {
+                return this.elementosC_FFieldSpecified;
+            }
+            set {
+                this.elementosC_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int estado_F {
+            get {
+                return this.estado_FField;
+            }
+            set {
+                this.estado_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool estado_FSpecified {
+            get {
+                return this.estado_FFieldSpecified;
+            }
+            set {
+                this.estado_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int graficosP_F {
+            get {
+                return this.graficosP_FField;
+            }
+            set {
+                this.graficosP_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool graficosP_FSpecified {
+            get {
+                return this.graficosP_FFieldSpecified;
+            }
+            set {
+                this.graficosP_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idFormulario {
+            get {
+                return this.idFormularioField;
+            }
+            set {
+                this.idFormularioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idFormularioSpecified {
+            get {
+                return this.idFormularioFieldSpecified;
+            }
+            set {
+                this.idFormularioFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idUsuario_F {
+            get {
+                return this.idUsuario_FField;
+            }
+            set {
+                this.idUsuario_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idUsuario_FSpecified {
+            get {
+                return this.idUsuario_FFieldSpecified;
+            }
+            set {
+                this.idUsuario_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int identificacionL_F {
+            get {
+                return this.identificacionL_FField;
+            }
+            set {
+                this.identificacionL_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool identificacionL_FSpecified {
+            get {
+                return this.identificacionL_FFieldSpecified;
+            }
+            set {
+                this.identificacionL_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int identificacionU_F {
+            get {
+                return this.identificacionU_FField;
+            }
+            set {
+                this.identificacionU_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool identificacionU_FSpecified {
+            get {
+                return this.identificacionU_FFieldSpecified;
+            }
+            set {
+                this.identificacionU_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int limites_F {
+            get {
+                return this.limites_FField;
+            }
+            set {
+                this.limites_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool limites_FSpecified {
+            get {
+                return this.limites_FFieldSpecified;
+            }
+            set {
+                this.limites_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int mapa_F {
+            get {
+                return this.mapa_FField;
+            }
+            set {
+                this.mapa_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool mapa_FSpecified {
+            get {
+                return this.mapa_FFieldSpecified;
+            }
+            set {
+                this.mapa_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int mejora_F {
+            get {
+                return this.mejora_FField;
+            }
+            set {
+                this.mejora_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool mejora_FSpecified {
+            get {
+                return this.mejora_FFieldSpecified;
+            }
+            set {
+                this.mejora_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int responsables_F {
+            get {
+                return this.responsables_FField;
+            }
+            set {
+                this.responsables_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool responsables_FSpecified {
+            get {
+                return this.responsables_FFieldSpecified;
+            }
+            set {
+                this.responsables_FFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int vivienda_F {
+            get {
+                return this.vivienda_FField;
+            }
+            set {
+                this.vivienda_FField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool vivienda_FSpecified {
+            get {
+                return this.vivienda_FFieldSpecified;
+            }
+            set {
+                this.vivienda_FFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class tipoUsuario {
+        
+        private int iD_TIPOUSUARIOField;
+        
+        private bool iD_TIPOUSUARIOFieldSpecified;
+        
+        private string nIVEL_TIPOUSUARIOField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_TIPOUSUARIO {
+            get {
+                return this.iD_TIPOUSUARIOField;
+            }
+            set {
+                this.iD_TIPOUSUARIOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_TIPOUSUARIOSpecified {
+            get {
+                return this.iD_TIPOUSUARIOFieldSpecified;
+            }
+            set {
+                this.iD_TIPOUSUARIOFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string NIVEL_TIPOUSUARIO {
+            get {
+                return this.nIVEL_TIPOUSUARIOField;
+            }
+            set {
+                this.nIVEL_TIPOUSUARIOField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class persona {
+        
+        private string cARGO_PERSONAField;
+        
+        private string cEDULA_PERSONAField;
+        
+        private string cORREO_PERSONAField;
+        
+        private string eMPRESA_PERSONAField;
+        
+        private string fOTO_PERSONAField;
+        
+        private int iD_PERSONAField;
+        
+        private bool iD_PERSONAFieldSpecified;
+        
+        private string pAPELLIDO_PERSONAField;
+        
+        private string pNOMBRE_PERSONAField;
+        
+        private string pROFESION_PERSONAField;
+        
+        private string sAPELLIDO_PERSONAField;
+        
+        private string sNOMBRE_PERSONAField;
+        
+        private string tELEFONO_PERSONAField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string CARGO_PERSONA {
+            get {
+                return this.cARGO_PERSONAField;
+            }
+            set {
+                this.cARGO_PERSONAField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string CEDULA_PERSONA {
+            get {
+                return this.cEDULA_PERSONAField;
+            }
+            set {
+                this.cEDULA_PERSONAField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string CORREO_PERSONA {
+            get {
+                return this.cORREO_PERSONAField;
+            }
+            set {
+                this.cORREO_PERSONAField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string EMPRESA_PERSONA {
+            get {
+                return this.eMPRESA_PERSONAField;
+            }
+            set {
+                this.eMPRESA_PERSONAField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string FOTO_PERSONA {
+            get {
+                return this.fOTO_PERSONAField;
+            }
+            set {
+                this.fOTO_PERSONAField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_PERSONA {
+            get {
+                return this.iD_PERSONAField;
+            }
+            set {
+                this.iD_PERSONAField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_PERSONASpecified {
+            get {
+                return this.iD_PERSONAFieldSpecified;
+            }
+            set {
+                this.iD_PERSONAFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string PAPELLIDO_PERSONA {
+            get {
+                return this.pAPELLIDO_PERSONAField;
+            }
+            set {
+                this.pAPELLIDO_PERSONAField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string PNOMBRE_PERSONA {
+            get {
+                return this.pNOMBRE_PERSONAField;
+            }
+            set {
+                this.pNOMBRE_PERSONAField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string PROFESION_PERSONA {
+            get {
+                return this.pROFESION_PERSONAField;
+            }
+            set {
+                this.pROFESION_PERSONAField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string SAPELLIDO_PERSONA {
+            get {
+                return this.sAPELLIDO_PERSONAField;
+            }
+            set {
+                this.sAPELLIDO_PERSONAField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string SNOMBRE_PERSONA {
+            get {
+                return this.sNOMBRE_PERSONAField;
+            }
+            set {
+                this.sNOMBRE_PERSONAField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string TELEFONO_PERSONA {
+            get {
+                return this.tELEFONO_PERSONAField;
+            }
+            set {
+                this.tELEFONO_PERSONAField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class user {
+        
+        private string cONTRASENIA_USUARIOField;
+        
+        private string eMPRESA_USUARIOField;
+        
+        private int iD_PERSONAField;
+        
+        private bool iD_PERSONAFieldSpecified;
+        
+        private int iD_TIPOUSUARIOField;
+        
+        private bool iD_TIPOUSUARIOFieldSpecified;
+        
+        private int iD_USUARIOField;
+        
+        private bool iD_USUARIOFieldSpecified;
+        
+        private persona personaField;
+        
+        private int sALT_USUARIOField;
+        
+        private bool sALT_USUARIOFieldSpecified;
+        
+        private tipoUsuario tipoUsuarioField;
+        
+        private string uSUARIO_USUARIOField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string CONTRASENIA_USUARIO {
+            get {
+                return this.cONTRASENIA_USUARIOField;
+            }
+            set {
+                this.cONTRASENIA_USUARIOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string EMPRESA_USUARIO {
+            get {
+                return this.eMPRESA_USUARIOField;
+            }
+            set {
+                this.eMPRESA_USUARIOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_PERSONA {
+            get {
+                return this.iD_PERSONAField;
+            }
+            set {
+                this.iD_PERSONAField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_PERSONASpecified {
+            get {
+                return this.iD_PERSONAFieldSpecified;
+            }
+            set {
+                this.iD_PERSONAFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_TIPOUSUARIO {
+            get {
+                return this.iD_TIPOUSUARIOField;
+            }
+            set {
+                this.iD_TIPOUSUARIOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_TIPOUSUARIOSpecified {
+            get {
+                return this.iD_TIPOUSUARIOFieldSpecified;
+            }
+            set {
+                this.iD_TIPOUSUARIOFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ID_USUARIO {
+            get {
+                return this.iD_USUARIOField;
+            }
+            set {
+                this.iD_USUARIOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ID_USUARIOSpecified {
+            get {
+                return this.iD_USUARIOFieldSpecified;
+            }
+            set {
+                this.iD_USUARIOFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public persona persona {
+            get {
+                return this.personaField;
+            }
+            set {
+                this.personaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int SALT_USUARIO {
+            get {
+                return this.sALT_USUARIOField;
+            }
+            set {
+                this.sALT_USUARIOField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SALT_USUARIOSpecified {
+            get {
+                return this.sALT_USUARIOFieldSpecified;
+            }
+            set {
+                this.sALT_USUARIOFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public tipoUsuario tipoUsuario {
+            get {
+                return this.tipoUsuarioField;
+            }
+            set {
+                this.tipoUsuarioField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string USUARIO_USUARIO {
+            get {
+                return this.uSUARIO_USUARIOField;
+            }
+            set {
+                this.uSUARIO_USUARIOField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
     public partial class economiaLote {
         
         private float aVALUOCON_ELOTEField;
@@ -420,32 +2507,6 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    public delegate void helloCompletedEventHandler(object sender, helloCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class helloCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal helloCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void testerAcabadosCompletedEventHandler(object sender, testerAcabadosCompletedEventArgs e);
     
     /// <remarks/>
@@ -500,6 +2561,326 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void listarFormulariosCompletedEventHandler(object sender, listarFormulariosCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class listarFormulariosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal listarFormulariosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public formularioIds[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((formularioIds[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void registarFormularioCompletedEventHandler(object sender, registarFormularioCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class registarFormularioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal registarFormularioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool @return {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool returnSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void helloCompletedEventHandler(object sender, helloCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class helloCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal helloCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void listarFormulariosIdCompletedEventHandler(object sender, listarFormulariosIdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class listarFormulariosIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal listarFormulariosIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public formularioIds[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((formularioIds[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void listarFormularioCompletedEventHandler(object sender, listarFormularioCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class listarFormularioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal listarFormularioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public formulario Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((formulario)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void listarFormularioIntCompletedEventHandler(object sender, listarFormularioIntCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class listarFormularioIntCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal listarFormularioIntCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public formulario Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((formulario)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void editarformularioCompletedEventHandler(object sender, editarformularioCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class editarformularioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal editarformularioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void buscarCodigoFormularioCompletedEventHandler(object sender, buscarCodigoFormularioCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class buscarCodigoFormularioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal buscarCodigoFormularioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public formularioIds Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((formularioIds)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void eliminarFormularioCompletedEventHandler(object sender, eliminarFormularioCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class eliminarFormularioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal eliminarFormularioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void insertarDireccion_DDPLoteCompletedEventHandler(object sender, insertarDireccion_DDPLoteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class insertarDireccion_DDPLoteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal insertarDireccion_DDPLoteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public long Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((long)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void insertarDDescriptivosPredio_IULoteCompletedEventHandler(object sender, insertarDDescriptivosPredio_IULoteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class insertarDDescriptivosPredio_IULoteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal insertarDDescriptivosPredio_IULoteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public long Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((long)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void insertarIdentificacionU_FCompletedEventHandler(object sender, insertarIdentificacionU_FCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class insertarIdentificacionU_FCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal insertarIdentificacionU_FCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public long Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((long)(this.results[0]));
             }
         }
     }

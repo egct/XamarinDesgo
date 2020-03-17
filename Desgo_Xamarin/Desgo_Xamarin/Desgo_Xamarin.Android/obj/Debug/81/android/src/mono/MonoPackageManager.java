@@ -118,6 +118,7 @@ class MonoPackageManager_Resources {
 		"Plugin.Connectivity.dll",
 		"Plugin.CurrentActivity.dll",
 		"Plugin.Geolocator.dll",
+		"Plugin.Media.dll",
 		"Plugin.Permissions.dll",
 		"SQLite-net.dll",
 		"SQLiteNetExtensions.dll",

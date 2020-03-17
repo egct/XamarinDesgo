@@ -19,11 +19,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\DataAccess.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Infrastructure\InstanceLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IServiceForm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IServiceUser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Db\DDescriptivosPredio_IULote.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Db\Direccion_DDPLote.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Db\estadoSqlite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Db\formulario.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Db\formularioAll.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Db\identificacionubicacionlote.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Db\persona.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Db\tipousuario.cs" />
@@ -36,12 +41,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\DataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DialogService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\NavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Sha256Service.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FormPageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HelpPageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HomePageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LoginViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewsModelsForm\ElementosConstructivosModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewsModelsForm\GraficosPredioModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewsModelsForm\IdentificacionUbicacionModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewsModelsForm\IdentificacionLegalModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewsModelsForm\MapasModel.cs" />

@@ -14,6 +14,7 @@ C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xa
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\android\assets\Plugin.Connectivity.dll
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\android\assets\Plugin.CurrentActivity.dll
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\android\assets\Plugin.Geolocator.dll
+C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\android\assets\Plugin.Media.dll
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\android\assets\Plugin.Permissions.dll
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\android\assets\SQLite-net.dll
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\android\assets\SQLiteNetExtensions.dll

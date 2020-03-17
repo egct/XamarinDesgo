@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://servicios.desgo.com.ec/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="WSGestionFormulario" targetNamespace="http://servicios.desgo.com.ec/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com:80/WSGestionFormulario?xsd=1" namespace="http://servicios.desgo.com.ec/" />
+    </xsd:schema>
+  </types>
+  <message name="testerAcabados">
+    <part name="parameters" element="tns:testerAcabados" />
+  </message>
+  <message name="testerAcabadosResponse">
+    <part name="parameters" element="tns:testerAcabadosResponse" />
+  </message>
+  <message name="addEconomia">
+    <part name="parameters" element="tns:addEconomia" />
+  </message>
+  <message name="addEconomiaResponse">
+    <part name="parameters" element="tns:addEconomiaResponse" />
+  </message>
+  <message name="registarFormulario">
+    <part name="parameters" element="tns:registarFormulario" />
+  </message>
+  <message name="registarFormularioResponse">
+    <part name="parameters" element="tns:registarFormularioResponse" />
+  </message>
+  <message name="listarFormularios">
+    <part name="parameters" element="tns:listarFormularios" />
+  </message>
+  <message name="listarFormulariosResponse">
+    <part name="parameters" element="tns:listarFormulariosResponse" />
+  </message>
+  <message name="listarFormulario">
+    <part name="parameters" element="tns:listarFormulario" />
+  </message>
+  <message name="listarFormularioResponse">
+    <part name="parameters" element="tns:listarFormularioResponse" />
+  </message>
+  <message name="editarformulario">
+    <part name="parameters" element="tns:editarformulario" />
+  </message>
+  <message name="editarformularioResponse">
+    <part name="parameters" element="tns:editarformularioResponse" />
+  </message>
+  <message name="buscarCodigoFormulario">
+    <part name="parameters" element="tns:buscarCodigoFormulario" />
+  </message>
+  <message name="buscarCodigoFormularioResponse">
+    <part name="parameters" element="tns:buscarCodigoFormularioResponse" />
+  </message>
+  <message name="eliminarFormulario">
+    <part name="parameters" element="tns:eliminarFormulario" />
+  </message>
+  <message name="eliminarFormularioResponse">
+    <part name="parameters" element="tns:eliminarFormularioResponse" />
+  </message>
+  <message name="insertarDireccion_DDPLote">
+    <part name="parameters" element="tns:insertarDireccion_DDPLote" />
+  </message>
+  <message name="insertarDireccion_DDPLoteResponse">
+    <part name="parameters" element="tns:insertarDireccion_DDPLoteResponse" />
+  </message>
+  <message name="insertarDDescriptivosPredio_IULote">
+    <part name="parameters" element="tns:insertarDDescriptivosPredio_IULote" />
+  </message>
+  <message name="insertarDDescriptivosPredio_IULoteResponse">
+    <part name="parameters" element="tns:insertarDDescriptivosPredio_IULoteResponse" />
+  </message>
+  <message name="insertarIdentificacionU_F">
+    <part name="parameters" element="tns:insertarIdentificacionU_F" />
+  </message>
+  <message name="insertarIdentificacionU_FResponse">
+    <part name="parameters" element="tns:insertarIdentificacionU_FResponse" />
+  </message>
+  <message name="hello">
+    <part name="parameters" element="tns:hello" />
+  </message>
+  <message name="helloResponse">
+    <part name="parameters" element="tns:helloResponse" />
+  </message>
+  <portType name="WSGestionFormulario">
+    <operation name="testerAcabados">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/testerAcabadosRequest" message="tns:testerAcabados" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/testerAcabadosResponse" message="tns:testerAcabadosResponse" />
+    </operation>
+    <operation name="addEconomia">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/addEconomiaRequest" message="tns:addEconomia" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/addEconomiaResponse" message="tns:addEconomiaResponse" />
+    </operation>
+    <operation name="registarFormulario">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/registarFormularioRequest" message="tns:registarFormulario" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/registarFormularioResponse" message="tns:registarFormularioResponse" />
+    </operation>
+    <operation name="listarFormularios">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/listarFormulariosRequest" message="tns:listarFormularios" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/listarFormulariosResponse" message="tns:listarFormulariosResponse" />
+    </operation>
+    <operation name="listarFormulario">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/listarFormularioRequest" message="tns:listarFormulario" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/listarFormularioResponse" message="tns:listarFormularioResponse" />
+    </operation>
+    <operation name="editarformulario">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/editarformularioRequest" message="tns:editarformulario" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/editarformularioResponse" message="tns:editarformularioResponse" />
+    </operation>
+    <operation name="buscarCodigoFormulario">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/buscarCodigoFormularioRequest" message="tns:buscarCodigoFormulario" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/buscarCodigoFormularioResponse" message="tns:buscarCodigoFormularioResponse" />
+    </operation>
+    <operation name="eliminarFormulario">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/eliminarFormularioRequest" message="tns:eliminarFormulario" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/eliminarFormularioResponse" message="tns:eliminarFormularioResponse" />
+    </operation>
+    <operation name="insertarDireccion_DDPLote">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/insertarDireccion_DDPLoteRequest" message="tns:insertarDireccion_DDPLote" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/insertarDireccion_DDPLoteResponse" message="tns:insertarDireccion_DDPLoteResponse" />
+    </operation>
+    <operation name="insertarDDescriptivosPredio_IULote">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/insertarDDescriptivosPredio_IULoteRequest" message="tns:insertarDDescriptivosPredio_IULote" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/insertarDDescriptivosPredio_IULoteResponse" message="tns:insertarDDescriptivosPredio_IULoteResponse" />
+    </operation>
+    <operation name="insertarIdentificacionU_F">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/insertarIdentificacionU_FRequest" message="tns:insertarIdentificacionU_F" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/insertarIdentificacionU_FResponse" message="tns:insertarIdentificacionU_FResponse" />
+    </operation>
+    <operation name="hello">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/helloRequest" message="tns:hello" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/helloResponse" message="tns:helloResponse" />
+    </operation>
+  </portType>
+  <binding name="WSGestionFormularioPortBinding" type="tns:WSGestionFormulario">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="testerAcabados">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="addEconomia">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="registarFormulario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarFormularios">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarFormulario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="editarformulario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarCodigoFormulario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarFormulario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarDireccion_DDPLote">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarDDescriptivosPredio_IULote">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarIdentificacionU_F">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="hello">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WSGestionFormulario">
+    <port name="WSGestionFormularioPort" binding="tns:WSGestionFormularioPortBinding">
+      <soap:address location="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com:80/WSGestionFormulario" />
+    </port>
+  </service>
+</definitions>

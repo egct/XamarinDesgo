@@ -2,10 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Desgo_Xamarin.Views.ViewsForml.ElementosConstructivos"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
              BackgroundColor="{StaticResource FormColor}" >
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="5" Orientation="Vertical">
+        <ScrollView BindingContext="{Binding ElementosConstructivos}">
+            <StackLayout Padding="5" Orientation="Vertical" BindingContext="{Binding Stacklayout}" >
                 <StackLayout Padding="5" BackgroundColor="#245D6F">
                     <Grid VerticalOptions="CenterAndExpand">
                         <Grid.ColumnDefinitions>
@@ -38,7 +39,8 @@
                                 BorderRadius="23" 
                                 HeightRequest="56" 
                                 Text="Agregar" 
-                                TextColor="White">
+                                TextColor="White"
+                                Command="{Binding AgregarECCommand}">
                         </Button>
                         <Button Grid.Row="0" Grid.Column="1"
                                 VerticalOptions="StartAndExpand" 
@@ -58,6 +60,8 @@
                         </Button>
                     </Grid>
                 </Frame>
+                <Label VerticalOptions="Center" Text="NOTA:"/>
+                <Label VerticalOptions="Center" Text="{Binding Mensaje}"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

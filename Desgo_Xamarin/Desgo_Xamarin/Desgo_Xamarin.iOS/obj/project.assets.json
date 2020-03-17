@@ -168,6 +168,18 @@
           "lib/xamarinios10/Plugin.Geolocator.dll": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Forms/4.4.0.991265": {
         "type": "package",
         "compile": {
@@ -531,6 +543,18 @@
         },
         "runtime": {
           "lib/xamarinios10/Plugin.Geolocator.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
         }
       },
       "Xamarin.Forms/4.4.0.991265": {
@@ -898,6 +922,18 @@
           "lib/xamarinios10/Plugin.Geolocator.dll": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Forms/4.4.0.991265": {
         "type": "package",
         "compile": {
@@ -1261,6 +1297,18 @@
         },
         "runtime": {
           "lib/xamarinios10/Plugin.Geolocator.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.Media.dll": {}
         }
       },
       "Xamarin.Forms/4.4.0.991265": {
@@ -2070,6 +2118,31 @@
         "xam.plugin.geolocator.nuspec"
       ]
     },
+    "Xam.Plugin.Media/4.0.1.5": {
+      "sha512": "a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
+      "type": "package",
+      "path": "xam.plugin.media/4.0.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/Plugin.Media.dll",
+        "lib/monoandroid71/Plugin.Media.xml",
+        "lib/netstandard1.0/Plugin.Media.dll",
+        "lib/netstandard1.0/Plugin.Media.xml",
+        "lib/netstandard2.0/Plugin.Media.dll",
+        "lib/netstandard2.0/Plugin.Media.xml",
+        "lib/tizen40/Plugin.Media.dll",
+        "lib/tizen40/Plugin.Media.xml",
+        "lib/uap10.0.10240/Plugin.Media.dll",
+        "lib/uap10.0.10240/Plugin.Media.pri",
+        "lib/uap10.0.10240/Plugin.Media.xml",
+        "lib/xamarinios10/Plugin.Media.dll",
+        "lib/xamarinios10/Plugin.Media.xml",
+        "readme.txt",
+        "xam.plugin.media.4.0.1.5.nupkg.sha512",
+        "xam.plugin.media.nuspec"
+      ]
+    },
     "Xamarin.Forms/4.4.0.991265": {
       "sha512": "FhG5Sq2wzY8A6IzW3iMVVKqQf4G3hry0joDDGnw1SWBQ5cfW6YNpOiuh2wB/BRPoVnO0SuUBY+b1NPXve72NDQ==",
       "type": "package",
@@ -2482,6 +2555,7 @@
       "XLabs.Platform >= 2.0.5782",
       "Xam.Plugin.Connectivity >= 3.2.0",
       "Xam.Plugin.Geolocator >= 4.5.0.6",
+      "Xam.Plugin.Media >= 4.0.1.5",
       "Xamarin.Forms >= 4.4.0.991265",
       "Xamarin.Forms.Maps >= 4.4.0.991265",
       "sqlite-net-pcl >= 1.6.292"
@@ -2555,6 +2629,10 @@
           "Xam.Plugin.Geolocator": {
             "target": "Package",
             "version": "[4.5.0.6, )"
+          },
+          "Xam.Plugin.Media": {
+            "target": "Package",
+            "version": "[4.0.1.5, )"
           },
           "Xamarin.Forms": {
             "target": "Package",

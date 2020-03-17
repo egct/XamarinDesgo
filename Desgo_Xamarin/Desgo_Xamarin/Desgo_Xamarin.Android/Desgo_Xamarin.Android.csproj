@@ -73,6 +73,9 @@
     <PackageReference Include="Xam.Plugin.Geolocator">
       <Version>4.5.0.6</Version>
     </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>4.0.1.5</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
@@ -93,7 +96,13 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\formularioC.cs" />
+    <Compile Include="Class\identificacionubicacionloteC.cs" />
+    <Compile Include="Class\personaC.cs" />
+    <Compile Include="Class\tipousuarioC.cs" />
+    <Compile Include="Class\usuarioC.cs" />
     <Compile Include="Implementations\Config.cs" />
+    <Compile Include="Implementations\ServiceForm.cs" />
     <Compile Include="Implementations\ServiceUser.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -117,6 +126,12 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Web References\AmazonDesgoWebServiceForm1\acabadosEC.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonDesgoWebServiceForm1\formulario.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AmazonDesgoWebServiceForm1\formularioIds.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\AmazonDesgoWebServiceForm1\Reference.map">
@@ -271,6 +286,9 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\xml\file_paths.xml" />
   </ItemGroup>
   <Import Project="..\Desgo_Xamarin\Desgo_Xamarin.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

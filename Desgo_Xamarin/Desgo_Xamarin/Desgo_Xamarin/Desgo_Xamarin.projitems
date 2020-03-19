@@ -24,6 +24,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Class\CCargarDatosBDVista.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Class\CGuardarBDLocal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Class\CPrepararDatosSycn.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Db\DDescriptivosPredio_IULote.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Db\Direccion_DDPLote.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Db\estadoSqlite.cs" />
@@ -299,9 +302,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Models\Class\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ViewsUserLoggedin\ListFormsPageLoggedin.xaml">

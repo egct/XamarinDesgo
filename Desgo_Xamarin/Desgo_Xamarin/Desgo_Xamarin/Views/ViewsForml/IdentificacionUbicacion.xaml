@@ -30,7 +30,7 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="Clave catastral anterior:"/>
-                    <Entry Grid.Row="0" Grid.Column="1" Placeholder="" Keyboard="Numeric" Text="{Binding CLAVECATASTRALANTIGUO_IULOTE}"/>
+                    <Entry Grid.Row="0" Grid.Column="1" Placeholder="" Keyboard="Numeric" Text="{Binding CLAVECATASTRALANTIGUO_IULOTE, Mode=TwoWay}"/>
                     <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Clave catastral Urbana Actual:"/>
                     <Entry Grid.Row="1" Grid.Column="1" Placeholder="" Keyboard="Numeric" Text="{Binding CLAVECATASTRALNUEVO_IULOTE}"/>
                     <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="Número del predio:"/>

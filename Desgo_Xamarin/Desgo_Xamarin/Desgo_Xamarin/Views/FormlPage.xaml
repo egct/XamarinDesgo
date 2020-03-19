@@ -4,9 +4,8 @@
             xmlns:local="clr-namespace:Desgo_Xamarin.Views.ViewsForml"
             x:Class="Desgo_Xamarin.Views.FormlPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             Title="Formulario"
-            >
-        <CarouselPage.Children>
+             Title="Formulario">
+    <CarouselPage.Children>
             <local:IdentificacionUbicacion/>
             <local:IdentificacionLegal/>
             <local:CaracterizacionLote/>
@@ -21,9 +20,11 @@
             <local:Mapa/>
         </CarouselPage.Children>
 
-        <CarouselPage.ToolbarItems>
-        <ToolbarItem x:Name="cargar" Text="{Binding Formularioall.CODIGO_FORMULARIO}" Order="Primary" Priority="0" />
-        <ToolbarItem x:Name="btnRegistrar" Icon="ic_saveForm" Order="Primary" Priority="1" Clicked="BtnRegistrar_Clicked"/>
-
+    <CarouselPage.ToolbarItems>
+        <ToolbarItem Text="{Binding Formularioall.CODIGO_FORMULARIO}" Order="Secondary" Priority="0" />
+        <ToolbarItem Icon="ic_saveForm" Order="Primary" Priority="1" x:Name="btnActualizar" Clicked="BtnActualizar_Clicked"/>
+        <ToolbarItem Icon="ic_playlist_add" Order="Primary" Priority="2" x:Name="btnQuitarActualizar" Clicked="BtnQuitarActualizar_Clicked"/>
+        <ToolbarItem  x:Name="lblmensaje" Priority="3" Order="Secondary" Text="---"></ToolbarItem>
+        
     </CarouselPage.ToolbarItems>
 </CarouselPage>

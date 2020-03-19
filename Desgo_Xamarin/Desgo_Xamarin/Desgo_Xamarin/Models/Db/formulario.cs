@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Desgo_Xamarin.Data;
+using Desgo_Xamarin.Models.Class;
 using Desgo_Xamarin.Services;
 using Desgo_Xamarin.ViewModels;
 using GalaSoft.MvvmLight.Command;
@@ -61,6 +62,8 @@ namespace Desgo_Xamarin.Models.Db
 
         async void SelectFormulario()
         {
+            CCargarDatosBDVista cCargarDatosBDVista = new CCargarDatosBDVista();
+
             try
             {
                 MainViewModel.GetInstance().FormPage = new FormPageModel();
@@ -71,8 +74,8 @@ namespace Desgo_Xamarin.Models.Db
                     formularioAll fall = new formularioAll();
                     fall= datos.getFormularioAllCodigo(CODIGO_FORMULARIO);
                     MainViewModel.GetInstance().Formularioall = fall;
-//                    MainViewModel.GetInstance().Formularioall.identificacionubicacionlote = new identificacionubicacionlote();
                 }
+                cCargarDatosBDVista.cargarIdentificacionUbicacion();
                 await navigationService.NavigateOnMasterLoggedin("FormlPage");
             }
             catch (Exception ex)

@@ -13,14 +13,19 @@ namespace Desgo_Xamarin.ViewModels.ViewsModelsForm
     class IdentificacionUbicacionlModel: INotifyPropertyChanged
     {
         /*******/
+        public int idlote;
+        public int idddplote;
         public string claveCatastralAntiguo;
         public string claveCatastralNuevo;
         public string numeroPredio;
 
+        public int idddploteDd;
+        public int iddlote;
         public string nombreSector;
         public string nombreEdificio;
         public string usoPredio;
-        
+
+        public int iddloteDir;
         public string callePrincipal;
         public string no;
         public string interseccion;
@@ -31,10 +36,26 @@ namespace Desgo_Xamarin.ViewModels.ViewsModelsForm
 
         public formularioAll formularioall { get; set; }
         /********/
+        
+        public int ID_IULOTE
+        {
+            get
+            {
+                return idlote;
+            }   // get method
+            set { idlote = value; }  // set method
+        }
+        public int ID_DDPLOTE
+        {
+            get
+            {
+                return idddplote;
+            }   // get method
+            set { idddplote = value; }  // set method
+        }
         public string CLAVECATASTRALANTIGUO_IULOTE
         {
             get {
-                claveCatastralAntiguo = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.CLAVECATASTRALANTIGUO_IULOTE;
                 return claveCatastralAntiguo;
             }   // get method
             set { claveCatastralAntiguo = value; }  // set method
@@ -43,7 +64,6 @@ namespace Desgo_Xamarin.ViewModels.ViewsModelsForm
         {
             get
             {
-                claveCatastralNuevo = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.CLAVECATASTRALNUEVO_IULOTE;
                 return claveCatastralNuevo;
             }   // get method
             set { claveCatastralNuevo = value; }  // set method
@@ -52,16 +72,31 @@ namespace Desgo_Xamarin.ViewModels.ViewsModelsForm
         {
             get
             {
-                numeroPredio = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.NUMEROPREDIO_IULOTE;
                 return numeroPredio;
             }   // get method
             set { numeroPredio = value; }  // set method
+        }
+
+        public int ID_DDPLOTEDP
+        {
+            get
+            {
+                return idddploteDd;
+            }   // get method
+            set { idddploteDd = value; }  // set method
+        }
+        public int ID_DLOTE
+        {
+            get
+            {
+                return iddlote;
+            }   // get method
+            set { iddlote = value; }  // set method
         }
         public string NOMBRESECTOR_DDPLOTE
         {
             get
             {
-                nombreSector = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.NOMBRESECTOR_DDPLOTE;
                 return nombreSector;
             }   // get method
             set { nombreSector = value; }  // set method
@@ -70,7 +105,6 @@ namespace Desgo_Xamarin.ViewModels.ViewsModelsForm
         {
             get
             {
-                nombreEdificio = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.NOMBREEDIFICIO_DDPLOTE;
                 return nombreEdificio;
             }   // get method
             set { nombreEdificio = value; }  // set method
@@ -79,16 +113,23 @@ namespace Desgo_Xamarin.ViewModels.ViewsModelsForm
         {
             get
             {
-                usoPredio = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.USOPREDIO_DDPLOTE;
                 return usoPredio;
             }   // get method
             set { usoPredio = value; }  // set method
+        }
+
+        public int ID_DLOTEDIR
+        {
+            get
+            {
+                return iddloteDir;
+            }   // get method
+            set { iddloteDir = value; }  // set method
         }
         public string CALLEP_DLOTE
         {
             get
             {
-                callePrincipal = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.dDPLote.CALLEP_DLOTE;
                 return callePrincipal;
             }   // get method
             set { callePrincipal = value; }  // set method
@@ -97,7 +138,6 @@ namespace Desgo_Xamarin.ViewModels.ViewsModelsForm
         {
             get
             {
-                no = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.dDPLote.NO_DLOTE;
                 return no;
             }   // get method
             set { no = value; }  // set method
@@ -106,7 +146,6 @@ namespace Desgo_Xamarin.ViewModels.ViewsModelsForm
         {
             get
             {
-                interseccion = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.dDPLote.INTERSECCION_DLOTE;
                 return interseccion;
             }   // get method
             set { interseccion = value; }  // set method
@@ -132,7 +171,6 @@ namespace Desgo_Xamarin.ViewModels.ViewsModelsForm
         {
             get
             {
-                _myTipoPredioForm = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.TIPOPREDIO_DDPLOTE;
                 return _myTipoPredioForm;
             }
             set
@@ -149,7 +187,6 @@ namespace Desgo_Xamarin.ViewModels.ViewsModelsForm
         {
             get
             {
-                _myRegimenTenenciaForm = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.REGIMENTENECIA_DDPLOTE;
                 return _myRegimenTenenciaForm;
             }
             set
@@ -208,7 +245,7 @@ namespace Desgo_Xamarin.ViewModels.ViewsModelsForm
                     _selectedTipoPredio = value;
                     // Do whatever functionality you want...When a selectedItem is changed..
                     // write code here..
-                    MyTipoPredio = "Selected : " + _selectedTipoPredio.Value;
+                    MyTipoPredio = _selectedTipoPredio.Value;
                 }
             }
         }
@@ -224,7 +261,7 @@ namespace Desgo_Xamarin.ViewModels.ViewsModelsForm
                     _selectedRegimenTenencia = value;
                     // Do whatever functionality you want...When a selectedItem is changed..
                     // write code here..
-                    MyRegimenTenencia = "Selected : " + _selectedRegimenTenencia.Value;
+                    MyRegimenTenencia = _selectedRegimenTenencia.Value;
                 }
             }
         }

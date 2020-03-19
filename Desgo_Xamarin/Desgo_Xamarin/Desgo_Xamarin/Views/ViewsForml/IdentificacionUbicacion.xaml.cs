@@ -168,7 +168,6 @@ namespace Desgo_Xamarin.Views.ViewsForml
                 try
                 {
                     lblmensaje.Text = formvista.CODIGO_FORMULARIO.ToString();
-                    datos.updateCambiosEstadoSqlite(true);
 
                 }
                 catch (Exception ee)
@@ -176,7 +175,6 @@ namespace Desgo_Xamarin.Views.ViewsForml
                     lblmensaje.Text = ee.Message;
 
                 }
-                datos.deleteTable();
             }
 
         }

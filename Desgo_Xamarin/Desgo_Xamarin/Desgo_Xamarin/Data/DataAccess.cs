@@ -268,6 +268,19 @@ namespace Desgo_Xamarin.Data
             connection.DropTable<formularioAll>();
 
         }
+        /******Actualizar Identificacion Ubicacion********/
+        public void updateIdentificacionUbicacion(identificacionubicacionlote model)
+        {
+            connection.Update(model);
+        }
+        public void updateDDescriptivosPredio_IULote(DDescriptivosPredio_IULote model)
+        {
+            connection.Update(model);
+        }
+        public void updateDireccion_DDPLote(Direccion_DDPLote model)
+        {
+            connection.Update(model);
+        }
     }
 
 }

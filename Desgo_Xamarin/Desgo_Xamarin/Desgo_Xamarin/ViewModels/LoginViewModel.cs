@@ -320,6 +320,8 @@ namespace Desgo_Xamarin.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Bienvenido",
                   ">>" + usuar.USUARIO_USUARIO,
                   "Accept");
+                MainViewModel.GetInstance().IsEnabledSincronizacion = true;
+                MainViewModel.GetInstance().EstadoSincronizacion = "Sincronizar";
                 MainViewModel.GetInstance().User = usuar;
                 MainViewModel.GetInstance().Formularioall = new formularioAll();
                 MainViewModel.GetInstance().EstadoConnection = true;
@@ -424,6 +426,9 @@ namespace Desgo_Xamarin.ViewModels
 
                     }
                     usuar = resultado;
+
+                    MainViewModel.GetInstance().IsEnabledSincronizacion = true;
+                    MainViewModel.GetInstance().EstadoSincronizacion = "Sincronizar";
                     MainViewModel.GetInstance().User = usuar;
                     MainViewModel.GetInstance().Formularioall = new formularioAll();
                     MainViewModel.GetInstance().EstadoConnection = true;
@@ -496,6 +501,8 @@ namespace Desgo_Xamarin.ViewModels
                     await Application.Current.MainPage.DisplayAlert("Bienvenido",
                    ">>" + resultado.USUARIO_USUARIO,
                    "Accept");
+                    MainViewModel.GetInstance().IsEnabledSincronizacion = true;
+                    MainViewModel.GetInstance().EstadoSincronizacion = "Sincronizar";
                     MainViewModel.GetInstance().GraficosPredio = new ViewsModelsForm.GraficosPredioModel();
                     MainViewModel.GetInstance().ElementosConstructivos = new ViewsModelsForm.ElementosConstructivosModel();
                     usuar = resultado;

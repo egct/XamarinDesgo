@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Desgo_Xamarin.ViewModels;
+using Desgo_Xamarin.ViewModels.ViewsModelsForm;
+using Desgo_Xamarin.Models.Class;
 
 namespace Desgo_Xamarin.Views
 {
@@ -18,22 +21,43 @@ namespace Desgo_Xamarin.Views
 		public FormlPage ()
 		{
 			InitializeComponent ();
-            
+         
         }
 
-        private void BtnRegistrar_Clicked(object sender, EventArgs e)
+        private void BtnActualizar_Clicked(object sender, EventArgs e)
         {
+            CGuardarBDLocal cGuardarBDLocal = new CGuardarBDLocal();  
             try
             {
-                using (DataAccess datos = new DataAccess())
+                if (cGuardarBDLocal.guardarIdentificacionUbicacion())
                 {
-                    SQLiteConnection connection=datos.SQLiteConnection();
-                //    connection.Query<>
+                    lblmensaje.Text = "Base de datos local Actualizada";
+                }
+                else
+                {
+                    lblmensaje.Text = "Base de datos local no se actualizo";
+
                 }
             }
-            catch (Exception ex)
+            catch (Exception ee)
             {
-              //  lblmensaje.Text = e.Message + aux + ">";
+                lblmensaje.Text = ee.Message;
+            }
+        }
+
+        private void BtnQuitarActualizar_Clicked(object sender, EventArgs e)
+        {
+            using (DataAccess datos = new DataAccess())
+            {
+                try
+                {
+                    datos.updateCambiosEstadoSqlite(false);
+                    lblmensaje.Text = "Base de datos local sin Actualizar";
+                }
+                catch (Exception ee)
+                {
+                    lblmensaje.Text = ee.Message;
+                }
             }
         }
     }

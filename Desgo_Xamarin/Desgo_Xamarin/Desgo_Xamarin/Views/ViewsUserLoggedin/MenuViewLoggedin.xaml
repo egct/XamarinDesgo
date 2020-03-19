@@ -38,6 +38,7 @@
                     BackgroundColor = "Gray"
                     Text="{Binding MessageTypeConnection}">
                 </Label>
+                <Button VerticalOptions="StartAndExpand" BackgroundColor="DarkSlateGray" BorderRadius="23" HeightRequest="46" IsEnabled="{Binding IsEnabledSincronizacion,Mode=TwoWay}" Text="{Binding EstadoSincronizacion}" TextColor="White" Command="{Binding SincronizacionCommand}"></Button>
                 <ListView 
                 BackgroundColor="{StaticResource FontColor}" 
                 ItemsSource="{Binding MyMenuLoggedin}" 

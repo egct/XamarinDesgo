@@ -10,6 +10,8 @@ namespace Desgo_Xamarin.Interfaces
          List<formulario> listarFormularios(int usuario);
          formularioAll listarFormulariosAll(int codigo, int codigo2 ,int codigo3);
         bool sincronizarBD(List<formularioAll> form);
+
+        string pruebaConAws();
          
     }
 }

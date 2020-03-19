@@ -4,6 +4,8 @@
   <xs:element name="addEconomiaResponse" type="tns:addEconomiaResponse" />
   <xs:element name="buscarCodigoFormulario" type="tns:buscarCodigoFormulario" />
   <xs:element name="buscarCodigoFormularioResponse" type="tns:buscarCodigoFormularioResponse" />
+  <xs:element name="cambiopruebaAWS" type="tns:cambiopruebaAWS" />
+  <xs:element name="cambiopruebaAWSResponse" type="tns:cambiopruebaAWSResponse" />
   <xs:element name="editarformulario" type="tns:editarformulario" />
   <xs:element name="editarformularioResponse" type="tns:editarformularioResponse" />
   <xs:element name="eliminarFormulario" type="tns:eliminarFormulario" />
@@ -298,6 +300,23 @@
   <xs:complexType name="insertarDDescriptivosPredio_IULoteResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cambiopruebaAWS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="pruebaaws" type="tns:pruebaAws" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pruebaAws">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="hora" type="xs:int" />
+      <xs:element minOccurs="0" name="idPrueba" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cambiopruebaAWSResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarIdentificacionU_F">

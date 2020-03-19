@@ -524,5 +524,15 @@ namespace Desgo_Xamarin.ViewModels
             }
         }
         #endregion
+
+        private async void LoginPrueba() {
+            var servicio = DependencyService.Get<IServiceForm>();
+            var resultado = servicio.pruebaConAws();
+            await Application.Current.MainPage.DisplayAlert("AWS",
+            "Resultado"+resultado.ToString(),
+            "Accept");
+            return;
+
+        }
     }
 }

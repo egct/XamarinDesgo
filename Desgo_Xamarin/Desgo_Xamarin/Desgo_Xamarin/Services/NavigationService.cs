@@ -27,21 +27,6 @@ namespace Desgo_Xamarin.Services
                 
             }
         }
-        //public void SetMainPage(string pageName, usuario user)
-        //{
-        //    switch (pageName)
-        //    {
-        //        case "LoginPage":
-        //            Application.Current.MainPage = new NavigationPage(new LoginPage());
-        //            break;
-        //        case "MasterPage1":
-        //            Application.Current.MainPage = new MasterPage1();
-        //            break;
-        //        case "MasterPage1Loggedin":
-        //            Application.Current.MainPage = new MasterPage1Loggedin(user);
-        //            break;
-        //    }
-        //}
 
         public async Task NavigateOnMaster(string pageName)
         {
@@ -61,10 +46,6 @@ namespace Desgo_Xamarin.Services
                     await App.Navigator.PushAsync(
                         new LoginPage());
                     break;
-/*                case "FormlPage":
-                    await App.Navigator.PushAsync(
-                        new FormlPage());
-                    break;*/
             }
         }
         public async Task NavigateOnMasterLoggedin(string pageName)
@@ -73,6 +54,10 @@ namespace Desgo_Xamarin.Services
 
             switch (pageName)
             {
+                case "AvanceForms":
+                    await App.Navigator.PushAsync(
+                        new AvancesFormLoggedin());
+                    break;
                 case "HelpPage":
                     await App.Navigator.PushAsync(
                         new HelpPage());
@@ -95,54 +80,7 @@ namespace Desgo_Xamarin.Services
                     break; 
             }
         }
-        public async Task NavigateOnMasterLoggedin(string pageName, persona per, usuario us)
-        {
-            App.Masterloggedin.IsPresented = false;
 
-            switch (pageName)
-            {
-                case "HelpPage":
-                    await App.Navigator.PushAsync(
-                        new HelpPage());
-                    break;
-                case "HomePage":
-                    await App.Navigator.PushAsync(
-                        new HomePage());
-                    break;
-                case "LoginPage":
-                    await App.Navigator.PushAsync(
-                        new LoginPage());
-                    break;
-                case "FormlPage":
-                    await App.Navigator.PushAsync(
-                        new FormlPage());
-                    break;
-                case "MyFormsPage":
-                    await App.Navigator.PushAsync(
-                        new MyFormsPageLoggedin());
-                    break;
-            }
-        }
-
-        public async Task NavigateOnLogin(string pageName)
-        {
-            switch (pageName)
-            {
-                case "MasterPage1":
-                    await Application.Current.MainPage.Navigation.PushAsync(
-                        new MasterPage1());
-                    break;
-            }
-        }
-
-        public async Task BackOnMaster()
-        {
-            await App.Navigator.PopAsync();
-        }
-
-        public async Task BackOnLogin()
-        {
-            await Application.Current.MainPage.Navigation.PopAsync();
-        }
+       
     }
 }

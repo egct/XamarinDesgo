@@ -330,6 +330,9 @@
       </CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\InicioSKey.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\Desgo_Xamarin\Desgo_Xamarin.projitems" Label="Shared" />
 </Project>

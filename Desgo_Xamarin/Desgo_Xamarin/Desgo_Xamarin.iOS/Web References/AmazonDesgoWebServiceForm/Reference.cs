@@ -29,15 +29,15 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
     [System.Web.Services.WebServiceBindingAttribute(Name="WSGestionFormularioPortBinding", Namespace="http://servicios.desgo.com.ec/")]
     public partial class WSGestionFormulario : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback helloOperationCompleted;
+        
         private System.Threading.SendOrPostCallback testerAcabadosOperationCompleted;
         
         private System.Threading.SendOrPostCallback addEconomiaOperationCompleted;
         
-        private System.Threading.SendOrPostCallback listarFormulariosOperationCompleted;
-        
         private System.Threading.SendOrPostCallback registarFormularioOperationCompleted;
         
-        private System.Threading.SendOrPostCallback helloOperationCompleted;
+        private System.Threading.SendOrPostCallback listarFormulariosOperationCompleted;
         
         private System.Threading.SendOrPostCallback listarFormulariosIdOperationCompleted;
         
@@ -56,6 +56,8 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
         private System.Threading.SendOrPostCallback insertarDDescriptivosPredio_IULoteOperationCompleted;
         
         private System.Threading.SendOrPostCallback insertarIdentificacionU_FOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback cambiopruebaAWSOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -97,19 +99,19 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
         }
         
         /// <remarks/>
+        public event helloCompletedEventHandler helloCompleted;
+        
+        /// <remarks/>
         public event testerAcabadosCompletedEventHandler testerAcabadosCompleted;
         
         /// <remarks/>
         public event addEconomiaCompletedEventHandler addEconomiaCompleted;
         
         /// <remarks/>
-        public event listarFormulariosCompletedEventHandler listarFormulariosCompleted;
-        
-        /// <remarks/>
         public event registarFormularioCompletedEventHandler registarFormularioCompleted;
         
         /// <remarks/>
-        public event helloCompletedEventHandler helloCompleted;
+        public event listarFormulariosCompletedEventHandler listarFormulariosCompleted;
         
         /// <remarks/>
         public event listarFormulariosIdCompletedEventHandler listarFormulariosIdCompleted;
@@ -137,6 +139,39 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
         
         /// <remarks/>
         public event insertarIdentificacionU_FCompletedEventHandler insertarIdentificacionU_FCompleted;
+        
+        /// <remarks/>
+        public event cambiopruebaAWSCompletedEventHandler cambiopruebaAWSCompleted;
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string hello([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string name) {
+            object[] results = this.Invoke("hello", new object[] {
+                        name});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void helloAsync(string name) {
+            this.helloAsync(name, null);
+        }
+        
+        /// <remarks/>
+        public void helloAsync(string name, object userState) {
+            if ((this.helloOperationCompleted == null)) {
+                this.helloOperationCompleted = new System.Threading.SendOrPostCallback(this.OnhelloOperationCompleted);
+            }
+            this.InvokeAsync("hello", new object[] {
+                        name}, this.helloOperationCompleted, userState);
+        }
+        
+        private void OnhelloOperationCompleted(object arg) {
+            if ((this.helloCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.helloCompleted(this, new helloCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -200,36 +235,6 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public formularioIds[] listarFormularios([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] user user) {
-            object[] results = this.Invoke("listarFormularios", new object[] {
-                        user});
-            return ((formularioIds[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void listarFormulariosAsync(user user) {
-            this.listarFormulariosAsync(user, null);
-        }
-        
-        /// <remarks/>
-        public void listarFormulariosAsync(user user, object userState) {
-            if ((this.listarFormulariosOperationCompleted == null)) {
-                this.listarFormulariosOperationCompleted = new System.Threading.SendOrPostCallback(this.OnlistarFormulariosOperationCompleted);
-            }
-            this.InvokeAsync("listarFormularios", new object[] {
-                        user}, this.listarFormulariosOperationCompleted, userState);
-        }
-        
-        private void OnlistarFormulariosOperationCompleted(object arg) {
-            if ((this.listarFormulariosCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.listarFormulariosCompleted(this, new listarFormulariosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public void registarFormulario([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] user us, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] formularioIds form, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] out bool @return, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] [System.Xml.Serialization.XmlIgnoreAttribute()] out bool returnSpecified) {
             object[] results = this.Invoke("registarFormulario", new object[] {
                         us,
@@ -263,30 +268,30 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string hello([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string name) {
-            object[] results = this.Invoke("hello", new object[] {
-                        name});
-            return ((string)(results[0]));
+        public formularioIds[] listarFormularios([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] user user) {
+            object[] results = this.Invoke("listarFormularios", new object[] {
+                        user});
+            return ((formularioIds[])(results[0]));
         }
         
         /// <remarks/>
-        public void helloAsync(string name) {
-            this.helloAsync(name, null);
+        public void listarFormulariosAsync(user user) {
+            this.listarFormulariosAsync(user, null);
         }
         
         /// <remarks/>
-        public void helloAsync(string name, object userState) {
-            if ((this.helloOperationCompleted == null)) {
-                this.helloOperationCompleted = new System.Threading.SendOrPostCallback(this.OnhelloOperationCompleted);
+        public void listarFormulariosAsync(user user, object userState) {
+            if ((this.listarFormulariosOperationCompleted == null)) {
+                this.listarFormulariosOperationCompleted = new System.Threading.SendOrPostCallback(this.OnlistarFormulariosOperationCompleted);
             }
-            this.InvokeAsync("hello", new object[] {
-                        name}, this.helloOperationCompleted, userState);
+            this.InvokeAsync("listarFormularios", new object[] {
+                        user}, this.listarFormulariosOperationCompleted, userState);
         }
         
-        private void OnhelloOperationCompleted(object arg) {
-            if ((this.helloCompleted != null)) {
+        private void OnlistarFormulariosOperationCompleted(object arg) {
+            if ((this.listarFormulariosCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.helloCompleted(this, new helloCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.listarFormulariosCompleted(this, new listarFormulariosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -569,6 +574,36 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string cambiopruebaAWS([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] pruebaAws pruebaaws) {
+            object[] results = this.Invoke("cambiopruebaAWS", new object[] {
+                        pruebaaws});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void cambiopruebaAWSAsync(pruebaAws pruebaaws) {
+            this.cambiopruebaAWSAsync(pruebaaws, null);
+        }
+        
+        /// <remarks/>
+        public void cambiopruebaAWSAsync(pruebaAws pruebaaws, object userState) {
+            if ((this.cambiopruebaAWSOperationCompleted == null)) {
+                this.cambiopruebaAWSOperationCompleted = new System.Threading.SendOrPostCallback(this.OncambiopruebaAWSOperationCompleted);
+            }
+            this.InvokeAsync("cambiopruebaAWS", new object[] {
+                        pruebaaws}, this.cambiopruebaAWSOperationCompleted, userState);
+        }
+        
+        private void OncambiopruebaAWSOperationCompleted(object arg) {
+            if ((this.cambiopruebaAWSCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.cambiopruebaAWSCompleted(this, new cambiopruebaAWSCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -735,6 +770,80 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
             }
             set {
                 this.vENTANA_ACField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://servicios.desgo.com.ec/")]
+    public partial class pruebaAws {
+        
+        private int horaField;
+        
+        private bool horaFieldSpecified;
+        
+        private int idPruebaField;
+        
+        private bool idPruebaFieldSpecified;
+        
+        private string nombreField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int hora {
+            get {
+                return this.horaField;
+            }
+            set {
+                this.horaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool horaSpecified {
+            get {
+                return this.horaFieldSpecified;
+            }
+            set {
+                this.horaFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int idPrueba {
+            get {
+                return this.idPruebaField;
+            }
+            set {
+                this.idPruebaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idPruebaSpecified {
+            get {
+                return this.idPruebaFieldSpecified;
+            }
+            set {
+                this.idPruebaFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
             }
         }
     }
@@ -2507,6 +2616,32 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void helloCompletedEventHandler(object sender, helloCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class helloCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal helloCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void testerAcabadosCompletedEventHandler(object sender, testerAcabadosCompletedEventArgs e);
     
     /// <remarks/>
@@ -2567,32 +2702,6 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    public delegate void listarFormulariosCompletedEventHandler(object sender, listarFormulariosCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class listarFormulariosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal listarFormulariosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public formularioIds[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((formularioIds[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void registarFormularioCompletedEventHandler(object sender, registarFormularioCompletedEventArgs e);
     
     /// <remarks/>
@@ -2627,26 +2736,26 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    public delegate void helloCompletedEventHandler(object sender, helloCompletedEventArgs e);
+    public delegate void listarFormulariosCompletedEventHandler(object sender, listarFormulariosCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class helloCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class listarFormulariosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal helloCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal listarFormulariosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public string Result {
+        public formularioIds[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
+                return ((formularioIds[])(this.results[0]));
             }
         }
     }
@@ -2881,6 +2990,32 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebServiceForm {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((long)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void cambiopruebaAWSCompletedEventHandler(object sender, cambiopruebaAWSCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class cambiopruebaAWSCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal cambiopruebaAWSCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

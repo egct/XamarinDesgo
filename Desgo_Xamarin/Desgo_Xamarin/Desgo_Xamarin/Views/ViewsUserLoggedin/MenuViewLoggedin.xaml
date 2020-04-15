@@ -22,23 +22,41 @@
                 Grid.ColumnSpan="4"
                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
             />
-            <Label
-                FontSize="Large"
-                Text="Bienvenido:"
-                TextColor="{StaticResource BackgroundColor}">
-            </Label>
-                <Label
+                <Grid VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0"
+                    FontSize="Large"
+                    Text="Bienvenido:"
+                    TextColor="{StaticResource BackgroundColor}">
+                    </Label>
+                    <Label Grid.Row="0" Grid.Column="1"
                     FontSize="Large"
                     BackgroundColor = "LightGray"
                     TextColor="Black"
                     Text="{Binding User.USUARIO_USUARIO}">
-                </Label>
-                <Label
+                    </Label>
+                    <Label Grid.Row="1" Grid.Column="0"
                     FontSize="Large"
-                    BackgroundColor = "Gray"
-                    Text="{Binding MessageTypeConnection}">
-                </Label>
-                <Button VerticalOptions="StartAndExpand" BackgroundColor="DarkSlateGray" BorderRadius="23" HeightRequest="46" IsEnabled="{Binding IsEnabledSincronizacion,Mode=TwoWay}" Text="{Binding EstadoSincronizacion}" TextColor="White" Command="{Binding SincronizacionCommand}"></Button>
+                    Text="Modo:"
+                    TextColor="{StaticResource BackgroundColor}">
+                    </Label>
+                    <Label Grid.Row="1" Grid.Column="1"
+                        FontSize="Large"
+                        BackgroundColor = "Gray"
+                        Text="{Binding MessageTypeConnection}">
+                    </Label>
+                </Grid>
+                <Grid VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ActivityIndicator Grid.Row="0" Grid.Column="1"  VerticalOptions="CenterAndExpand" IsRunning="{Binding IsRunningSincronizacion, Mode=TwoWay}"></ActivityIndicator>
+                    <Button Grid.Row="0" Grid.Column="0" VerticalOptions="StartAndExpand" BackgroundColor="DarkSlateGray" BorderRadius="23" HeightRequest="46" IsEnabled="{Binding IsEnabledSincronizacion,Mode=TwoWay}" Text="{Binding EstadoSincronizacion}" TextColor="White" Command="{Binding SincronizacionCommand}"></Button>
+                </Grid>
                 <ListView 
                 BackgroundColor="{StaticResource FontColor}" 
                 ItemsSource="{Binding MyMenuLoggedin}" 

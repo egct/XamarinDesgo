@@ -130,6 +130,7 @@
     <Content Include="Assets\ic_settings.png" />
     <Content Include="Assets\Identificacion_Legal.png" />
     <Content Include="Assets\Identificacion_Ubicacion.png" />
+    <Content Include="Assets\InicioSKey.jpg" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />

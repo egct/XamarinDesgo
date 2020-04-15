@@ -131,20 +131,21 @@ namespace Desgo_Xamarin.ViewModels
 
         private async void Login()
         {
+            this.IsRunning = true;
             var connection = await apiService.CheckConnection();
             
             if (string.IsNullOrEmpty(this.Usuario))
             {
                 await Application.Current.MainPage.DisplayAlert("Error",
                     "Ingrese un usuario",
-                    "Accept");
+                    "Aceptar");
                 return;
             }
             if (string.IsNullOrEmpty(this.Password))
             {
                 await Application.Current.MainPage.DisplayAlert("Error",
                     "Ingrese una contraseña",
-                    "Accept");
+                    "Aceptar");
                 return;
             }
             this.IsRunning = true;
@@ -156,8 +157,11 @@ namespace Desgo_Xamarin.ViewModels
             }
             else
             {
-                if (!connection.IsSuccess)
+                /**Con internet***/
+                if (!connection.IsSuccess)//verifico si existe en verdad internet
                 {
+                    /**Se quizo inciar sesion con la opcion online pero No existe internet**/
+                    //verificamos si existe un usuario almacenado 
                     using (DataAccess datos = new DataAccess())
                     {
                         try
@@ -166,23 +170,23 @@ namespace Desgo_Xamarin.ViewModels
                             estadosqlite = datos.getEstadoSqlite();
                             if (estadosqlite != null)
                             {
-                                await Application.Current.MainPage.DisplayAlert("Alert",
+                                await Application.Current.MainPage.DisplayAlert("Alerta",
                               "Sin conexión a internet, se sugiere activar el modo offline para iniciar sesión",
-                              "Accept");
+                              "Aceptar");
                             }
                             else
                             {
-                                await Application.Current.MainPage.DisplayAlert("Alert",
+                                await Application.Current.MainPage.DisplayAlert("Alerta",
                                 "Verifique su conexión a Internet.",
-                                "Accept");
+                                "Aceptar");
                                 
                             }
                         }
                         catch (Exception ex)
                         {
                             await Application.Current.MainPage.DisplayAlert("Error",
-                           ">>" + usuar.CONTRASENIA_USUARIO + ">" + usuar.USUARIO_USUARIO + "..." + ex,
-                           "Accept");
+                           "No se inicio sesión, Intentelo de nuevo",
+                           "Aceptar");
                         }
                     }
                 }
@@ -198,32 +202,33 @@ namespace Desgo_Xamarin.ViewModels
                         catch (Exception ex)
                         {
                             await Application.Current.MainPage.DisplayAlert("Error",
-                           "In Command SQLITE: "+ex,
-                           "Accept");
+                           "No se inicio sesión, Intentelo de nuevo",
+                           "Aceptar");
                         }
                     }
                     if (estadosqlite==null)
                     {
+                        /**cuando no existe usuario almacenado, se carga toda la info del usuario desde 0 sincroniza*/
                         await LoadLoginAPIempty();
                     }
                     else
                     {
-
+                        /**Existe usuario almacenado, verifica si es el mismo usuario o si quiere ingresar con otro usuario*/
                         if (estadosqlite.USUARIO_USUARIO==this.Usuario)
                         {
+                            //usuarios iguales carga de nuevo toda la base
                             await LoadLoginNormalInternet();
                         }
                         else
                         {
-                            var action=await Application.Current.MainPage.DisplayAlert("Alert",
-                            "Desea ingresar con un nuevo usuario?, los datos almacenados del usuario <<" + estadosqlite.USUARIO_USUARIO + ">> se perderan. ",
-                            "Accept","Cancel");
+                            //pregunta si desea ingresar con otro usuario.
+                            var action=await Application.Current.MainPage.DisplayAlert("Alerta",
+                            "Desea ingresar con un nuevo usuario?, los datos almacenados del Usuario: " + estadosqlite.USUARIO_USUARIO + " se perderan. ",
+                            "Aceptar","Cancelar");
                             if (action)
                             {
-                                //  Navigate to first page
-                                //                                System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
-                                
-                                if (estadosqlite.CAMBIOS_ESTADOSQLITE == false)
+                                //Si acepta ingresar con otro usuario elimina los datos almacenados del usuario anterior
+                                if (estadosqlite.CAMBIOS_ESTADOSQLITE == false)//si no existe cambios sin sicronizar elimina todos los datos y lo carga del  nuevo usuario
                                 {
                                     using (DataAccess datos = new DataAccess())
                                     {
@@ -233,9 +238,10 @@ namespace Desgo_Xamarin.ViewModels
                                 }
                                 else
                                 {
-                                    var action2 = await Application.Current.MainPage.DisplayAlert("Alert",
-                                                        "Existen cambios que no se han sincronizado del usuario <<" + estadosqlite.USUARIO_USUARIO + ">>, Esta seguro que desea iniciar sesión?",
-                                                        "Accept", "Cancel");
+                                    //si existen cambios sin sicronizar pregunta si desea perder esos datos
+                                    var action2 = await Application.Current.MainPage.DisplayAlert("Alerta",
+                                                        "Existen cambios que no se han sincronizado del Usuario:" + estadosqlite.USUARIO_USUARIO + ", esta seguro que desea iniciar sesión?",
+                                                        "Aceptar", "Cancelar");
                                     if (action2)
                                     {
                                         using (DataAccess datos = new DataAccess())
@@ -281,25 +287,22 @@ namespace Desgo_Xamarin.ViewModels
                     estadosqlite = datos.getEstadoSqlite();
                     if (estadosqlite != null)
                     {
-                        int saltus = estadosqlite.SALT_USUARIO;//datos.getUsuarioSalt(this.Usuario);
-                                                               //await Application.Current.MainPage.DisplayAlert("Error",
-                                                               //"sha256>" + sha256.ComputeSha256Hash(saltus + this.Password)+ "sal>"+saltus +"pass>"+ this.Password,
-                                                               //"Accept");
+                        int saltus = estadosqlite.SALT_USUARIO;
                         usuar = datos.getUsuario(sha256.ComputeSha256Hash(saltus + this.Password), this.Usuario);
                     }
                     else
                     {
                         await Application.Current.MainPage.DisplayAlert("Error, no existe usuarios almacenados",
                         "Deber iniciar sesion en modo online y cargar un usuario primero.",
-                        "Accept");
+                        "Aceptar");
                         return;
                     }
                 }
                 catch (Exception ex)
                 {
                     await Application.Current.MainPage.DisplayAlert("Error",
-                   ">>" + usuar.CONTRASENIA_USUARIO + ">" + usuar.USUARIO_USUARIO+"..."+ex,
-                   "Accept");
+                   "No se inicio sesión, Intentelo de nuevo",
+                   "Aceptar");
                 }
             }
 
@@ -309,8 +312,8 @@ namespace Desgo_Xamarin.ViewModels
                 this.IsEnabled = true;
 
                     await Application.Current.MainPage.DisplayAlert("Error",
-                    "Usuario o Contraseña incorrecto",
-                    "Accept");
+                    "Usuario o Contraseña incorrectos",
+                    "Aceptar");
                 this.Password = string.Empty;
                 this.Usuario = string.Empty;
                 return;
@@ -318,8 +321,8 @@ namespace Desgo_Xamarin.ViewModels
             else
             {
                 await Application.Current.MainPage.DisplayAlert("Bienvenido",
-                  ">>" + usuar.USUARIO_USUARIO,
-                  "Accept");
+                  "Usuario:" + usuar.USUARIO_USUARIO,
+                  "Aceptar");
                 MainViewModel.GetInstance().IsEnabledSincronizacion = true;
                 MainViewModel.GetInstance().EstadoSincronizacion = "Sincronizar";
                 MainViewModel.GetInstance().User = usuar;
@@ -342,19 +345,18 @@ namespace Desgo_Xamarin.ViewModels
 
             try
             {
+                //se conecta a AWS para verificar si el usuario existe en la base de datos de Amazon
                 var servicio = DependencyService.Get<IServiceUser>();
                 var resultado = servicio.validarUsuarioAmazon(this.Usuario, this.Password);
                 if (resultado == null)
                 {
                     await Application.Current.MainPage.DisplayAlert("Error",
                        "No existe el usuario",
-                       "Accept");
+                       "Aceptar");
                 }
                 else
                 {
-                    await Application.Current.MainPage.DisplayAlert("Bienvenido",
-                   ">>"+resultado.USUARIO_USUARIO,
-                   "Accept");
+                    //comienza a almacenar los datos del AWS en la base sqlite
                     using (DataAccess datos = new DataAccess())
                     {
                         estadoSqlite eqlite = new estadoSqlite();
@@ -369,13 +371,6 @@ namespace Desgo_Xamarin.ViewModels
                         datos.Insert(resultado.PERSONA_PERSONA);
                         datos.Insertusuario(resultado);
                         datos.InsertipoUser(resultado.TipoUsuario_PERSONA);
-                        //formulario form = new formulario()
-                        //{
-                        //    ID_FORMULARIO = 3,
-                        //    CODIGO_FORMULARIO = Int32.Parse("1723953051"),
-                        //    ID_USUARIO = resultado.ID_USUARIO
-                        //};
-                        //datos.Insertformulario(form);
                         usuario usresult = new usuario()
                         {
                             ID_USUARIO=resultado.ID_USUARIO,
@@ -388,13 +383,13 @@ namespace Desgo_Xamarin.ViewModels
 
                         };
                         var servicioForm = DependencyService.Get<IServiceForm>();
-                        await Application.Current.MainPage.DisplayAlert("AWS",
-                       "IdU" + resultado.ID_USUARIO + "idP" + resultado.ID_PERSONA + "idTp" + resultado.ID_TIPOUSUARIO,
-                       "Accept");
+                       // await Application.Current.MainPage.DisplayAlert("AWS",
+                       //"IdU" + resultado.ID_USUARIO + "idP" + resultado.ID_PERSONA + "idTp" + resultado.ID_TIPOUSUARIO,
+                       //"Accept");
                         List<formulario> resultadoForms = servicioForm.listarFormularios(usresult.ID_USUARIO);
-                        await Application.Current.MainPage.DisplayAlert("AWS",
-                       "form" + resultadoForms.ToString()+"iduser"+ usresult.ID_USUARIO,
-                       "Accept");
+                       // await Application.Current.MainPage.DisplayAlert("AWS",
+                       //"form" + resultadoForms.ToString()+"iduser"+ usresult.ID_USUARIO,
+                       //"Accept");
                         if (resultadoForms != null)
                         {
                             List<formularioAll> resultadoFormsAll = new List<formularioAll>();
@@ -403,26 +398,19 @@ namespace Desgo_Xamarin.ViewModels
                             {
                                 datos.Insertformulario(i);
                                 resultadoFormsAll.Add(servicioForm.listarFormulariosAll(i.ID_FORMULARIO,i.CODIGO_FORMULARIO,i.ID_IULOTE));
-                                await Application.Current.MainPage.DisplayAlert("result all form>",
-                                   i + ">"+resultadoFormsAll.ToString()+"codigo form para all"+i.CODIGO_FORMULARIO,
-                                   "Accept");
+                                //await Application.Current.MainPage.DisplayAlert("result all form>",
+                                //   i + ">"+resultadoFormsAll.ToString()+"codigo form para all"+i.CODIGO_FORMULARIO,
+                                //   "Accept");
                             }
                             foreach (formularioAll i in resultadoFormsAll)
                             {
-                                await Application.Current.MainPage.DisplayAlert("All form >",
-                                      "cvnew"+ i + ">" + i.identificacionubicacionlote.CLAVECATASTRALNUEVO_IULOTE,
-                                      "Accept");
+                                //await Application.Current.MainPage.DisplayAlert("All form >",
+                                //      "cvnew"+ i + ">" + i.identificacionubicacionlote.CLAVECATASTRALNUEVO_IULOTE,
+                                //      "Accept");
                                 datos.Insertformularioall(i);
                             }
                         }
-
-                        //var persona = servicio.validarUsuarioAmazon(this.Usuario, this.Password);
-                        //  await Application.Current.MainPage.DisplayAlert("Error",
-                        // "IdU"+resultado.ID_USUARIO+"idP"+resultado.ID_PERSONA+"idTp"+resultado.ID_TIPOUSUARIO,
-                        // "Accept");
-                        //  await Application.Current.MainPage.DisplayAlert("Error",
-                        //">>>>>>>"+datos.getUsuario("egct").CONTRASENIA_USUARIO+">>"+ datos.getUsuario("egct").ID_USUARIO,
-                        //"Accept");
+                        
 
                     }
                     usuar = resultado;
@@ -438,15 +426,23 @@ namespace Desgo_Xamarin.ViewModels
                     MainViewModel.GetInstance().GraficosPredio= new ViewsModelsForm.GraficosPredioModel();
                     MainViewModel.GetInstance().ElementosConstructivos = new ViewsModelsForm.ElementosConstructivosModel();
                     MainViewModel.GetInstance().HomePageLoggedin = new HomePageModelLoggedin();
+                    MainViewModel.GetInstance().AvancesFormsLoggedin = new AvancesFormsLoggedin();
                     MainViewModel.GetInstance().IdentificacionUbicacionPart = new IdentificacionUbicacionlModel();
+
+                    await Application.Current.MainPage.DisplayAlert("Bienvenido",
+                   "Usuario:" + resultado.USUARIO_USUARIO,
+                   "Aceptar");
+
                     navigationService.SetMainPage("MasterPage1Loggedin");
+
                 }
+           
             }
             catch (Exception e)
             {
                 await Application.Current.MainPage.DisplayAlert("Error",
-               "Amazon services" + e,
-               "Accept");
+               "No se inicio sesión, Intentelo de nuevo",
+               "Aceptar");
             }
         }
         async Task LoadLoginNormalInternet()
@@ -468,7 +464,7 @@ namespace Desgo_Xamarin.ViewModels
                     {
                         await Application.Current.MainPage.DisplayAlert("Error",
                            "Existen cambios que no se han sincronizado, Inicie sesión en modo offline y envie los cambios.",
-                           "Accept");
+                           "Aceptar");
                         return;
                     }
                 }
@@ -476,8 +472,8 @@ namespace Desgo_Xamarin.ViewModels
             catch (Exception e)
             {
                 await Application.Current.MainPage.DisplayAlert("Error",
-               "Amazon services" + e,
-               "Accept");
+               "No se inicio sesión, Intentelo de nuevo",
+               "Aceptar");
             }
 
         }
@@ -493,14 +489,12 @@ namespace Desgo_Xamarin.ViewModels
                 {
                     await Application.Current.MainPage.DisplayAlert("Error",
                        "No existe el usuario",
-                       "Accept");
+                       "Aceptar");
 
                 }
                 else
                 {
-                    await Application.Current.MainPage.DisplayAlert("Bienvenido",
-                   ">>" + resultado.USUARIO_USUARIO,
-                   "Accept");
+                    
                     MainViewModel.GetInstance().IsEnabledSincronizacion = true;
                     MainViewModel.GetInstance().EstadoSincronizacion = "Sincronizar";
                     MainViewModel.GetInstance().GraficosPredio = new ViewsModelsForm.GraficosPredioModel();
@@ -511,20 +505,23 @@ namespace Desgo_Xamarin.ViewModels
                     MainViewModel.GetInstance().User = usuar;
                     MainViewModel.GetInstance().EstadoConnection = true;
                     MainViewModel.GetInstance().MessageTypeConnection = "Online";
+                    MainViewModel.GetInstance().AvancesFormsLoggedin = new AvancesFormsLoggedin();
                     MainViewModel.GetInstance().IdentificacionUbicacionPart = new IdentificacionUbicacionlModel();
-
+                    await Application.Current.MainPage.DisplayAlert("Bienvenido",
+                   "Usuario:" + resultado.USUARIO_USUARIO,
+                   "Aceptar");
                     navigationService.SetMainPage("MasterPage1Loggedin");
                 }
             }
             catch (Exception e)
             {
                 await Application.Current.MainPage.DisplayAlert("Error",
-               "Amazon services" + e,
-               "Accept");
+               "No se inicio sesión, Intentelo de nuevo",
+               "Aceptar");
             }
         }
         #endregion
-
+        //meotodo para verificar si existe envio de clases entre xamarin y Java Web services
         private async void LoginPrueba() {
             var servicio = DependencyService.Get<IServiceForm>();
             var resultado = servicio.pruebaConAws();

@@ -24,7 +24,7 @@ namespace Desgo_Xamarin.Models.Class
 
             MainViewModel.GetInstance().IdentificacionUbicacionPart.ID_DLOTEDIR = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.dDPLote.ID_DLOTE;
             MainViewModel.GetInstance().IdentificacionUbicacionPart.CALLEP_DLOTE = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.dDPLote.CALLEP_DLOTE;
-            MainViewModel.GetInstance().IdentificacionUbicacionPart.NO_DLOTE = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.dDPLote.CALLEP_DLOTE;
+            MainViewModel.GetInstance().IdentificacionUbicacionPart.NO_DLOTE = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.dDPLote.NO_DLOTE;
             MainViewModel.GetInstance().IdentificacionUbicacionPart.INTERSECCION_DLOTE = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.dDPLote.INTERSECCION_DLOTE;
 
             MainViewModel.GetInstance().IdentificacionUbicacionPart.MyTipoPredioForm = MainViewModel.GetInstance().Formularioall.identificacionubicacionlote.dDescriptivosPredio_IULote.TIPOPREDIO_DDPLOTE;

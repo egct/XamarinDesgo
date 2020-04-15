@@ -15,6 +15,12 @@
                 Text="DESGO"
                 TextColor="{StaticResource BackgroundColor}">
             </Label>
+            <Image Source="InicioSKey"
+                Aspect="AspectFill"
+                Grid.RowSpan="5"
+                Grid.ColumnSpan="4"
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+            />
             <ListView 
                 BackgroundColor="{StaticResource FontColor}" 
                 ItemsSource="{Binding MyMenu}" 

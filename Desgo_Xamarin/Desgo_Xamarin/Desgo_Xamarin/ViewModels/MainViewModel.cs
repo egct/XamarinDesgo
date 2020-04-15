@@ -13,11 +13,16 @@ using Menu = Desgo_Xamarin.Models.Menu;
 using Desgo_Xamarin.Data;
 using Desgo_Xamarin.Interfaces;
 using Desgo_Xamarin.Models.Class;
+using Desgo_Xamarin.Services;
 
 namespace Desgo_Xamarin.ViewModels
 {
     class MainViewModel:BaseViewModel
     {
+        #region Services
+        ApiService apiService;
+        #endregion
+
         #region variables
         public usuario user;
         public formularioAll formularioall;
@@ -26,8 +31,9 @@ namespace Desgo_Xamarin.ViewModels
         public String messageConnection;
         private string estadoSincronizacion;
         private bool isEnabledSincronizacion;
+        private bool isRunningSincronizacion;
 
-        #endregion 
+        #endregion
         #region ViewModels
         public usuario User
         {
@@ -65,6 +71,11 @@ namespace Desgo_Xamarin.ViewModels
             get { return this.isEnabledSincronizacion; }
             set { SetValue(ref this.isEnabledSincronizacion, value); }
         }
+        public bool IsRunningSincronizacion
+        {
+            get { return this.isRunningSincronizacion; }
+            set { SetValue(ref this.isRunningSincronizacion, value); }
+        }
         public ICommand SincronizacionCommand
         {
             get
@@ -75,73 +86,101 @@ namespace Desgo_Xamarin.ViewModels
 
         private async void SincronizarBDAws()
         {
-            var action = await Application.Current.MainPage.DisplayAlert("Alert",
-                           "Comenzar la sincronizacióon?",
-                           "Accept", "Cancel");
-            if (action)
-            {
-                using (DataAccess datos = new DataAccess())
+            this.IsRunningSincronizacion=true;
+            var connection = await apiService.CheckConnection();
+            if (connection.IsSuccess)
+            { 
+                var action = await Application.Current.MainPage.DisplayAlert("Alerta",
+                               "Comenzar la sincronización?",
+                               "Aceptar", "Cancelar");
+                if (action)
                 {
-                    estadoSqlite eqlite = new estadoSqlite();
-                    eqlite = datos.getEstadoSqlite();
-                    if (eqlite.CAMBIOS_ESTADOSQLITE == false)
+                    using (DataAccess datos = new DataAccess())
                     {
-                        await Application.Current.MainPage.DisplayAlert("Alert",
-                           "No existe modificación almacenada",
-                           "Accept");
-                        this.IsEnabledSincronizacion = true;
-                        this.EstadoSincronizacion = "Sincronizar";
-                        return;
-                    }
-                    else
-                    {
-                        try
+                        estadoSqlite eqlite = new estadoSqlite();
+                        eqlite = datos.getEstadoSqlite();
+                        if (eqlite.CAMBIOS_ESTADOSQLITE == false)
                         {
-                            /*Enviar datos a AWS*/
-                            this.IsEnabledSincronizacion = false;
-                            this.EstadoSincronizacion = "Sincronizando...";
-                            /***/
-                            var servicioForm = DependencyService.Get<IServiceForm>();
-                            CPrepararDatosSycn cPrepararDatosSycn = new CPrepararDatosSycn();
-                            List<formularioAll> fAll = new List<formularioAll>();
-                            List<formulario> f = new List<formulario>();
-                            f= datos.GetListFormulario();
-                            foreach (formulario i in f)
+                            await Application.Current.MainPage.DisplayAlert("Alerta",
+                               "No existe modificación almacenada",
+                               "Aceptar");
+                            this.IsEnabledSincronizacion = true;
+                            this.EstadoSincronizacion = "Sincronizar";
+                            this.IsRunningSincronizacion = false;
+                            return;
+                        }
+                        else
+                        {
+                            try
                             {
-                                fAll.Add(cPrepararDatosSycn.convertirFtoFAll(i));
-                            }
-                            bool bandera = servicioForm.sincronizarBD(fAll);
-                            if (bandera)
-                            {
-                                /**si sincronizo*/
-                                this.IsEnabledSincronizacion = true;
-                                this.EstadoSincronizacion = "Sincronizar";
-                                datos.updateCambiosEstadoSqlite(false);
-                                
-                            }
-                            else
-                            {
-                                /**no sincronizo*/
-                                this.IsEnabledSincronizacion = true;
-                                this.EstadoSincronizacion = "Sincronizar";
-                                datos.updateCambiosEstadoSqlite(true);
+                                /*Enviar datos a AWS*/
+                                this.IsEnabledSincronizacion = false;
+                                this.EstadoSincronizacion = "Sincronizando...";
+                                /***/
+                                var servicioForm = DependencyService.Get<IServiceForm>();
+                                CPrepararDatosSycn cPrepararDatosSycn = new CPrepararDatosSycn();
+                                List<formularioAll> fAll = new List<formularioAll>();
+                                List<formulario> f = new List<formulario>();
+                                f= datos.GetListFormulario();
+                                foreach (formulario i in f)
+                                {
+                                    fAll.Add(cPrepararDatosSycn.convertirFtoFAll(i));
+                                }
+                                bool bandera = servicioForm.sincronizarBD(fAll);
+                                if (bandera)
+                                {
+                                    /**si sincronizo*/
+                                    this.IsEnabledSincronizacion = true;
+                                    this.EstadoSincronizacion = "Sincronizar";
+                                    datos.updateCambiosEstadoSqlite(false);
+                                    this.IsRunningSincronizacion = false;
+                                    await Application.Current.MainPage.DisplayAlert("Alerta",
+                                 "Datos sincronizados.",
+                                 "Aceptar");
 
+                                }
+                                else
+                                {
+                                    /**no sincronizo*/
+                                    this.IsEnabledSincronizacion = true;
+                                    this.EstadoSincronizacion = "Sincronizar";
+                                    datos.updateCambiosEstadoSqlite(true);
+                                    this.IsRunningSincronizacion = false;
+                                    await Application.Current.MainPage.DisplayAlert("Alerta",
+                                 "Datos no sincronizados.",
+                                 "Aceptar");
+
+                                }
+                                /***/
+                                return;
                             }
-                            /***/
-                            return;
-                        }
-                        catch (Exception ee)
-                        {
-                            return;
+                            catch (Exception ee)
+                            {
+                                return;
+                            }
                         }
                     }
+                }
+                else
+                {
+                    this.IsRunningSincronizacion = false;
+                    this.IsEnabledSincronizacion = true;
+                    this.EstadoSincronizacion = "Sincronizar";
                 }
             }
             else
             {
+                await Application.Current.MainPage.DisplayAlert("Alerta",
+                                  "No existe conexión a internet.",
+                                  "Aceptar");
+                this.IsRunningSincronizacion = false;
                 this.IsEnabledSincronizacion = true;
                 this.EstadoSincronizacion = "Sincronizar";
             }
+            this.IsRunningSincronizacion = false;
+            this.IsEnabledSincronizacion = true;
+            this.EstadoSincronizacion = "Sincronizar";
+
         }
         public LoginViewModel Login
         {
@@ -167,6 +206,11 @@ namespace Desgo_Xamarin.ViewModels
             set;
         }
         public HomePageModelLoggedin HomePageLoggedin
+        {
+            get;
+            set;
+        }
+        public AvancesFormsLoggedin AvancesFormsLoggedin
         {
             get;
             set;
@@ -215,9 +259,11 @@ namespace Desgo_Xamarin.ViewModels
 
         #region Constructors
         public MainViewModel(){
+            apiService = new ApiService();
             instance = this;
-           this.Login = new LoginViewModel();
-           LoadMenu();
+            this.Login = new LoginViewModel();
+            this.IsRunningSincronizacion = false;
+            LoadMenu();
            //LoadMenuLoggedin();
            // LoadMap();
         }
@@ -246,7 +292,7 @@ namespace Desgo_Xamarin.ViewModels
             {
                 Icon = "ic_exit_to_app",
                 PageName = "LoginPage",
-                Title = "Iniciar sesion",
+                Title = "Iniciar sesión",
             });
 
        /*     MyMenu.Add(new Menu
@@ -272,8 +318,15 @@ namespace Desgo_Xamarin.ViewModels
             MyMenuLoggedin.Add(new MenuLoggedin
             {
                 Icon = "ic_playlist_add",
-                PageName = "FormlPage",
+                PageName = "AvanceForms",
                 Title = "Avances Formulario",
+            });
+
+            MyMenuLoggedin.Add(new MenuLoggedin
+            {
+                Icon = "ic_playlist_add",
+                PageName = "FormlPage",
+                Title = "Último formulario modificado",
             });
 
             MyMenuLoggedin.Add(new MenuLoggedin
@@ -287,7 +340,7 @@ namespace Desgo_Xamarin.ViewModels
             {
                 Icon = "ic_exit_to_app",
                 PageName = "MasterPage1",
-                Title = "Cerrar sesion",
+                Title = "Cerrar sesión",
             });
 
             MyMenuLoggedin.Add(new MenuLoggedin

@@ -5,6 +5,12 @@
       <xsd:import schemaLocation="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com:80/WSGestionFormulario?xsd=1" namespace="http://servicios.desgo.com.ec/" />
     </xsd:schema>
   </types>
+  <message name="hello">
+    <part name="parameters" element="tns:hello" />
+  </message>
+  <message name="helloResponse">
+    <part name="parameters" element="tns:helloResponse" />
+  </message>
   <message name="testerAcabados">
     <part name="parameters" element="tns:testerAcabados" />
   </message>
@@ -17,23 +23,17 @@
   <message name="addEconomiaResponse">
     <part name="parameters" element="tns:addEconomiaResponse" />
   </message>
-  <message name="listarFormularios">
-    <part name="parameters" element="tns:listarFormularios" />
-  </message>
-  <message name="listarFormulariosResponse">
-    <part name="parameters" element="tns:listarFormulariosResponse" />
-  </message>
   <message name="registarFormulario">
     <part name="parameters" element="tns:registarFormulario" />
   </message>
   <message name="registarFormularioResponse">
     <part name="parameters" element="tns:registarFormularioResponse" />
   </message>
-  <message name="hello">
-    <part name="parameters" element="tns:hello" />
+  <message name="listarFormularios">
+    <part name="parameters" element="tns:listarFormularios" />
   </message>
-  <message name="helloResponse">
-    <part name="parameters" element="tns:helloResponse" />
+  <message name="listarFormulariosResponse">
+    <part name="parameters" element="tns:listarFormulariosResponse" />
   </message>
   <message name="listarFormulariosId">
     <part name="parameters" element="tns:listarFormulariosId" />
@@ -89,7 +89,17 @@
   <message name="insertarIdentificacionU_FResponse">
     <part name="parameters" element="tns:insertarIdentificacionU_FResponse" />
   </message>
+  <message name="cambiopruebaAWS">
+    <part name="parameters" element="tns:cambiopruebaAWS" />
+  </message>
+  <message name="cambiopruebaAWSResponse">
+    <part name="parameters" element="tns:cambiopruebaAWSResponse" />
+  </message>
   <portType name="WSGestionFormulario">
+    <operation name="hello">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/helloRequest" message="tns:hello" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/helloResponse" message="tns:helloResponse" />
+    </operation>
     <operation name="testerAcabados">
       <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/testerAcabadosRequest" message="tns:testerAcabados" />
       <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/testerAcabadosResponse" message="tns:testerAcabadosResponse" />
@@ -98,17 +108,13 @@
       <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/addEconomiaRequest" message="tns:addEconomia" />
       <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/addEconomiaResponse" message="tns:addEconomiaResponse" />
     </operation>
-    <operation name="listarFormularios">
-      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/listarFormulariosRequest" message="tns:listarFormularios" />
-      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/listarFormulariosResponse" message="tns:listarFormulariosResponse" />
-    </operation>
     <operation name="registarFormulario">
       <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/registarFormularioRequest" message="tns:registarFormulario" />
       <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/registarFormularioResponse" message="tns:registarFormularioResponse" />
     </operation>
-    <operation name="hello">
-      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/helloRequest" message="tns:hello" />
-      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/helloResponse" message="tns:helloResponse" />
+    <operation name="listarFormularios">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/listarFormulariosRequest" message="tns:listarFormularios" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/listarFormulariosResponse" message="tns:listarFormulariosResponse" />
     </operation>
     <operation name="listarFormulariosId">
       <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/listarFormulariosIdRequest" message="tns:listarFormulariosId" />
@@ -146,9 +152,22 @@
       <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/insertarIdentificacionU_FRequest" message="tns:insertarIdentificacionU_F" />
       <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/insertarIdentificacionU_FResponse" message="tns:insertarIdentificacionU_FResponse" />
     </operation>
+    <operation name="cambiopruebaAWS">
+      <input wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/cambiopruebaAWSRequest" message="tns:cambiopruebaAWS" />
+      <output wsam:Action="http://servicios.desgo.com.ec/WSGestionFormulario/cambiopruebaAWSResponse" message="tns:cambiopruebaAWSResponse" />
+    </operation>
   </portType>
   <binding name="WSGestionFormularioPortBinding" type="tns:WSGestionFormulario">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="hello">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
     <operation name="testerAcabados">
       <soap:operation soapAction="" />
       <input>
@@ -167,15 +186,6 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarFormularios">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="registarFormulario">
       <soap:operation soapAction="" />
       <input>
@@ -185,7 +195,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="hello">
+    <operation name="listarFormularios">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -267,6 +277,15 @@
       </output>
     </operation>
     <operation name="insertarIdentificacionU_F">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="cambiopruebaAWS">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

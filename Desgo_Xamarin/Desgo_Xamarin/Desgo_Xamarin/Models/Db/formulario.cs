@@ -82,7 +82,7 @@ namespace Desgo_Xamarin.Models.Db
             {
                 await Application.Current.MainPage.DisplayAlert("Error",
                 "No se cargo el formulario All: " + ex,
-                "Accept");
+                "Aceptar");
             }
         }
         #endregion

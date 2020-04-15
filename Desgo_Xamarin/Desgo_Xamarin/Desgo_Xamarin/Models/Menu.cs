@@ -42,22 +42,6 @@ namespace Desgo_Xamarin.Models
 
         private async void Navigate()
         {
-            /*  if (this.PageName == "LoginPage")
-              {
-                  Application.Current.MainPage = new NavigationPage(new LoginPage());
-              }
-              if(this.PageName == "HelpPage")
-              {
-                  Application.Current.MainPage = new NavigationPage(new HelpPage());
-                  //await Application.Current.MainPage.Navigation.PushAsync(new HelpPage());
-
-              }
-              if (this.PageName == "FormlPage")
-              {
-                  Application.Current.MainPage = new NavigationPage(new FormlPage());
-                  //await Application.Current.MainPage.Navigation.PushAsync(new FormlPage());
-
-              }*/
             switch (PageName)
             {
                 case "LoginPage":
@@ -67,10 +51,6 @@ namespace Desgo_Xamarin.Models
                 case "HelpPage":
                     MainViewModel.GetInstance().HelpPage = new HelpPageModel();
                     await navigationService.NavigateOnMaster("HelpPage");
-                    break;
-                case "FormlPage":
-                    MainViewModel.GetInstance().FormPage = new FormPageModel();
-                    await navigationService.NavigateOnMaster("FormlPage");
                     break;
             }
         }

@@ -6,34 +6,48 @@
              Title="Mis Formularios">
     <ContentPage.Content>
         <StackLayout  BindingContext="{Binding MyFormsPage}">
+            <Grid VerticalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" Text="#"></Label>
+                <Label Grid.Row="0" Grid.Column="1" VerticalOptions="CenterAndExpand" Text="Código Formulario"></Label>
+                <Label Grid.Row="0" Grid.Column="2" VerticalOptions="CenterAndExpand" Text="Estado"></Label>
+                <Label Grid.Row="0" Grid.Column="3" VerticalOptions="CenterAndExpand" Text="Detalle"></Label>
+            </Grid>
+            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="5" Color="#1690F4"/>
             <SearchBar
                 Placeholder="Search..."
                 Text="{Binding Filter, Mode=TwoWay}"
                 SearchCommand="{Binding SearchCommand}">
             </SearchBar>
-            <StackLayout Padding="5">
-                <Grid VerticalOptions="CenterAndExpand">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="3*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" Text="#"></Label>
-                    <Label Grid.Row="0" Grid.Column="1" VerticalOptions="CenterAndExpand" Text="Código Formulario"></Label>
-                    <Label Grid.Row="0" Grid.Column="2" VerticalOptions="CenterAndExpand" Text="Estado"></Label>
-                    <Label Grid.Row="0" Grid.Column="3" VerticalOptions="CenterAndExpand" Text="Detalle"></Label>
-                </Grid>
-            </StackLayout>
-            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="5" Color="#1690F4"/>
-            <ListView ItemsSource="{Binding Formularios}"
-                      HasUnevenRows="True">
+            <ListView 
+                HasUnevenRows="true" 
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding Formularios}"
+                RefreshCommand="{Binding RefreshCommand}"
+                >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem 
+                                    Command="{Binding EditCommand}" 
+                                    Text="Editar">
+                                </MenuItem>
+                                <MenuItem 
+                                    Command="{Binding DeleteCommand}" 
+                                    IsDestructive="true"     
+                                    Text="Eliminar">
+                                </MenuItem>
+                            </ViewCell.ContextActions>
                             <Grid VerticalOptions="CenterAndExpand">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>

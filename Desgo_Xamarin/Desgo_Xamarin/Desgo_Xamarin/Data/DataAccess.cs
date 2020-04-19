@@ -147,6 +147,12 @@ namespace Desgo_Xamarin.Data
         {
             connection.Query<estadoSqlite>("UPDATE estadoSqlite SET  CAMBIOS_ESTADOSQLITE=? WHERE ID_ESTADOSQLITE=?", cambio,1);
         }
+
+        public void updateEstadoFormulario(bool cambio,int codigo,int id)
+        {
+            connection.Query<formulario>("UPDATE formulario SET  ESTADO_FORMULARIO=? WHERE CODIGO_FORMULARIO=? AND ID_FORMULARIO=? ", cambio, codigo,id);
+            connection.Query<formularioAll>("UPDATE formularioAll SET  ESTADO_FORMULARIO=? WHERE CODIGO_FORMULARIO=? AND ID_FORMULARIO=? ", cambio, codigo, id);
+        }
         /***********/
         public formularioAll getFormularioAllCodigo(int codigo)
         {

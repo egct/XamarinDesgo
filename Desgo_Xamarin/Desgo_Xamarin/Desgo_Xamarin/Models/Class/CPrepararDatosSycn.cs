@@ -16,9 +16,10 @@ namespace Desgo_Xamarin.Models.Class
             {
                 //fAll.ID_FORMULARIO = f.ID_FORMULARIO;
                 //fAll.CODIGO_FORMULARIO = f.CODIGO_FORMULARIO;
-                //fAll.ESTADO_FORMULARIO = f.ESTADO_FORMULARIO;
                 //fAll.USUARIO_FORMULARIO = f.ID_USUARIO;
                 fAll = datos.getFormularioAllCodigo(f.CODIGO_FORMULARIO);
+                fAll.ESTADO_FORMULARIO = f.ESTADO_FORMULARIO;
+
             }
             return fAll;
 

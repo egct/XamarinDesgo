@@ -51,13 +51,22 @@
                             <Grid VerticalOptions="CenterAndExpand">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="3*"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="{Binding ID_FORMULARIO}"></Label>
                                 <Label Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Text="{Binding CODIGO_FORMULARIO}"></Label>
-                                <Label Grid.Row="0" Grid.Column="2" VerticalOptions="Center" Text="{Binding ESTADO_FORMULARIO}"></Label>
+                                <Label Grid.Row="0" Grid.Column="2" VerticalOptions="Center" Text="No Actualizado" BackgroundColor="DarkRed" TextColor="White">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label"
+                                          Binding="{Binding ESTADO_FORMULARIO}"
+                                         Value="true">
+                                            <Setter Property="Text" Value="Actualizado" />
+                                            <Setter Property="BackgroundColor"  Value="DarkBlue"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
                                 <Image Grid.Row="0" Grid.Column="3"
                                     HorizontalOptions="End" 
                                     Source="ic_chevron_right">

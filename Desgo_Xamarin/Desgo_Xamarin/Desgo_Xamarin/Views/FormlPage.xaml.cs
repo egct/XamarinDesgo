@@ -18,7 +18,8 @@ namespace Desgo_Xamarin.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class FormlPage : CarouselPage
     {
-		public FormlPage ()
+        
+        public FormlPage ()
 		{
 			InitializeComponent ();
          
@@ -31,6 +32,7 @@ namespace Desgo_Xamarin.Views
             {
                 if (cGuardarBDLocal.guardarIdentificacionUbicacion())
                 {
+                     
                     lblmensaje.Text = "Base de datos local Actualizada";
                 }
                 else

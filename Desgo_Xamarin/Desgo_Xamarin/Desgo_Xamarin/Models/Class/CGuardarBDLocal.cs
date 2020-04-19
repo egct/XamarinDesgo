@@ -48,6 +48,8 @@ namespace Desgo_Xamarin.Models.Class
                     datos.updateDDescriptivosPredio_IULote(dDescriptivos);
                     datos.updateDireccion_DDPLote(dDPLote);
                     datos.updateCambiosEstadoSqlite(true);
+                    MainViewModel.GetInstance().Formularioall.ESTADO_FORMULARIO = true;
+                    datos.updateEstadoFormulario(MainViewModel.GetInstance().Formularioall.ESTADO_FORMULARIO, MainViewModel.GetInstance().Formularioall.CODIGO_FORMULARIO, MainViewModel.GetInstance().Formularioall.ID_FORMULARIO);
                     return true;    
                     
                 }

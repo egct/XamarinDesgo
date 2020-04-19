@@ -4309,8 +4309,8 @@ namespace Desgo_Xamarin.Droid
 			// aapt resource value: 0x7F090053
 			public const int abc_vector_test = 2131296339;
 			
-			// aapt resource value: 0x7F010453
-			public const int ad16 = 2130773075;
+			// aapt resource value: 0x7F010454
+			public const int ad16 = 2130773076;
 			
 			// aapt resource value: 0x7F090054
 			public const int avd_hide_password = 2131296340;
@@ -4318,8 +4318,8 @@ namespace Desgo_Xamarin.Droid
 			// aapt resource value: 0x7F090055
 			public const int avd_show_password = 2131296341;
 			
-			// aapt resource value: 0x7F010454
-			public const int calendar_bg_selector = 2130773076;
+			// aapt resource value: 0x7F010455
+			public const int calendar_bg_selector = 2130773077;
 			
 			// aapt resource value: 0x7F010002
 			public const int Caracteristicas_de_la_costruccion = 2130771970;
@@ -4489,65 +4489,68 @@ namespace Desgo_Xamarin.Droid
 			// aapt resource value: 0x1
 			public const int cast_skip_ad_label_border = 1;
 			
-			// aapt resource value: 0x7F010343
-			public const int common_full_open_on_phone = 2130772803;
-			
-			// aapt resource value: 0x7F010329
-			public const int common_google_signin_btn_icon_dark = 2130772777;
+			// aapt resource value: 0x7F010344
+			public const int common_full_open_on_phone = 2130772804;
 			
 			// aapt resource value: 0x7F010330
-			public const int common_google_signin_btn_icon_dark_focused = 2130772784;
+			public const int common_google_signin_btn_icon_dark = 2130772784;
 			
 			// aapt resource value: 0x7F010331
-			public const int common_google_signin_btn_icon_dark_normal = 2130772785;
-			
-			// aapt resource value: 0x7F010344
-			public const int common_google_signin_btn_icon_dark_normal_background = 2130772804;
+			public const int common_google_signin_btn_icon_dark_focused = 2130772785;
 			
 			// aapt resource value: 0x7F010332
-			public const int common_google_signin_btn_icon_disabled = 2130772786;
-			
-			// aapt resource value: 0x7F010333
-			public const int common_google_signin_btn_icon_light = 2130772787;
-			
-			// aapt resource value: 0x7F010334
-			public const int common_google_signin_btn_icon_light_focused = 2130772788;
-			
-			// aapt resource value: 0x7F010335
-			public const int common_google_signin_btn_icon_light_normal = 2130772789;
+			public const int common_google_signin_btn_icon_dark_normal = 2130772786;
 			
 			// aapt resource value: 0x7F010345
-			public const int common_google_signin_btn_icon_light_normal_background = 2130772805;
+			public const int common_google_signin_btn_icon_dark_normal_background = 2130772805;
+			
+			// aapt resource value: 0x7F010333
+			public const int common_google_signin_btn_icon_disabled = 2130772787;
+			
+			// aapt resource value: 0x7F010334
+			public const int common_google_signin_btn_icon_light = 2130772788;
+			
+			// aapt resource value: 0x7F010335
+			public const int common_google_signin_btn_icon_light_focused = 2130772789;
 			
 			// aapt resource value: 0x7F010336
-			public const int common_google_signin_btn_text_dark = 2130772790;
-			
-			// aapt resource value: 0x7F010337
-			public const int common_google_signin_btn_text_dark_focused = 2130772791;
-			
-			// aapt resource value: 0x7F010338
-			public const int common_google_signin_btn_text_dark_normal = 2130772792;
+			public const int common_google_signin_btn_icon_light_normal = 2130772790;
 			
 			// aapt resource value: 0x7F010346
-			public const int common_google_signin_btn_text_dark_normal_background = 2130772806;
+			public const int common_google_signin_btn_icon_light_normal_background = 2130772806;
+			
+			// aapt resource value: 0x7F010337
+			public const int common_google_signin_btn_text_dark = 2130772791;
+			
+			// aapt resource value: 0x7F010338
+			public const int common_google_signin_btn_text_dark_focused = 2130772792;
 			
 			// aapt resource value: 0x7F010339
-			public const int common_google_signin_btn_text_disabled = 2130772793;
-			
-			// aapt resource value: 0x7F010340
-			public const int common_google_signin_btn_text_light = 2130772800;
-			
-			// aapt resource value: 0x7F010341
-			public const int common_google_signin_btn_text_light_focused = 2130772801;
-			
-			// aapt resource value: 0x7F010342
-			public const int common_google_signin_btn_text_light_normal = 2130772802;
+			public const int common_google_signin_btn_text_dark_normal = 2130772793;
 			
 			// aapt resource value: 0x7F010347
-			public const int common_google_signin_btn_text_light_normal_background = 2130772807;
+			public const int common_google_signin_btn_text_dark_normal_background = 2130772807;
+			
+			// aapt resource value: 0x7F010340
+			public const int common_google_signin_btn_text_disabled = 2130772800;
+			
+			// aapt resource value: 0x7F010341
+			public const int common_google_signin_btn_text_light = 2130772801;
+			
+			// aapt resource value: 0x7F010342
+			public const int common_google_signin_btn_text_light_focused = 2130772802;
+			
+			// aapt resource value: 0x7F010343
+			public const int common_google_signin_btn_text_light_normal = 2130772803;
+			
+			// aapt resource value: 0x7F010348
+			public const int common_google_signin_btn_text_light_normal_background = 2130772808;
 			
 			// aapt resource value: 0x7F010004
 			public const int Desgo = 2130771972;
+			
+			// aapt resource value: 0x7F010005
+			public const int DesgoIcono = 2130771973;
 			
 			// aapt resource value: 0x7F090056
 			public const int design_bottom_navigation_item_background = 2131296342;
@@ -4567,26 +4570,26 @@ namespace Desgo_Xamarin.Droid
 			// aapt resource value: 0x7F09005B
 			public const int design_snackbar_background = 2131296347;
 			
-			// aapt resource value: 0x7F010005
-			public const int Economica = 2130771973;
-			
 			// aapt resource value: 0x7F010006
-			public const int Elementos_constitutivos = 2130771974;
+			public const int Economica = 2130771974;
 			
 			// aapt resource value: 0x7F010007
-			public const int eyesFalse = 2130771975;
+			public const int Elementos_constitutivos = 2130771975;
 			
 			// aapt resource value: 0x7F010008
-			public const int eyesTrue = 2130771976;
-			
-			// aapt resource value: 0x7F010348
-			public const int googleg_disabled_color_18 = 2130772808;
-			
-			// aapt resource value: 0x7F010349
-			public const int googleg_standard_color_18 = 2130772809;
+			public const int eyesFalse = 2130771976;
 			
 			// aapt resource value: 0x7F010009
-			public const int Graficos_del_predio = 2130771977;
+			public const int eyesTrue = 2130771977;
+			
+			// aapt resource value: 0x7F010349
+			public const int googleg_disabled_color_18 = 2130772809;
+			
+			// aapt resource value: 0x7F010350
+			public const int googleg_standard_color_18 = 2130772816;
+			
+			// aapt resource value: 0x7F010010
+			public const int Graficos_del_predio = 2130771984;
 			
 			// aapt resource value: 0x7F090054
 			public const int ic_audiotrack_dark = 2131296340;
@@ -4594,8 +4597,8 @@ namespace Desgo_Xamarin.Droid
 			// aapt resource value: 0x7F090055
 			public const int ic_audiotrack_light = 2131296341;
 			
-			// aapt resource value: 0x7F010010
-			public const int ic_chevron_right = 2130771984;
+			// aapt resource value: 0x7F010011
+			public const int ic_chevron_right = 2130771985;
 			
 			// aapt resource value: 0x7F090056
 			public const int ic_dialog_close_dark = 2131296342;
@@ -4603,11 +4606,11 @@ namespace Desgo_Xamarin.Droid
 			// aapt resource value: 0x7F090057
 			public const int ic_dialog_close_light = 2131296343;
 			
-			// aapt resource value: 0x7F010011
-			public const int ic_exit_to_app = 2130771985;
-			
 			// aapt resource value: 0x7F010012
-			public const int ic_filter_1 = 2130771986;
+			public const int ic_exit_to_app = 2130771986;
+			
+			// aapt resource value: 0x7F010013
+			public const int ic_filter_1 = 2130771987;
 			
 			// aapt resource value: 0x7F090058
 			public const int ic_group_collapse_00 = 2131296344;
@@ -4723,8 +4726,8 @@ namespace Desgo_Xamarin.Droid
 			// aapt resource value: 0x7F09007D
 			public const int ic_media_stop_light = 2131296381;
 			
-			// aapt resource value: 0x7F010013
-			public const int ic_more_horiz = 2130771987;
+			// aapt resource value: 0x7F010014
+			public const int ic_more_horiz = 2130771988;
 			
 			// aapt resource value: 0x7F09007E
 			public const int ic_mr_button_connected_00_dark = 2131296382;
@@ -5113,8 +5116,8 @@ namespace Desgo_Xamarin.Droid
 			// aapt resource value: 0x7F0900FE
 			public const int ic_mr_button_grey = 2131296510;
 			
-			// aapt resource value: 0x7F010014
-			public const int ic_playlist_add = 2130771988;
+			// aapt resource value: 0x7F010015
+			public const int ic_playlist_add = 2130771989;
 			
 			// aapt resource value: 0x1
 			public const int ic_plusone_medium_off_client = 1;
@@ -5128,11 +5131,11 @@ namespace Desgo_Xamarin.Droid
 			// aapt resource value: 0x1
 			public const int ic_plusone_tall_off_client = 1;
 			
-			// aapt resource value: 0x7F010015
-			public const int ic_saveForm = 2130771989;
-			
 			// aapt resource value: 0x7F010016
-			public const int ic_settings = 2130771990;
+			public const int ic_saveForm = 2130771990;
+			
+			// aapt resource value: 0x7F010017
+			public const int ic_settings = 2130771991;
 			
 			// aapt resource value: 0x7F0900FF
 			public const int ic_vol_type_speaker_dark = 2131296511;
@@ -5152,23 +5155,23 @@ namespace Desgo_Xamarin.Droid
 			// aapt resource value: 0x7F090104
 			public const int ic_vol_type_tv_light = 2131296516;
 			
-			// aapt resource value: 0x7F010017
-			public const int Identificacion_Legal = 2130771991;
-			
 			// aapt resource value: 0x7F010018
-			public const int Identificacion_Ubicacion = 2130771992;
+			public const int Identificacion_Legal = 2130771992;
 			
 			// aapt resource value: 0x7F010019
-			public const int InicioSKey = 2130771993;
+			public const int Identificacion_Ubicacion = 2130771993;
 			
 			// aapt resource value: 0x7F010020
-			public const int Limites = 2130772000;
+			public const int InicioSKey = 2130772000;
 			
 			// aapt resource value: 0x7F010021
-			public const int MapaDesgo = 2130772001;
+			public const int Limites = 2130772001;
 			
 			// aapt resource value: 0x7F010022
-			public const int Mejoras = 2130772002;
+			public const int MapaDesgo = 2130772002;
+			
+			// aapt resource value: 0x7F010023
+			public const int Mejoras = 2130772003;
 			
 			// aapt resource value: 0x7F090105
 			public const int mr_button_connected_dark = 2131296517;
@@ -5404,11 +5407,11 @@ namespace Desgo_Xamarin.Droid
 			// aapt resource value: 0x1
 			public const int quantum_ic_volume_up_white_36 = 1;
 			
-			// aapt resource value: 0x7F010023
-			public const int Responsables = 2130772003;
-			
 			// aapt resource value: 0x7F010024
-			public const int SplashDesgo = 2130772004;
+			public const int Responsables = 2130772004;
+			
+			// aapt resource value: 0x7F010025
+			public const int SplashDesgo = 2130772005;
 			
 			// aapt resource value: 0x7F090069
 			public const int tooltip_frame_dark = 2131296361;
@@ -5416,8 +5419,8 @@ namespace Desgo_Xamarin.Droid
 			// aapt resource value: 0x7F09006A
 			public const int tooltip_frame_light = 2131296362;
 			
-			// aapt resource value: 0x7F010025
-			public const int Vivisnda_Sensal = 2130772005;
+			// aapt resource value: 0x7F010026
+			public const int Vivisnda_Sensal = 2130772006;
 			
 			static Drawable()
 			{

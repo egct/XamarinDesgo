@@ -612,8 +612,6 @@ C:\Pasantias\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\andr
 C:\Pasantias\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\android\assets\Xamarin.Forms.Xaml.pdb
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\bin\Debug\Desgo_Xamarin.Android.dll
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\bin\Debug\Desgo_Xamarin.Android.pdb
-C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\bin\Debug\com.companyname.Desgo_Xamarin.apk
-C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\bin\Debug\com.companyname.Desgo_Xamarin-Signed.apk
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\MonoAndroid,Version=v8.1.AssemblyAttributes.cs
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\Desgo_Xamarin.Android.nuget.stamp
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\XbdMerge\Xamarin.GooglePlayServices.Basement.dll.stamp
@@ -658,7 +656,6 @@ C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xa
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\XamlC.stamp
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\Desgo_Xamarin.Android.dll
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\Desgo_Xamarin.Android.pdb
-C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\android\bin\com.companyname.Desgo_Xamarin.apk
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\res\layout\tabbar.xml
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\res\layout\toolbar.xml
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\res\values\styles.xml
@@ -794,6 +791,10 @@ C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xa
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\Desgo_Xamarin.Android.csprojAssemblyReference.cache
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\Views\ViewsUserLoggedin\AvancesFormLoggedin.xaml.g.cs
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\res\drawable\inicioskey.jpg
+C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\bin\Debug\com.Desgo.Desgo_Catastro.apk
+C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\bin\Debug\com.Desgo.Desgo_Catastro-Signed.apk
+C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\android\bin\com.Desgo.Desgo_Catastro.apk
+C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\res\drawable\desgoicono.png
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\linksrc\GalaSoft.MvvmLight.dll.mdb
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\linksrc\GalaSoft.MvvmLight.Extras.dll.mdb
 C:\Users\egct\Documents\GitHub\XamarinDesgo\Desgo_Xamarin\Desgo_Xamarin\Desgo_Xamarin.Android\obj\Debug\81\linksrc\GalaSoft.MvvmLight.Platform.dll.mdb

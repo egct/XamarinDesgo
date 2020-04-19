@@ -134,6 +134,9 @@
     <None Include="Web References\AmazonDesgoWebServiceForm1\formularioIds.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\AmazonDesgoWebServiceForm1\hashMapClassForm.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\AmazonDesgoWebServiceForm1\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -260,10 +263,10 @@
     <AndroidResource Include="Resources\drawable\ic_saveForm.png" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionFormulario%3fwsdl">
+    <WebReferenceUrl Include="http://amazonwebservicedesgo-env.eba-gbkikqgc.us-east-1.elasticbeanstalk.com:80/WSGestionFormulario%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\AmazonDesgoWebServiceForm1\</RelPath>
-      <UpdateFromURL>http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionFormulario%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>http://amazonwebservicedesgo-env.eba-gbkikqgc.us-east-1.elasticbeanstalk.com:80/WSGestionFormulario%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -273,10 +276,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionUsuario%3fwsdl">
+    <WebReferenceUrl Include="http://amazonwebservicedesgo-env.eba-gbkikqgc.us-east-1.elasticbeanstalk.com:80/WSGestionUsuario%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\AmazonDesgoWebService\</RelPath>
-      <UpdateFromURL>http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionUsuario%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>http://amazonwebservicedesgo-env.eba-gbkikqgc.us-east-1.elasticbeanstalk.com:80/WSGestionUsuario%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

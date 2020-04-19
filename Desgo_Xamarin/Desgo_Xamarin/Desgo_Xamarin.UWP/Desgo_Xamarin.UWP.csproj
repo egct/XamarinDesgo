@@ -163,12 +163,8 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
-    <None Include="Connected Services\AmazonDesgoWebServiceForm\WSGestionFormulario.wsdl" />
-    <None Include="Connected Services\AmazonDesgoWebServiceForm\WSGestionFormulario.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\AmazonDesgoWebService\WSGestionUsuario.wsdl" />
-    <None Include="Connected Services\AmazonDesgoWebService\WSGestionUsuario.xsd">
+    <None Include="Connected Services\AmazonDesgoWebServiceForm\WSGestionFormulario1.wsdl" />
+    <None Include="Connected Services\AmazonDesgoWebServiceForm\WSGestionFormulario1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\AmazonDesgoWebService\configuration91.svcinfo" />
@@ -239,6 +235,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\AmazonDesgoWebService\WSGestionUsuario1.wsdl" />
+    <None Include="Connected Services\AmazonDesgoWebService\WSGestionUsuario1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,8 @@
 <xs:schema xmlns:tns="http://servicios.desgo.com.ec/" targetNamespace="http://servicios.desgo.com.ec/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="addEconomia" type="tns:addEconomia" />
   <xs:element name="addEconomiaResponse" type="tns:addEconomiaResponse" />
+  <xs:element name="asigUserFormulario" type="tns:asigUserFormulario" />
+  <xs:element name="asigUserFormularioResponse" type="tns:asigUserFormularioResponse" />
   <xs:element name="buscarCodigoFormulario" type="tns:buscarCodigoFormulario" />
   <xs:element name="buscarCodigoFormularioResponse" type="tns:buscarCodigoFormularioResponse" />
   <xs:element name="cambiopruebaAWS" type="tns:cambiopruebaAWS" />
@@ -18,6 +20,8 @@
   <xs:element name="insertarDireccion_DDPLoteResponse" type="tns:insertarDireccion_DDPLoteResponse" />
   <xs:element name="insertarIdentificacionU_F" type="tns:insertarIdentificacionU_F" />
   <xs:element name="insertarIdentificacionU_FResponse" type="tns:insertarIdentificacionU_FResponse" />
+  <xs:element name="listTodosFormIds" type="tns:listTodosFormIds" />
+  <xs:element name="listTodosFormIdsResponse" type="tns:listTodosFormIdsResponse" />
   <xs:element name="listarFormulario" type="tns:listarFormulario" />
   <xs:element name="listarFormularioInt" type="tns:listarFormularioInt" />
   <xs:element name="listarFormularioIntResponse" type="tns:listarFormularioIntResponse" />
@@ -26,6 +30,8 @@
   <xs:element name="listarFormulariosId" type="tns:listarFormulariosId" />
   <xs:element name="listarFormulariosIdResponse" type="tns:listarFormulariosIdResponse" />
   <xs:element name="listarFormulariosResponse" type="tns:listarFormulariosResponse" />
+  <xs:element name="listarTodosFormulariosExp" type="tns:listarTodosFormulariosExp" />
+  <xs:element name="listarTodosFormulariosExpResponse" type="tns:listarTodosFormulariosExpResponse" />
   <xs:element name="registarFormulario" type="tns:registarFormulario" />
   <xs:element name="registarFormularioResponse" type="tns:registarFormularioResponse" />
   <xs:element name="testerAcabados" type="tns:testerAcabados" />
@@ -161,6 +167,16 @@
       <xs:element minOccurs="0" name="vivienda_F" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listarTodosFormulariosExp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="empresa" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarTodosFormulariosExpResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:formulario" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="listarFormularioInt">
     <xs:sequence>
       <xs:element name="formularioIds" type="xs:int" />
@@ -281,15 +297,15 @@
       <xs:element minOccurs="0" name="return" type="tns:formulario" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="registarFormulario">
+  <xs:complexType name="asigUserFormulario">
     <xs:sequence>
-      <xs:element minOccurs="0" name="us" type="tns:user" />
-      <xs:element minOccurs="0" name="form" type="tns:formularioIds" />
+      <xs:element name="idUser" type="xs:int" />
+      <xs:element name="idForm" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="registarFormularioResponse">
+  <xs:complexType name="asigUserFormularioResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:boolean" />
+      <xs:element name="return" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarDDescriptivosPredio_IULote">
@@ -300,6 +316,17 @@
   <xs:complexType name="insertarDDescriptivosPredio_IULoteResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registarFormulario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="us" type="tns:user" />
+      <xs:element minOccurs="0" name="form" type="tns:formularioIds" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registarFormularioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="cambiopruebaAWS">
@@ -329,16 +356,6 @@
       <xs:element name="return" type="xs:long" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="hello">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="name" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="helloResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="buscarCodigoFormulario">
     <xs:sequence>
       <xs:element minOccurs="0" name="codigo" type="xs:string" />
@@ -350,6 +367,16 @@
       <xs:element minOccurs="0" name="return" type="tns:formularioIds" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="hello">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="helloResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="insertarDireccion_DDPLote">
     <xs:sequence>
       <xs:element minOccurs="0" name="direccion_DDPLote" type="tns:direccionDDPLote" />
@@ -358,6 +385,22 @@
   <xs:complexType name="insertarDireccion_DDPLoteResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listTodosFormIds">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="empresa" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listTodosFormIdsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:hashMapClassForm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hashMapClassForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="form" type="tns:formularioIds" />
+      <xs:element minOccurs="0" name="us" type="tns:user" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

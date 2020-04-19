@@ -6,7 +6,7 @@
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
-    <GenerateInternalTypes>true</GenerateInternalTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
     <CollectionMappings>
@@ -21,11 +21,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionUsuario?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://amazonwebservicedesgo-env.eba-gbkikqgc.us-east-1.elasticbeanstalk.com:80/WSGestionUsuario?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WSGestionUsuario.xsd" MetadataType="Schema" ID="e078836d-f703-4afd-b41a-c9b43062db27" SourceId="1" SourceUrl="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionUsuario?xsd=1" />
-    <MetadataFile FileName="WSGestionUsuario.wsdl" MetadataType="Wsdl" ID="ca5a993c-0751-4647-85eb-fb4c65937232" SourceId="1" SourceUrl="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionUsuario?wsdl" />
+    <MetadataFile FileName="WSGestionUsuario1.xsd" MetadataType="Schema" ID="31f546c0-6b86-4e22-941f-b20c9c6afa27" SourceId="1" SourceUrl="http://amazonwebservicedesgo-env.eba-gbkikqgc.us-east-1.elasticbeanstalk.com/WSGestionUsuario?xsd=1" />
+    <MetadataFile FileName="WSGestionUsuario1.wsdl" MetadataType="Wsdl" ID="bb588cfb-4725-4097-87d1-a3c6081d5827" SourceId="1" SourceUrl="http://amazonwebservicedesgo-env.eba-gbkikqgc.us-east-1.elasticbeanstalk.com/WSGestionUsuario?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

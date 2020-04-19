@@ -31,6 +31,14 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebService {
         
         private System.Threading.SendOrPostCallback loginOperationCompleted;
         
+        private System.Threading.SendOrPostCallback registrarFormularioOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ValidarOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback RegistrarOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback registrarUserOperationCompleted;
+        
         private System.Threading.SendOrPostCallback buscarPersonaOperationCompleted;
         
         private System.Threading.SendOrPostCallback listarRolesOperationCompleted;
@@ -49,20 +57,12 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebService {
         
         private System.Threading.SendOrPostCallback editarUsuarioOperationCompleted;
         
-        private System.Threading.SendOrPostCallback registrarFormularioOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback ValidarOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback RegistrarOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback registrarUserOperationCompleted;
-        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
         public WSGestionUsuario() {
-            this.Url = "http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com:80/WSGestionUsuar" +
-                "io";
+            this.Url = "http://amazonwebservicedesgo-env.eba-gbkikqgc.us-east-1.elasticbeanstalk.com:80/W" +
+                "SGestionUsuario";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -100,6 +100,18 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebService {
         public event loginCompletedEventHandler loginCompleted;
         
         /// <remarks/>
+        public event registrarFormularioCompletedEventHandler registrarFormularioCompleted;
+        
+        /// <remarks/>
+        public event ValidarCompletedEventHandler ValidarCompleted;
+        
+        /// <remarks/>
+        public event RegistrarCompletedEventHandler RegistrarCompleted;
+        
+        /// <remarks/>
+        public event registrarUserCompletedEventHandler registrarUserCompleted;
+        
+        /// <remarks/>
         public event buscarPersonaCompletedEventHandler buscarPersonaCompleted;
         
         /// <remarks/>
@@ -125,18 +137,6 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebService {
         
         /// <remarks/>
         public event editarUsuarioCompletedEventHandler editarUsuarioCompleted;
-        
-        /// <remarks/>
-        public event registrarFormularioCompletedEventHandler registrarFormularioCompleted;
-        
-        /// <remarks/>
-        public event ValidarCompletedEventHandler ValidarCompleted;
-        
-        /// <remarks/>
-        public event RegistrarCompletedEventHandler RegistrarCompleted;
-        
-        /// <remarks/>
-        public event registrarUserCompletedEventHandler registrarUserCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -167,6 +167,140 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebService {
             if ((this.loginCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.loginCompleted(this, new loginCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void registrarFormulario([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] formulario form, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] user user, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] out bool @return, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] [System.Xml.Serialization.XmlIgnoreAttribute()] out bool returnSpecified) {
+            object[] results = this.Invoke("registrarFormulario", new object[] {
+                        form,
+                        user});
+            @return = ((bool)(results[0]));
+            returnSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void registrarFormularioAsync(formulario form, user user) {
+            this.registrarFormularioAsync(form, user, null);
+        }
+        
+        /// <remarks/>
+        public void registrarFormularioAsync(formulario form, user user, object userState) {
+            if ((this.registrarFormularioOperationCompleted == null)) {
+                this.registrarFormularioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregistrarFormularioOperationCompleted);
+            }
+            this.InvokeAsync("registrarFormulario", new object[] {
+                        form,
+                        user}, this.registrarFormularioOperationCompleted, userState);
+        }
+        
+        private void OnregistrarFormularioOperationCompleted(object arg) {
+            if ((this.registrarFormularioCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.registrarFormularioCompleted(this, new registrarFormularioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public empleado Validar([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string dni, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string pass, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string privilegio) {
+            object[] results = this.Invoke("Validar", new object[] {
+                        dni,
+                        pass,
+                        privilegio});
+            return ((empleado)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ValidarAsync(string dni, string pass, string privilegio) {
+            this.ValidarAsync(dni, pass, privilegio, null);
+        }
+        
+        /// <remarks/>
+        public void ValidarAsync(string dni, string pass, string privilegio, object userState) {
+            if ((this.ValidarOperationCompleted == null)) {
+                this.ValidarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnValidarOperationCompleted);
+            }
+            this.InvokeAsync("Validar", new object[] {
+                        dni,
+                        pass,
+                        privilegio}, this.ValidarOperationCompleted, userState);
+        }
+        
+        private void OnValidarOperationCompleted(object arg) {
+            if ((this.ValidarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ValidarCompleted(this, new ValidarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string Registrar([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string dni, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string pass, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string apellidos, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string nombres, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string privilegio) {
+            object[] results = this.Invoke("Registrar", new object[] {
+                        dni,
+                        pass,
+                        apellidos,
+                        nombres,
+                        privilegio});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void RegistrarAsync(string dni, string pass, string apellidos, string nombres, string privilegio) {
+            this.RegistrarAsync(dni, pass, apellidos, nombres, privilegio, null);
+        }
+        
+        /// <remarks/>
+        public void RegistrarAsync(string dni, string pass, string apellidos, string nombres, string privilegio, object userState) {
+            if ((this.RegistrarOperationCompleted == null)) {
+                this.RegistrarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRegistrarOperationCompleted);
+            }
+            this.InvokeAsync("Registrar", new object[] {
+                        dni,
+                        pass,
+                        apellidos,
+                        nombres,
+                        privilegio}, this.RegistrarOperationCompleted, userState);
+        }
+        
+        private void OnRegistrarOperationCompleted(object arg) {
+            if ((this.RegistrarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.RegistrarCompleted(this, new RegistrarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void registrarUser([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] user user, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] out bool @return, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] [System.Xml.Serialization.XmlIgnoreAttribute()] out bool returnSpecified) {
+            object[] results = this.Invoke("registrarUser", new object[] {
+                        user});
+            @return = ((bool)(results[0]));
+            returnSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void registrarUserAsync(user user) {
+            this.registrarUserAsync(user, null);
+        }
+        
+        /// <remarks/>
+        public void registrarUserAsync(user user, object userState) {
+            if ((this.registrarUserOperationCompleted == null)) {
+                this.registrarUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregistrarUserOperationCompleted);
+            }
+            this.InvokeAsync("registrarUser", new object[] {
+                        user}, this.registrarUserOperationCompleted, userState);
+        }
+        
+        private void OnregistrarUserOperationCompleted(object arg) {
+            if ((this.registrarUserCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.registrarUserCompleted(this, new registrarUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -435,140 +569,6 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebService {
             if ((this.editarUsuarioCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.editarUsuarioCompleted(this, new editarUsuarioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void registrarFormulario([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] formulario form, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] user user, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] out bool @return, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] [System.Xml.Serialization.XmlIgnoreAttribute()] out bool returnSpecified) {
-            object[] results = this.Invoke("registrarFormulario", new object[] {
-                        form,
-                        user});
-            @return = ((bool)(results[0]));
-            returnSpecified = ((bool)(results[1]));
-        }
-        
-        /// <remarks/>
-        public void registrarFormularioAsync(formulario form, user user) {
-            this.registrarFormularioAsync(form, user, null);
-        }
-        
-        /// <remarks/>
-        public void registrarFormularioAsync(formulario form, user user, object userState) {
-            if ((this.registrarFormularioOperationCompleted == null)) {
-                this.registrarFormularioOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregistrarFormularioOperationCompleted);
-            }
-            this.InvokeAsync("registrarFormulario", new object[] {
-                        form,
-                        user}, this.registrarFormularioOperationCompleted, userState);
-        }
-        
-        private void OnregistrarFormularioOperationCompleted(object arg) {
-            if ((this.registrarFormularioCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.registrarFormularioCompleted(this, new registrarFormularioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public empleado Validar([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string dni, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string pass, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string privilegio) {
-            object[] results = this.Invoke("Validar", new object[] {
-                        dni,
-                        pass,
-                        privilegio});
-            return ((empleado)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void ValidarAsync(string dni, string pass, string privilegio) {
-            this.ValidarAsync(dni, pass, privilegio, null);
-        }
-        
-        /// <remarks/>
-        public void ValidarAsync(string dni, string pass, string privilegio, object userState) {
-            if ((this.ValidarOperationCompleted == null)) {
-                this.ValidarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnValidarOperationCompleted);
-            }
-            this.InvokeAsync("Validar", new object[] {
-                        dni,
-                        pass,
-                        privilegio}, this.ValidarOperationCompleted, userState);
-        }
-        
-        private void OnValidarOperationCompleted(object arg) {
-            if ((this.ValidarCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.ValidarCompleted(this, new ValidarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string Registrar([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string dni, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string pass, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string apellidos, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string nombres, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] string privilegio) {
-            object[] results = this.Invoke("Registrar", new object[] {
-                        dni,
-                        pass,
-                        apellidos,
-                        nombres,
-                        privilegio});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void RegistrarAsync(string dni, string pass, string apellidos, string nombres, string privilegio) {
-            this.RegistrarAsync(dni, pass, apellidos, nombres, privilegio, null);
-        }
-        
-        /// <remarks/>
-        public void RegistrarAsync(string dni, string pass, string apellidos, string nombres, string privilegio, object userState) {
-            if ((this.RegistrarOperationCompleted == null)) {
-                this.RegistrarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnRegistrarOperationCompleted);
-            }
-            this.InvokeAsync("Registrar", new object[] {
-                        dni,
-                        pass,
-                        apellidos,
-                        nombres,
-                        privilegio}, this.RegistrarOperationCompleted, userState);
-        }
-        
-        private void OnRegistrarOperationCompleted(object arg) {
-            if ((this.RegistrarCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.RegistrarCompleted(this, new RegistrarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://servicios.desgo.com.ec/", ResponseNamespace="http://servicios.desgo.com.ec/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void registrarUser([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] user user, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] out bool @return, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] [System.Xml.Serialization.XmlIgnoreAttribute()] out bool returnSpecified) {
-            object[] results = this.Invoke("registrarUser", new object[] {
-                        user});
-            @return = ((bool)(results[0]));
-            returnSpecified = ((bool)(results[1]));
-        }
-        
-        /// <remarks/>
-        public void registrarUserAsync(user user) {
-            this.registrarUserAsync(user, null);
-        }
-        
-        /// <remarks/>
-        public void registrarUserAsync(user user, object userState) {
-            if ((this.registrarUserOperationCompleted == null)) {
-                this.registrarUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OnregistrarUserOperationCompleted);
-            }
-            this.InvokeAsync("registrarUser", new object[] {
-                        user}, this.registrarUserOperationCompleted, userState);
-        }
-        
-        private void OnregistrarUserOperationCompleted(object arg) {
-            if ((this.registrarUserCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.registrarUserCompleted(this, new registrarUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1960,6 +1960,126 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebService {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void registrarFormularioCompletedEventHandler(object sender, registrarFormularioCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class registrarFormularioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal registrarFormularioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool @return {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool returnSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void ValidarCompletedEventHandler(object sender, ValidarCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ValidarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ValidarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public empleado Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((empleado)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void RegistrarCompletedEventHandler(object sender, RegistrarCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class RegistrarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal RegistrarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void registrarUserCompletedEventHandler(object sender, registrarUserCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class registrarUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal registrarUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool @return {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool returnSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     public delegate void buscarPersonaCompletedEventHandler(object sender, buscarPersonaCompletedEventArgs e);
     
     /// <remarks/>
@@ -2188,126 +2308,6 @@ namespace Desgo_Xamarin.iOS.AmazonDesgoWebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    public delegate void registrarFormularioCompletedEventHandler(object sender, registrarFormularioCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class registrarFormularioCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal registrarFormularioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public bool @return {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-        
-        /// <remarks/>
-        public bool returnSpecified {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[1]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    public delegate void ValidarCompletedEventHandler(object sender, ValidarCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class ValidarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal ValidarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public empleado Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((empleado)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    public delegate void RegistrarCompletedEventHandler(object sender, RegistrarCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class RegistrarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal RegistrarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    public delegate void registrarUserCompletedEventHandler(object sender, registrarUserCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class registrarUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal registrarUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public bool @return {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-        
-        /// <remarks/>
-        public bool returnSpecified {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[1]));
             }
         }
     }

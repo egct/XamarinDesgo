@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using Xamarin.Forms;
 using Desgo_Xamarin.Interfaces;
+using Desgo_Xamarin.Models.Db;
 
 [assembly: Dependency(typeof(Desgo_Xamarin.UWP.Implementations.ServiceUser))]
 namespace Desgo_Xamarin.UWP.Implementations
@@ -19,6 +20,11 @@ namespace Desgo_Xamarin.UWP.Implementations
             //usuarioaux = servicio.login(usuario, contra);
             //return "Amazon" + usuarioaux.EMPRESA_USUARIO + "-" + usuarioaux.USUARIO_USUARIO + "-" + usuarioaux.persona.CEDULA_PERSONA + "-" + usuarioaux.persona.PNOMBRE_PERSONA;
             return "windowsegct";
+        }
+
+        public usuario validarUsuarioAmazon(string usuario, string contra)
+        {
+            throw new NotImplementedException();
         }
     }
 }

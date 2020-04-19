@@ -125,16 +125,6 @@
       <xs:element name="return" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="buscarPersona">
-    <xs:sequence>
-      <xs:element name="iduser" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="buscarPersonaResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:user" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="registrarFormulario">
     <xs:sequence>
       <xs:element minOccurs="0" name="form" type="tns:formulario" />
@@ -237,6 +227,16 @@
       <xs:element minOccurs="0" name="return" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="buscarPersona">
+    <xs:sequence>
+      <xs:element name="iduser" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPersonaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:user" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="editarUsuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="usuario" type="tns:user" />
@@ -267,16 +267,6 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:persona" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="editarPersona">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="persona" type="tns:persona" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="editarPersonaResponse">
-    <xs:sequence>
-      <xs:element name="return" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="Registrar">
     <xs:sequence>
       <xs:element minOccurs="0" name="dni" type="xs:string" />
@@ -289,6 +279,16 @@
   <xs:complexType name="RegistrarResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editarPersona">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="persona" type="tns:persona" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editarPersonaResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarRoles">

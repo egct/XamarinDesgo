@@ -21,11 +21,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionFormulario?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://amazonwebservicedesgo-env.eba-gbkikqgc.us-east-1.elasticbeanstalk.com:80/WSGestionFormulario?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WSGestionFormulario.xsd" MetadataType="Schema" ID="65e87839-2b38-4524-a9a6-d24c5aeba754" SourceId="1" SourceUrl="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionFormulario?xsd=1" />
-    <MetadataFile FileName="WSGestionFormulario.wsdl" MetadataType="Wsdl" ID="7f06ab03-6c6c-4b9d-9b7d-068cfb407666" SourceId="1" SourceUrl="http://amazonwebservicedesgo-env.us-east-1.elasticbeanstalk.com/WSGestionFormulario?wsdl" />
+    <MetadataFile FileName="WSGestionFormulario1.wsdl" MetadataType="Wsdl" ID="1d24105f-035f-4fcb-ae5c-23f4601f879b" SourceId="1" SourceUrl="http://amazonwebservicedesgo-env.eba-gbkikqgc.us-east-1.elasticbeanstalk.com/WSGestionFormulario?wsdl" />
+    <MetadataFile FileName="WSGestionFormulario1.xsd" MetadataType="Schema" ID="212c8f3d-aa51-44d4-bfcd-1744c901c05d" SourceId="1" SourceUrl="http://amazonwebservicedesgo-env.eba-gbkikqgc.us-east-1.elasticbeanstalk.com/WSGestionFormulario?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

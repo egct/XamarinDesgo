@@ -63,7 +63,7 @@
                                           Binding="{Binding ESTADO_FORMULARIO}"
                                          Value="true">
                                             <Setter Property="Text" Value="Actualizado" />
-                                            <Setter Property="BackgroundColor"  Value="DarkBlue"/>
+                                            <Setter Property="BackgroundColor"  Value="DarkGreen"/>
                                         </DataTrigger>
                                     </Label.Triggers>
                                 </Label>
